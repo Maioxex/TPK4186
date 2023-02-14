@@ -25,10 +25,22 @@ class container:
         return self.load
     
     def setLoad(self, load):
-        self.load = load
+        if load>20 and self.length == 20:
+            print("Error: load can't be more than 20")
+        elif load>22 and self.length == 40:
+            print("Error: load can't be more than 22")
+        elif load<0:
+            print("Error: load can't be less than 0")
+        else: self.load = load
         
     def getTotalWeight(self):
-
-        return self.load + selv
+        return self.load + self.selvvekt
     
-    
+    def addLoad(self, load):
+        if self.load + load > 20 and self.length == 20:
+            print("Error: load can't be more than 20")
+        elif self.load + load > 22 and self.length == 40:
+            print("Error: load can't be more than 22")
+        elif load+self.load<0:
+            print("Error: load can't be less than 0")
+        else: self.load += load
