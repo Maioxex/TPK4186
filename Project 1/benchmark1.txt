@@ -1,0 +1,11 @@
+MarkovChain SeaCondition
+    CALM => MODERATE: 0.4;
+    MODERATE => CALM: 0.6;
+    MODERATE => ROUGH: 0.1;
+    ROUGH => MODERATE: 0.9;
+end
+Probability Distribution p0 of SeaCondition
+    CALM: 1.0;
+    MODERATE: 0.0;
+    ROUGH: 0.0;
+end

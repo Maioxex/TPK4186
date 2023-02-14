@@ -1,0 +1,95 @@
+MarkovChain SeaCondition
+	CALM -> MODERATE: 0.4;
+	MODERATE -> CALM: 0.6;
+	MODERATE -> ROUGH: 0.1;
+	ROUGH -> MODERATE: 0.9;
+end
+
+ProbabilityDistribution p0 of SeaCondition
+	MODERATE: 0.0;
+	ROUGH: 0.0;
+end
+
+ProbabilityDistribution p1 of SeaCondition
+end
+
+ProbabilityDistribution p3 of SeaCondition
+	CALM: 1.0;
+	MODERATE: 0.0;
+	ROUGH: 0.0;
+end
+
+ProbabilityDistribution p4 of SeaCondition
+	CALM: 1.0;
+	MODERATE: 1.0;
+	ROUGH: 1.0;
+end
+
+ProbabilityDistribution p3 of SeaCondition
+	CALM: 1.0;
+	MODERATE: 0.0;
+	ROUGH: 0.0;
+end
+
+ProbabilityDistribution p0 of SeaCondition
+	CALM: 0.5;
+	MODERATE: 0.5;
+	ROUGH: 0.0;
+end
+
+MarkovChain OceanCondition
+	CALM -> MODERATE: -0.4;
+	CALM -> INBETWEEN: 0.3;
+	INBETWEEN -> ROUGH: 0.2;
+	MODERATE -> CALM: 0.6;
+	MODERATE -> ROUGH: 0.9;
+end
+
+ProbabilityDistribution p2 of OceanCondition
+	CALM: 0.7;
+	INBETWEEN: 0.3;
+	MODERATE: 0.0;
+	ROUGH: 0.0;
+end
+
+ProbabilityDistribution p5 of OceanCondition
+	CALM: 0.7;
+	INBETWEEN: 0.3;
+	MODERATE: 0.0;
+	ROUGH: 0.0;
+end
+
+MarkovChain SeaConditionPARTTWO
+	CALM -> MODERATE: 0.4;
+	MODERATE -> CALM: 0.6;
+	MODERATE -> ROUGH: 0.9;
+end
+
+ProbabilityDistribution p77 of SeaConditionPARTTWO
+	CALM: 1.0;
+	MODERATE: 0.0;
+	ROUGH: 0.0;
+end
+
+MarkovChain TrondheimWindCondition
+	NOWIND -> LIGHTBREEZE: 0.8;
+	LIGHTBREEZE -> MODERATEBREEZE: 0.5;
+	MODERATEBREEZE -> WINDY: 0.2;
+	WINDY -> STORM: 0.4;
+	STORM -> HURRICANE: 0.2;
+	HURRICANE -> STORM: 0.5;
+	STORM -> WINDY: 0.3;
+	WINDY -> MODERATEBREEZE: 0.8;
+	MODERATEBREEZE -> LIGHTBREEZE: 0.2;
+	LIGHTBREEZE -> NOWIND: 0.1;
+end
+
+ProbabilityDistribution pWINDY of TrondheimWindCondition
+	NOWIND: 0.0;
+	LIGHTBREEZE: 0.0;
+	MODERATEBREEZE: 0.0;
+	WINDY: 1.0;
+	STORM: 0.0;
+	HURRICANE: 0.0;
+end
+

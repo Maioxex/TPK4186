@@ -1,0 +1,14 @@
+MarkovChain DouglasSeaScale
+	CALM -> MODERATE: 0.4;
+	MODERATE -> CALM: 0.6;
+	MODERATE -> ROUGH: 0.1;
+	ROUGH -> CALM: 0.0;
+end
+
+MarkovChain DouglasSeaScale
+	CALM -> MODERATE: 0.4;
+	MODERATE -> CALM: 0.6;
+	MODERATE -> ROUGH: 0.1;
+	ROUGH -> CALM: 0.0;
+end
+
