@@ -1,6 +1,4 @@
 class container:
-    self.length = 0
-    
     def __init__(length, id, load =0):
         self.length = length
         self.id = id

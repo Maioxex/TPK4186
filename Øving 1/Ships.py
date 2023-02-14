@@ -4,5 +4,5 @@ class ships:
         self.width = width
         self.height = height
         self.id = id
-        
+        self.containers = []
         
