@@ -1,4 +1,5 @@
 from containers import container
+import random as rnd
 
 class containerlist:
     def __init__(self):
@@ -38,4 +39,14 @@ class containerlist:
                 self.containerlist.remove(each)
                 return "Container removed"
         return "Container not found"
-    
+
+def createRandomContainerList():
+    list = containerlist()
+    conts = rnd.randint(1,20)
+    for i in range(conts):
+        list.addContainer(container.createRandomContainer())
+    return list
+
+listo = createRandomContainerList()
+for each in listo.getContainerList():
+    print(each.getlength(), each.getId(), each.getLoad())
