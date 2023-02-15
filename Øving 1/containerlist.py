@@ -24,4 +24,6 @@ class containerlist:
         for each in self.containerlist:
             weight += each.getTotalWeight()
         return weight    
-        
+    
+
+    
