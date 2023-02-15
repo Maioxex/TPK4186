@@ -19,9 +19,23 @@ class containerlist:
         for each in self.containerlist:
             length += each.getLength()     
         return length
+    
     def getContainerListWeight(self):
         weight = 0
         for each in self.containerlist:
             weight += each.getTotalWeight()
         return weight    
         
+    def findContainer(self, serialnumber):
+        for each in self.containerlist:
+            if each.getId() == serialnumber:
+                return each
+        return "Container not found"
+    
+    def removeContainer(self, serialnumber):
+        for each in self.containerlist:
+            if each.getId() == serialnumber:
+                self.containerlist.remove(each)
+                return "Container removed"
+        return "Container not found"
+    
