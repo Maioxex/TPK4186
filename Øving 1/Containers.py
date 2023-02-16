@@ -29,7 +29,7 @@ class container:
         self.length = length
     
     def getId(self):
-        return self.id
+        return self.serialnumber
     
     def setId(self, serialnumber):
         self.serialnumber = serialnumber
@@ -44,6 +44,9 @@ class container:
             print("Error: load can't be negative")
         else: self.load = load
         
+    def getselfvekt(self):
+        return self.selvvekt
+        
     def getTotalWeight(self):
         return self.load + self.selvvekt
     
@@ -54,16 +57,5 @@ class container:
             print("Error: load can't be less than 0")
         else: self.load += load
       
-@staticmethod  
-def createRandomContainer():
-    length = rnd.randint(1,2)
-    serialnumber = rnd.randint(100000,999999)
-    if length==1:
-        load = rnd.randint(0,20)
-    else:
-        load = rnd.randint(0,22)
-    print(length,load)
-    return container(length*20, serialnumber, load)
-rand = createRandomContainer()
-print(rand.getLength(), rand.getLoad())
+
 
