@@ -20,12 +20,19 @@ class ships:
     def setGrid(self, grid):
         self.grid = grid
     
+    def ShipLoadded(self):
+        for i in range(self.size[0]):
+            for j in range(self.size[1]):
+                for k in range(self.size[2]):
+                    if self.grid[i][j][k] != 0:
+                        return True
+        return False
+    
     def findcontainer(self, container):
         for i in range(self.size[0]):
             for j in range(self.size[1]):
                 for k in range(self.size[2]):
                     if self.grid[i][j][k] != 0:
-                        print(container.getId())
                         if self.grid[i][j][k].getId() == container.getId():
                             if container.getLength() == 40:
                                 return [i,j,k],[i,j,k+1]
@@ -118,7 +125,6 @@ class ships:
                 return True
     
     def removeContainer(self, container):
-        print(container)
         placeing = self.findcontainer(container)
         canremove = self.canRemoveContainer(container)
         if container.getLength() == 40:
@@ -260,15 +266,15 @@ class ships:
                 print("back")
                 return False
         return True
-ship = ships(1, 18, 22, 23)
-print("step")
-listo = cl.createRandomContainerList(150)
-#print(listo.getContainerListLength())
-print("step")
-print(ship.loadShipWithContainerList(listo))
+# ship = ships(1, 18, 22, 23)
 # print("step")
-ship.printShipLoadToFile()
-#print(ship.getGrid())
+# listo = cl.createRandomContainerList(150)
+# print(listo.getContainerListLength())
+# print("step")
+# print(ship.loadShipWithContainerList(listo))
+# print("step")
+# ship.printShipLoadToFile()
+# #print(ship.getGrid())
 # print("step")
 # print(ship.unloadShipToList())
 # ship.printShipLoadToFile()

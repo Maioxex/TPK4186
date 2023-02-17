@@ -1,6 +1,6 @@
 from containers import container
 import random as rnd
-
+#task 2.1.2:
 class containerlist:
     def __init__(self):
         self.containerlist = []
