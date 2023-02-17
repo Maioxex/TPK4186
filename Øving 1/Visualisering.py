@@ -1,8 +1,26 @@
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
+import Ships as sh
+import containerlist as cl
 
+ship = sh.ships(1, 18, 22, 23)
+print("step")
+listo = cl.createRandomContainerList(1000)
+print(listo.getContainerListLength())
+print("step")
+print(ship.loadShipWithContainerList(listo))
+print("step")
+weights = np.zeros((18, 22, 23))
+grid = ship.getGrid()
+print(ship.getSize())
+for i in range(ship.getSize()[0]):
+    for j in range(ship.getSize()[1]):
+        for k in range(ship.getSize()[2]):
+            if grid[i][j][k] != 0:
+                weights[i][j][k] = grid[i][j][k].getTotalWeight()
 
+#ship.printShipLoadToFile()
 # import matplotlib.pyplot as plt
 # from mpl_toolkits.mplot3d import Axes3D
 # import numpy as np
@@ -13,11 +31,11 @@ import numpy as np
 
 # Generate some random data for the voxel plot
 
-data = np.ones((23, 22, 18))
+#data = np.ones((23, 22, 18))
 #data = np.random.rand(23, 22, 18)
-data[:,:,10] = 0
+# data[:,:,10] = 0
 # Generate some random weights for the boxes
-weights = np.random.rand(23, 22, 18)
+#weights = np.random.rand(23, 22, 18)
 
 # Define the figure and axis
 fig = plt.figure()
@@ -36,7 +54,7 @@ norm = plt.Normalize(weights.min(), weights.max())
 colors = cmap(norm(weights))
 
 # Plot the voxel data with elongated and color-coded boxes
-ax.voxels(data, facecolors=colors, edgecolor='k')
+ax.voxels(weights, facecolors=colors, edgecolor='k')
 
 # Set the axis labels and title
 ax.set_xlabel('L')

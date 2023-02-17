@@ -9,7 +9,20 @@ class ships:
         self.size[1] = width
         self.size[2] = length
         self.id = id
-        self.grid = [[[0 for _ in range(length)] for _ in range(width)] for _ in range(height)]
+        self.grid = np.zeros((int(self.size[0]),int(self.size[1]),int(self.size[2])), dtype=containers.container)
+        
+    
+    def getGrid(self):
+        return self.grid
+    
+    def getSize(self):
+        return self.size
+    
+    def getid(self):
+        return self.id
+    
+    def setGrid(self, grid):
+        self.grid = grid
     
     def findcontainer(self, container):
         for i in range(self.size[0]):
@@ -30,7 +43,7 @@ class ships:
             self.grid[placeing[0][0]][placeing[0][1]][placeing[0][2]] = container
             self.grid[placeing[1][0]][placeing[1][1]][placeing[1][2]] = container
         else:
-            self.grid[placeing[0]][placeing[1]][placeing[2]] = container
+            self.grid[placeing[2]][placeing[1]][placeing[0]] = container
 
     def findAvailableContainerSpot(self, container):
         if container.getLength() == 20:
@@ -78,7 +91,7 @@ class ships:
         file = open(filename, "r")
         for line in file:
             line = line.split(",")
-            self.loadContainer(containers.container(line[3], line[4], line[5]), [line[0], line[1], line[2]])
+            self.loadContainer(containers.container(line[3], line[4], line[5]), [line[0], line[1], line[2]], True)
         file.flush()
         file.close()
     
@@ -111,7 +124,7 @@ class ships:
 
 ship = ships(1, 18, 22, 23)
 print("step")
-listo = cl.createRandomContainerList(100)
+listo = cl.createRandomContainerList(1000)
 print(listo.getContainerListLength())
 print("step")
 print(ship.loadShipWithContainerList(listo))
