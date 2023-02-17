@@ -28,14 +28,14 @@ print("weight starboarad: ", ship.calculateTotalWeightStarboard())
 print("weight portside: ", ship.calculateTotalWeightPortside())
 print("weight  front: ",ship.calculateTotalWeightFront())
 print("weight center: ",ship.calculateTotalWeightCenter())
-print("weight back:".ship.calculateTotalWeightBack())
+print("weight back:", ship.calculateTotalWeightBack())
 print("is balanced: ", ship.isShipBalanced())
 
 #task 11:
 ship = ship = sh.ships(1, 18, 22, 23)
 listo = cl.createRandomContainerList(370)
 ship.loadShipWithContainerList(listo)
-crane = docks()
+crane = docks.docks()
 print("time to load of with 1 crane: ", crane.calculateUnloadTime1Crane(ship))
 #unfortunately we didnt quite get the 4 cranes to work, but we have tried our best, check out the entire docks.py file for how we tried to do it.
 #print(crane.calculateUnloadTime4Crane(ship))
