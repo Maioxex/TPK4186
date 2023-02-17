@@ -15,6 +15,9 @@ class containerlist:
     def getContainerList(self):
         return self.containerlist
     
+    def setContainerList(self, list):
+        self.containerlist = list
+    
     def getContainerListLength(self):
         length = 0
         for each in self.containerlist:

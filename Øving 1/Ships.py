@@ -3,11 +3,8 @@ import containerlist as cl
 import numpy as np
 
 class ships:
-    def __init__(self, id, length, width, height):
-        self.size = [0,0,0]
-        self.size[0] = height
-        self.size[1] = width
-        self.size[2] = length
+    def __init__(self, id, height, width, length):
+        self.size = [height, width, length]
         self.id = id
         self.grid = np.zeros((int(self.size[0]),int(self.size[1]),int(self.size[2])), dtype=containers.container)
         
@@ -43,25 +40,52 @@ class ships:
             self.grid[placeing[0][0]][placeing[0][1]][placeing[0][2]] = container
             self.grid[placeing[1][0]][placeing[1][1]][placeing[1][2]] = container
         else:
-            self.grid[placeing[2]][placeing[1]][placeing[0]] = container
+            self.grid[placeing[0]][placeing[1]][placeing[2]] = container
 
     def findAvailableContainerSpot(self, container):
         if container.getLength() == 20:
+            available_spots = []
             for i in range(self.size[0]):
                 for j in range(self.size[1]):
                     for k in range(self.size[2]):
                         if self.grid[i][j][k] == 0:
-                            return [i,j,k]
+                            weight_capacity = self.getWeightCapacity([i,j,k])
+                            available_spots.append(([i,j,k], weight_capacity))
+            if available_spots:
+                available_spots.sort(key=lambda x: x[1], reverse=True)
+                return available_spots[0][0]
         else:
+            available_spots = []
             for i in range(self.size[0]):
                 for j in range(self.size[1]):
                     for k in range(self.size[2]-1):
                         if self.grid[i][j][k] == 0 and self.grid[i][j][k+1] == 0:
                             if i > 0:
-                                if self.grid[i-1][j][k] == 0 and self.grid[i-1][j][k+1] == 0:
-                                    return [[i,j,k],[i,j,k+1]]
+                                if self.grid[i-1][j][k] != 0 and self.grid[i-1][j][k+1] != 0:
+                                    weight_capacity = self.getWeightCapacity([[i,j,k],[i,j,k+1]])
+                                    available_spots.append(([[i,j,k],[i,j,k+1]], weight_capacity))
+                                else:
+                                    continue
+                            else:
+                                weight_capacity = self.getWeightCapacity([[i,j,k],[i,j,k+1]])
+                                available_spots.append(([[i,j,k],[i,j,k+1]], weight_capacity))
+            if available_spots:
+                available_spots.sort(key=lambda x: x[1], reverse=True)
+                return available_spots[0][0]
         return "No available spot"
-    
+    def getWeightCapacity(self, placeing):
+        if len(placeing) == 3:
+            if placeing[0] == 0:
+                return 100
+            elif self.grid[placeing[0]-1][placeing[1]][placeing[2]] == 0:
+                return -1
+            else:
+                return self.grid[placeing[0]-1][placeing[1]][placeing[2]].getTotalWeight()
+        else:
+            if placeing[0][0] == 0:
+                return 100
+            else:
+                return min(self.grid[placeing[0][0]-1][placeing[0][1]][placeing[0][2]].getTotalWeight(), self.grid[placeing[1][0]-1][placeing[1][1]][placeing[1][2]].getTotalWeight())
     def removeContainer(self, container):
         placeing = self.findcontainer(container)
         if container.getlength() == 40:
@@ -96,11 +120,16 @@ class ships:
         file.close()
     
     def loadShipWithContainerList(self, containerList):
+        containerList.setContainerList(sorted(containerList.getContainerList(), key=lambda x: x.getTotalWeight(), reverse=True))
+        for each in containerList.getContainerList():
+            print(each.getId(),each.getTotalWeight())
+
         while containerList.getContainerListLength() > 0:
-            print("giong strong", containerList.getContainerListLength())
+            print("going strong", containerList.getContainerListLength())
             addedcontainer = False
             for container in containerList.getContainerList():
                 plass = self.findAvailableContainerSpot(container)
+                #print(plass)
                 if plass == "No available spot":
                     print("added none")
                     continue
@@ -124,7 +153,7 @@ class ships:
 
 ship = ships(1, 18, 22, 23)
 print("step")
-listo = cl.createRandomContainerList(1000)
+listo = cl.createRandomContainerList(10)
 print(listo.getContainerListLength())
 print("step")
 print(ship.loadShipWithContainerList(listo))

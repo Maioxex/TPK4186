@@ -6,7 +6,7 @@ import containerlist as cl
 
 ship = sh.ships(1, 18, 22, 23)
 print("step")
-listo = cl.createRandomContainerList(1000)
+listo = cl.createRandomContainerList(10)
 print(listo.getContainerListLength())
 print("step")
 print(ship.loadShipWithContainerList(listo))
@@ -19,7 +19,7 @@ for i in range(ship.getSize()[0]):
         for k in range(ship.getSize()[2]):
             if grid[i][j][k] != 0:
                 weights[i][j][k] = grid[i][j][k].getTotalWeight()
-
+weights = np.transpose(weights)
 #ship.printShipLoadToFile()
 # import matplotlib.pyplot as plt
 # from mpl_toolkits.mplot3d import Axes3D

@@ -1,5 +1,6 @@
 
 import random as rnd
+import numpy as np
 #Task 1:
 
 class container:
