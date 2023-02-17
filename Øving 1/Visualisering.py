@@ -6,7 +6,7 @@ import containerlist as cl
 
 ship = sh.ships(1, 18, 22, 23)
 # print("step")
-listo = cl.createRandomContainerList(6300)
+listo = cl.createRandomContainerList(700)
 # print(listo.getContainerListLength())
 # print("step")
 ship.loadShipWithContainerList(listo)

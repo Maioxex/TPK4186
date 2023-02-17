@@ -48,9 +48,4 @@ class docks:
             
        
             
-# ship = ship = sh.ships(1, 18, 22, 23)
-# listo = cl.createRandomContainerList(370)
-# ship.loadShipWithContainerList(listo)
-# crane = docks()
-# print(crane.calculateUnloadTime1Crane(ship))
-# print(crane.calculateUnloadTime4Crane(ship))
+

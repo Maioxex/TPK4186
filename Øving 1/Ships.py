@@ -1,12 +1,13 @@
-import containers
+import containers as c
 import containerlist as cl
 import numpy as np
 
+#task 2.2.5
 class ships:
     def __init__(self, id, height, width, length):
         self.size = [height, width, length]
         self.id = id
-        self.grid = np.zeros((int(self.size[0]),int(self.size[1]),int(self.size[2])), dtype=containers.container)
+        self.grid = np.zeros((int(self.size[0]),int(self.size[1]),int(self.size[2])), dtype=c.container)
     
     def getGrid(self):
         return self.grid
@@ -68,6 +69,9 @@ class ships:
         section = self.findLighetsSection()
         #print(section)
         side = self.findLighetsSide()
+        #task 10 by looking and weights we changed from the next two lines to the automatic sorting based on weight at each section
+        # g=[0,22]
+        # h=[0,23]
         if side == 11:
             g = [0,11]
         else:
@@ -97,6 +101,7 @@ class ships:
                             else:
                                 return [[i,j,k],[i,j,k+1]]
         return "No available spot"
+    
     def getWeightCapacity(self, placeing):
         if len(placeing) == 3:
             if placeing[0] == 0:
@@ -110,6 +115,7 @@ class ships:
                 return 100
             else:
                 return min(self.grid[placeing[0][0]-1][placeing[0][1]][placeing[0][2]].getTotalWeight(), self.grid[placeing[1][0]-1][placeing[1][1]][placeing[1][2]].getTotalWeight())
+   
     def canRemoveContainer(self, container):
         placeing = self.findcontainer(container)
         if container.getLength() == 40:
@@ -135,7 +141,8 @@ class ships:
         else:
             if canremove:
                 self.grid[placeing[0]][placeing[1]][placeing[2]] = 0
-                
+      
+      #Task 2.2.6          
     def printShipLoadToFile(self, filename = "ShipList.csv"):
         file = open(filename, "w+")
         for i in range(self.size[0]):
@@ -150,11 +157,20 @@ class ships:
         file = open(filename, "r")
         for line in file:
             line = line.split(",")
-            self.loadContainer(containers.container(line[3], line[4], line[5]), [line[0], line[1], line[2]], True)
+            # print(line)
+            # print(int(line[4]))
+            # print(int(line[3]))
+            # print(int(line[7][:-1]))
+            length = int(line[4])
+            id = int(line[3])
+            load = int(line[6])
+            container = c.container(length,id,load)
+            self.loadContainer(container, [line[0], line[1], line[2]], True)
         file.flush()
         file.close()
     
     def loadShipWithContainerList(self, containerList):
+        #this line fixed weighted on top at the beginning
         containerList.setContainerList(sorted(containerList.getContainerList(), key=lambda x: x.getTotalWeight(), reverse=True))
         while containerList.getContainerListLength() > 0:
             ikkeplassertliste = cl.containerlist()
@@ -266,23 +282,3 @@ class ships:
                 print("back")
                 return False
         return True
-# ship = ships(1, 18, 22, 23)
-# print("step")
-# listo = cl.createRandomContainerList(150)
-# print(listo.getContainerListLength())
-# print("step")
-# print(ship.loadShipWithContainerList(listo))
-# print("step")
-# ship.printShipLoadToFile()
-# #print(ship.getGrid())
-# print("step")
-# print(ship.unloadShipToList())
-# ship.printShipLoadToFile()
-# print(ship.calculateShipTotalWeight())
-# print(ship.calculateTotalWeightStarboard())
-# print(ship.calculateTotalWeightPortside())
-# print(ship.calculateTotalWeightFront())
-# print(ship.calculateTotalWeightCenter())
-# print(ship.calculateTotalWeightBack())
-# #print(round(ship.getSize()[2]/3),round(ship.getSize()[2]/3*2), round(ship.getSize()[2]))
-# print(ship.isShipBalanced())

@@ -13,19 +13,29 @@ for each in listo.getContainerList():
 # example task 5:
 ship = sh.ships(1, 18, 22, 23)
 
-#example task 6 and 7
-listo = cl.createRandomContainerList(150)
+#example task 6, 7 and 8:
+listo = cl.createRandomContainerList(100)
 print(listo.getContainerListLength())
-print(ship.loadShipWithContainerList(listo))
+ship.loadShipWithContainerList(listo)
 ship.printShipLoadToFile()
 print(ship.unloadShipToList())
-ship.printShipLoadToFile()
 
-print(ship.calculateShipTotalWeight())
-print(ship.calculateTotalWeightStarboard())
-print(ship.calculateTotalWeightPortside())
-print(ship.calculateTotalWeightFront())
-print(ship.calculateTotalWeightCenter())
-print(ship.calculateTotalWeightBack())
-print(ship.isShipBalanced())
+#task 9 and 10:
+listo = cl.createRandomContainerList(1000)
+ship.loadShipWithContainerList(listo)
+print("ship total weight: ", ship.calculateShipTotalWeight())
+print("weight starboarad: ", ship.calculateTotalWeightStarboard())
+print("weight portside: ", ship.calculateTotalWeightPortside())
+print("weight  front: ",ship.calculateTotalWeightFront())
+print("weight center: ",ship.calculateTotalWeightCenter())
+print("weight back:".ship.calculateTotalWeightBack())
+print("is balanced: ", ship.isShipBalanced())
 
+#task 11:
+ship = ship = sh.ships(1, 18, 22, 23)
+listo = cl.createRandomContainerList(370)
+ship.loadShipWithContainerList(listo)
+crane = docks()
+print("time to load of with 1 crane: ", crane.calculateUnloadTime1Crane(ship))
+#unfortunately we didnt quite get the 4 cranes to work, but we have tried our best, check out the entire docks.py file for how we tried to do it.
+#print(crane.calculateUnloadTime4Crane(ship))
