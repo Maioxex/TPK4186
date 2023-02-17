@@ -52,11 +52,12 @@ def createRandomContainer(liste = False, serialnumberimp = 0):
         load = rnd.randint(0,22)
     return container(length*20, serialnumber, load)
 
-def createRandomContainerList():
+def createRandomContainerList(len = -1):
     list = containerlist()
-    conts = rnd.randint(5,20)
-    ids = createuniqlist(conts)
-    for i in range(conts):
+    if len == -1:
+        len = rnd.randint(5,20)
+    ids = createuniqlist(len)
+    for i in range(len):
         list.addContainer(createRandomContainer(True, ids[i]))
     return list
 
@@ -92,6 +93,7 @@ def loadContainerListFromCSV():
     for each in file:
         each = each.split(",")
         listo.addContainer(container(int(each[1]), int(each[0]), int(each[3])))
+    file.flush()
     file.close()
     return listo
 
