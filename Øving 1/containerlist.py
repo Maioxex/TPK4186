@@ -96,6 +96,7 @@ def loadContainerListFromCSV():
     return listo
 
 listo = createRandomContainerList()
+printContainerListToCSV(listo.getContainerList())
 listo = loadContainerListFromCSV()
 for each in listo.getContainerList():
     print(each.getId(), each.getLength(), each.getselfvekt(), each.getLoad(), each.getTotalWeight())
