@@ -18,6 +18,9 @@ class containerlist:
     def setContainerList(self, list):
         self.containerlist = list
     
+    def getContainerListNrUniqs(self):
+        return len(set(self.containerlist))
+    
     def getContainerListLength(self):
         length = 0
         for each in self.containerlist:
@@ -100,8 +103,8 @@ def loadContainerListFromCSV():
     file.close()
     return listo
 
-listo = createRandomContainerList(100)
-printContainerListToCSV(listo.getContainerList())
-listo = loadContainerListFromCSV()
+# listo = createRandomContainerList(100)
+# printContainerListToCSV(listo.getContainerList())
+# listo = loadContainerListFromCSV()
 # for each in listo.getContainerList():
 #     print(each.getId(), each.getLength(), each.getselfvekt(), each.getLoad(), each.getTotalWeight())
