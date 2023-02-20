@@ -1,3 +1,5 @@
+#TPK4186-2023-Assignment1-Group32, Martin Kristiansen Tømt, Nikolay Westengen
+
 import docks
 import Ships as sh
 import containerlist as cl
