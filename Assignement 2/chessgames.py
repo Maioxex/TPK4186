@@ -35,3 +35,4 @@ class chessgames:
             game.setResult(each[2])
             game.setPlyCount(each[3])
             self.addGame(game)
+    
