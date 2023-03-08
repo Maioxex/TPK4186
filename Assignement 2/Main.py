@@ -121,7 +121,20 @@ def getlengthofgames(gameslist):
         i += 1
         midlertidigliste = []
     return sortedliste
-                
+
+def count_games_by_moves(game_lengths):
+    # Determine the maximum number of moves in any game
+    max_moves = np.max(game_lengths)
+
+    # Initialize a list to store the count of games that end with each number of moves
+    games_by_moves = [0] * max_moves
+
+    # Count the number of games that end with each number of moves
+    for move_count in range(1, max_moves + 1):
+        games_ending_with_move = np.sum(game_lengths == move_count)
+        games_by_moves[move_count - 1] = games_ending_with_move
+
+    return games_by_moves               
     
 #testing of task 6 and 7
 listresults = ImportChessDataBase()
