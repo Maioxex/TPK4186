@@ -48,6 +48,4 @@ def ReadChessDataBase(inputFile):
             elif re.match("\[", line):
                 step = 2
 
-      
-
 ImportChessDataBase("DataBases/Stockfish_15_64-bit.commented.[2600].pgn")
