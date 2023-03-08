@@ -1,16 +1,37 @@
-# Chess Games
+class chessgame:
+    def __init__(self, moveset = [], player1 = None, player2 = None, result = None):
+        self.moveset = moveset
+        self.white = player1
+        self.black = player2
+        self.result = result
+    
+    
+    def addMove(self, move):
+        self.moveset.append(move)
+        
+    def addMoves(self, moves):
+        self.moveset.extend(moves)
+    
+    def getMoves(self):
+        return self.moveset
+    
+    def setMoves(self, moves):
+        self.moveset = moves
+    
+    def getWhite(self):
+        return self.white
+    
+    def setWhite(self, player):
+        self.white = player
+    
+    def getBlack(self):
+        return self.black
 
-def Game_New(event, opening):
-    return [event, opening]
+    def setBlack(self, player):
+        self.black = player
+    
+    def getResult(self):
+        return self.result
 
-def Game_GetEvent(game):
-    return game[0]
-
-def Game_SetEvent(game, event):
-    game[0] = event
-
-def Game_GetOpening(game):
-    return game[1]
-
-def Game_SetOpening(game, opening):
-    game[1] = opening
+    def setResult(self, result):
+        self.result = result
