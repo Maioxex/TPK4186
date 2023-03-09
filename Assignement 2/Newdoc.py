@@ -42,6 +42,24 @@ class report():
         self.document.tables[0].cell(2, 0).text = "White"
         self.document.tables[0].cell(3, 0).text = "Black"
 
+    def createtabletma4240doc(self, avarage,std,whiteavg,blackavg,whitestd,blackstd):
+        self.document.add_table(rows=4, cols=3)
+        self.document.tables[1].cell(0, 1).text = "Average"
+        self.document.tables[1].cell(0, 2).text = "Standard Deviation"
+        self.document.tables[1].cell(1, 1).text = str(avarage)
+        self.document.tables[1].cell(1, 2).text = str(std)
+        self.document.tables[1].cell(1, 0).text = "Total"
+        self.document.tables[1].cell(2, 0).text = "White"
+        self.document.tables[1].cell(3, 0).text = "Black"
+        self.document.tables[1].cell(2, 1).text = str(whiteavg)
+        self.document.tables[1].cell(2, 2).text = str(whitestd)
+        self.document.tables[1].cell(3, 1).text = str(blackavg)
+        self.document.tables[1].cell(3, 2).text = str(blackstd)
+
+
+
+
+
 # # Generate some random data and plot it
 # x = [1, 2, 3, 4, 5]
 # y = [10, 8, 6, 4, 2]
