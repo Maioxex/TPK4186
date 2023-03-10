@@ -8,26 +8,31 @@ from docx.shared import Inches
 import Newdoc as nd
 from PIL import Image
 import numpy as np
+import chess.pgn
 
 #task 2: design functions to import a game from a text file
 def ImportChessDataBase(filePath = "Assignement 2/Stockfish_15_64-bit.commented.[2600].pgn"):
     inputFile = open(filePath, "r")
-    gameslist = ReadChessDataBase(inputFile)
+    gameslist = ReadChessDataBase(inputFile, filePath)
     inputFile.flush()
     inputFile.close()
     return gameslist
-    
+        
 def ReadLine(inputFile):
     line = inputFile.readline()
     if line=="":
         return None
     return line.rstrip()
     
-def ReadChessDataBase(inputFile):
+def ReadChessDataBase(inputFile, filpath):
     listOfGames = []
     currentGame = cg.chessgame()
     step = 1
     line = ReadLine(inputFile)
+    pgn = open(filpath)
+    game = chess.pgn.read_game(pgn)
+    board = game.board()
+    moves = []
     while True:
         if step==1: # Read a game
             if line==None:
@@ -57,6 +62,14 @@ def ReadChessDataBase(inputFile):
                     elif key == "PlyCount":
                         currentGame.setPlyCount(value)
                         listOfGames.append(currentGame)
+                        
+                        for move in game.mainline_moves():
+                            moves.append(board.san(move))
+                            board.push(move)
+                        currentGame.setMoves(moves)
+                        moves = []
+                        game = chess.pgn.read_game(pgn)
+                        board = game.board()
                         currentGame = cg.chessgame()
 
                 line = ReadLine(inputFile)
@@ -70,6 +83,7 @@ def ReadChessDataBase(inputFile):
                 break
             elif re.match("\[", line):
                 step = 2
+    pgn.close()
     return listOfGames
 
 def findstatsforstockfish(gameslist):
@@ -238,9 +252,8 @@ gamesending = howmanystillgoing(listresults)
 plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
 doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
-
 doc.save("my_report.docx")
 
-
+print(listresults[0].getMoves())
 #create plot of games still going with values on the y axis, and index on the x axis
 
