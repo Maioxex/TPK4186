@@ -1,12 +1,13 @@
 from move import move
 
 class chessgame:
-    def __init__(self, moveset = [], player1 = None, player2 = None, result = None, plyCount = None):
+    def __init__(self, moveset = [], player1 = None, player2 = None, result = None, plyCount = None, winner = None):
         self.moveset = moveset
         self.white = player1
         self.black = player2
         self.result = result
         self.plyCount = plyCount
+        self.winner = winner
     
     def toString(self):
         if self.white == None:
@@ -21,11 +22,13 @@ class chessgame:
             result = "None"
         else:
             result = self.result
+        if self.winner == None:
+            winner = "None"
         if self.plyCount == None:
             plyCount = "None"
         else:
             plyCount = str(self.plyCount)    
-        return white + " " + black + " " + result + " " + plyCount
+        return white + " " + black + " " + result + " " + plyCount + " " + winner
 
     
     def addMove(self, move):
@@ -63,6 +66,12 @@ class chessgame:
     
     def setPlyCount(self, plyCount):
         self.plyCount = plyCount
+    
+    def getWinner(self):
+        return self.winner
+    
+    def setWinner(self, winner):
+        self.winner = winner
     
     def printgametofile(self, file = "chessgame.txt", state = "w"):
         file = open(file, state)
