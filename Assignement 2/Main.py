@@ -110,7 +110,7 @@ def getlengthofgames(gameslist, string = "none", wins = "none"):
                 if each.getWinner() == "Stockfish 15 64-bit":
                     lengthofgames.append(int(each.getPlyCount()))
             elif wins == "losses":
-                if each.getWinner() != "Stockfish 15 64-bit":
+                if each.getWinner() != "Stockfish 15 64-bit" and each.getWinner() != "Draw":
                     lengthofgames.append(int(each.getPlyCount()))
             elif wins == "none":
                 lengthofgames.append(int(each.getPlyCount()))
@@ -118,7 +118,7 @@ def getlengthofgames(gameslist, string = "none", wins = "none"):
             if each.getWhite() == "Stockfish 15 64-bit":
                 lengthofgames.append(int(each.getPlyCount()))
         elif string == "black":
-            if each.getWhite() != "Stockfish 15 64-bit":
+            if each.getWhite() != "Stockfish 15 64-bit" :
                 lengthofgames.append(int(each.getPlyCount()))
     endingstates = {}
     for each in lengthofgames:
@@ -174,15 +174,17 @@ def plotting(gameslist, name,  string = "none", wins = "none"):
         elif wins == "losses":
             colors = "red"    
         else: colors = "gray"
-    
+    if string == "none" and wins == "none":
+        plt.figure(figsize=(10, 6))
     plt.plot(howmanystillgoing(gameslist, string, wins), color = colors)
     plt.xlabel("Number of moves")
     plt.ylabel("Percentage of games still going")
     plt.title("Number of games that are still going after each number of moves")
+    plt.legend(["All","White", "Black",  "Wins", "Losses"])
     plt.savefig(name)
 
 def calculateaveragelengthofgame(gameslist, string = "none", wins = "none"):
-    endingeach = getlengthofgames(gameslist, string)
+    endingeach = getlengthofgames(gameslist, string, wins)
     weightedsum = 0
     whitegames, blackgames = findstatsforstockfish(gameslist)
     lens = len(gameslist)
@@ -199,8 +201,8 @@ def calculateaveragelengthofgame(gameslist, string = "none", wins = "none"):
     return weightedsum/lens
 
 def calculatestandarddeviationoflenghthofgame(gameslist, string = "none", wins = "none"):
-    endingeach = getlengthofgames(gameslist, string)
-    whitegames, blackgames = findstatsforstockfish(gameslist, string, wins)
+    endingeach = getlengthofgames(gameslist, string, wins)
+    whitegames, blackgames = findstatsforstockfish(gameslist)
     lens = len(gameslist)
     if string == "white":
         lens = sum(whitegames)
@@ -214,37 +216,31 @@ def calculatestandarddeviationoflenghthofgame(gameslist, string = "none", wins =
     for i in range(len(endingeach)):
         weightedsum += ((i+1)-average)**2*endingeach[i]
     return np.sqrt(weightedsum/lens)        
-                
+
+def plotssss(name, listresults):
+    plotting(listresults,name)
+    plotting(listresults,name, "white")# 
+    plotting(listresults,name, "black")
+    plotting(listresults,name, "none", "wins")
+    plotting(listresults,name, "none", "losses")   
+    
+         
 #testing of task 6 and 7
 listresults = ImportChessDataBase()
-print(findstatsforstockfish(listresults))
-print("Total number of games: ", findtotalstatsstockfish(listresults))
-doc = nd.report()
+plotssss("gamesstillgoing.png", listresults)
+doc=nd.report()
 doc.addTitle("My Report")
 doc.addParagraph("Stockfish 15 64-bit")
 doc.addParagraph("Total number of games: " + str(findtotalstatsstockfish(listresults)))
 doc.addParagraph("Wins, Losses, Draws")
 doc.createtablestatdoc(findstatsforstockfish(listresults)[0], findstatsforstockfish(listresults)[1], findtotalstatsstockfish(listresults))
 gamesending = howmanystillgoing(listresults)
-plotting(listresults, "gamesstillgoing.png")
+plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
-# print("Average length of game: ", calculateaveragelengthofgame(listresults))
-# print("Standard deviation of length of game: ", calculatestandarddeviationoflenghthofgame(listresults))
-plotting(listresults,"gamesstillgoing1.png", "white")
-doc.addPlot("gamesstillgoing1.png")
-# print("Average length of game: ", calculateaveragelengthofgame(listresults, "white"))
-# print("Standard deviation of length of game: ", calculatestandarddeviationoflenghthofgame(listresults, "white"))
-plotting(listresults,"gamesstillgoing2.png", "black")
-doc.addPlot("gamesstillgoing2.png")
-# print("Average length of game: ", calculateaveragelengthofgame(listresults, "black"))
-# print("Standard deviation of length of game: ", calculatestandarddeviationoflenghthofgame(listresults, "black"))
-plotting(listresults,"gamesstillgoing3.png", "none", "wins")
-doc.addPlot("gamesstillgoing3.png")
-
-plotting(listresults,"gamesstillgoing4.png", "none", "losses")
-doc.addPlot("gamesstillgoing4.png")
+doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
 
 doc.save("my_report.docx")
+
 
 #create plot of games still going with values on the y axis, and index on the x axis
 

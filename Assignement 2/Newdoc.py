@@ -42,8 +42,8 @@ class report():
         self.document.tables[0].cell(2, 0).text = "White"
         self.document.tables[0].cell(3, 0).text = "Black"
 
-    def createtabletma4240doc(self, avarage,std,whiteavg,blackavg,whitestd,blackstd):
-        self.document.add_table(rows=4, cols=3)
+    def createtabletma4240doc(self, avarage,std,whiteavg,blackavg,whitestd,blackstd, winstd, winavg, losstd, losavg):
+        self.document.add_table(rows=6, cols=3)
         self.document.tables[1].cell(0, 1).text = "Average"
         self.document.tables[1].cell(0, 2).text = "Standard Deviation"
         self.document.tables[1].cell(1, 1).text = str(avarage)
@@ -55,6 +55,12 @@ class report():
         self.document.tables[1].cell(2, 2).text = str(whitestd)
         self.document.tables[1].cell(3, 1).text = str(blackavg)
         self.document.tables[1].cell(3, 2).text = str(blackstd)
+        self.document.tables[1].cell(4, 0).text = "Wins"
+        self.document.tables[1].cell(5, 0).text = "Losses"
+        self.document.tables[1].cell(4, 1).text = str(winavg)
+        self.document.tables[1].cell(4, 2).text = str(winstd)
+        self.document.tables[1].cell(5, 1).text = str(losavg)
+        self.document.tables[1].cell(5, 2).text = str(losstd)
 
 
 
