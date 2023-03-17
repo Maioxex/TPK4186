@@ -1,33 +1,57 @@
 class tree:
     
-    def __init__(self, move, depth = 1, metadata = None, isendnode = False, count = 1):
+    def __init__(self, move, depth = 1, metadata = None, isendnode = True, count = 1):
         self.move = move
         self.children = []
         self.depth = depth
         self.metadata = metadata
         self.isendnode = isendnode
         self.count = count
+        self.isroot = False
         
     def addChild(self, child):
         self.children.append(child)
+        if self.getChildren() != []:
+            self.setIsEndNode(False)
+        
+    def setRoot(self, isroot):
+        self.isroot = isroot
+    
+    def getRoot(self):
+        return self.isroot
     
     def addChildren(self, children):
         self.children.extend(children)
+        if self.getChildren() != []:
+            self.setIsEndNode(False)
+    
+    def getChild(self, move):
+        for child in self.getChildren():
+            if child.getMove() == move:
+                return child
+        return None
     
     def getChildren(self):
         return self.children
     
     def setChildren(self, children):
         self.children = children
+        if self.getChildren() != []:
+            self.setIsEndNode(False)
     
     def getDepth(self):
-        return self.turn
+        return self.depth
     
     def setDepth(self, depth):
-        self.turn = depth
+        self.depth = depth
     
     def getMetadata(self):
+        if self.metadata == None:
+            self.createBaseMetadata()
         return self.metadata
+
+    def createBaseMetadata(self):
+        self.metadata = f"depth:{self.getDepth()}, {self.getMove()}, counted:{self.getCount()}"
     
     def setMetadata(self, metadata):
         self.metadata = metadata
@@ -50,15 +74,29 @@ class tree:
     def setMove(self, move):
         self.move = move
     
-    def createChildren(self, move, endnode = False):
+    def createChildren(self, move):
         for child in self.getChildren():
             if child.getMove() == move:
                 child.setCount(child.getCount() + 1)
                 return
-        self.addChild(tree(move, self.getDepth() + 1, self.metadata, endnode))
+        self.addChild(tree(move, self.getDepth() + 1, self.metadata))
     
-    
-    # def printTree(self):
-    #     print(self.getMetadata())
-    #     for child in self.getChildren():
-    #         child.printTree()
+    def printTreetodepth(self, depth = 0):
+        if self.getRoot():
+            print(self.getMetadata())
+            for child in self.getChildren():
+                child.printTreetodepth(depth)
+        elif self.getDepth() <= depth:
+            print(self.getMetadata())
+            for child in self.getChildren():
+                child.printTreetodepth(depth)
+
+    def printTreetocount(self, limit = 0):
+        if self.getRoot():
+            print(self.getMetadata())
+            for child in self.getChildren():
+                child.printTreetocount(limit)
+        elif self.getCount() >= limit:
+            print(self.getMetadata())
+            for child in self.getChildren():
+                child.printTreetocount(limit)

@@ -1,4 +1,4 @@
-import chessgame as cg
+import ChessGame as cg
 import move as mv
 import sys
 import re
@@ -9,6 +9,7 @@ import Newdoc as nd
 from PIL import Image
 import numpy as np
 import chess.pgn
+import tree as tr
 
 #task 2: design functions to import a game from a text file
 def ImportChessDataBase(filePath = "Assignement 2/Stockfish_15_64-bit.commented.[2600].pgn"):
@@ -25,6 +26,7 @@ def ReadLine(inputFile):
     return line.rstrip()
     
 def ReadChessDataBase(inputFile, filpath):
+    antallgames = 100000
     listOfGames = []
     currentGame = cg.chessgame()
     step = 1
@@ -33,7 +35,9 @@ def ReadChessDataBase(inputFile, filpath):
     game = chess.pgn.read_game(pgn)
     board = game.board()
     moves = []
+    i = 0
     while True:
+        i +=1
         if step==1: # Read a game
             if line==None:
                 break
@@ -80,6 +84,7 @@ def ReadChessDataBase(inputFile, filpath):
         elif step==3: # read moves
             line = ReadLine(inputFile)
             if line==None:
+            # if line==None or antallgames*3 <= i:
                 break
             elif re.match("\[", line):
                 step = 2
@@ -238,7 +243,17 @@ def plotssss(name, listresults):
     plotting(listresults,name, "none", "wins")
     plotting(listresults,name, "none", "losses")   
     
-         
+def createtree(results):
+    root = tr.tree("start")
+    root.setRoot(True)
+    for each in results:
+        for i in range(len(each.getMoves())):
+            if i ==0:
+                currentTree = root
+            currentTree.createChildren(each.getMoves()[i])
+            currentTree = currentTree.getChild(each.getMoves()[i])
+    return root
+
 #testing of task 6 and 7
 listresults = ImportChessDataBase()
 plotssss("gamesstillgoing.png", listresults)
@@ -253,7 +268,18 @@ plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
 doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
 doc.save("my_report.docx")
+tree = createtree(listresults)
+# tree.printTreetocount(20)
+tree.printTreetodepth(10)
 
-# print(listresults[0].getMoves())
-#create plot of games still going with values on the y axis, and index on the x axis
+# while True:
+#     root = tree
+#     print(tree.getChildren())
+#     for each in tree.getChildren():
+#         print(each.getMove(), each.getCount(), each.getIsEndNode())
+#     if root.getIsEndNode() != True:
+#         tree = tree.getChildren()[0]
+#     else:
+#         break
+
 
