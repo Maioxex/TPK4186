@@ -184,3 +184,24 @@ class tree:
                 child.printTreetocount(limit, document)
         if document != None and self.getRoot():
             document.getdocument().add_page_break()
+    
+
+    def print_tree(node, depth=1, current_depth=1):
+    # print current move
+        if current_depth == 1:
+            print(node.getMove())
+        else:
+            print(("|" + (" " * 3)) * (current_depth - 1) + "|---" + node.getMove())
+
+        # print stats if at max depth or end node
+        if current_depth == depth or node.getIsEndNode():
+            stats = node.getStats()
+            print(("|" + (" " * 3)) * current_depth + "(" + f"Whitewins: {stats[0]}, Blackwins: {stats[1]}, draws: {stats[2]}" + ")")
+
+        # recursively print children
+        if current_depth < depth:
+            for child in node.getChildren():
+                if current_depth % 2 == 1:  # black moves in bold
+                    print_tree(child, depth, current_depth + 1, bold=True)
+                else:
+                    print_tree(child, depth, current_depth + 1)
