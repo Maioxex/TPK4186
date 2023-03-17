@@ -1,3 +1,4 @@
+#task 9
 class tree:
     
     def __init__(self, move, parent = None, depth = 0, stats = [0,0,0], metadata = None,isendnode = True, count = 1):
@@ -148,7 +149,7 @@ class tree:
                 stats[2] += cstats[2]
             return stats
         
-    
+    #task 11
     def printTreetodepth(self, depth = 0, document = None):
         if self.getRoot():
             #print("root node")
@@ -167,9 +168,10 @@ class tree:
         if document != None and self.getRoot():
             document.getdocument().add_page_break()
 
+    #task 12
     def printTreetocount(self, limit = 0, document = None):
         if self.getRoot():
-            print("root node")
+            #print("root node")
             table = document.getdocument().add_table(rows=1, cols=1)
             table.cell(0,0).text = f"Moves up to count {limit}"
             for child in self.getChildren():
@@ -186,22 +188,22 @@ class tree:
             document.getdocument().add_page_break()
     
 
-    def print_tree(node, depth=1, current_depth=1):
-    # print current move
-        if current_depth == 1:
-            print(node.getMove())
-        else:
-            print(("|" + (" " * 3)) * (current_depth - 1) + "|---" + node.getMove())
+    # def print_tree(node, depth=1, current_depth=1):
+    # # print current move
+    #     if current_depth == 1:
+    #         print(node.getMove())
+    #     else:
+    #         print(("|" + (" " * 3)) * (current_depth - 1) + "|---" + node.getMove())
 
-        # print stats if at max depth or end node
-        if current_depth == depth or node.getIsEndNode():
-            stats = node.getStats()
-            print(("|" + (" " * 3)) * current_depth + "(" + f"Whitewins: {stats[0]}, Blackwins: {stats[1]}, draws: {stats[2]}" + ")")
+    #     # print stats if at max depth or end node
+    #     if current_depth == depth or node.getIsEndNode():
+    #         stats = node.getStats()
+    #         print(("|" + (" " * 3)) * current_depth + "(" + f"Whitewins: {stats[0]}, Blackwins: {stats[1]}, draws: {stats[2]}" + ")")
 
-        # recursively print children
-        if current_depth < depth:
-            for child in node.getChildren():
-                if current_depth % 2 == 1:  # black moves in bold
-                    print_tree(child, depth, current_depth + 1, bold=True)
-                else:
-                    print_tree(child, depth, current_depth + 1)
+    #     # recursively print children
+    #     if current_depth < depth:
+    #         for child in node.getChildren():
+    #             if current_depth % 2 == 1:  # black moves in bold
+    #                 print_tree(child, depth, current_depth + 1, bold=True)
+    #             else:
+    #                 print_tree(child, depth, current_depth + 1)

@@ -26,7 +26,7 @@ def ReadLine(inputFile):
     return line.rstrip()
     
 def ReadChessDataBase(inputFile, filpath):
-    antallgames = 1000
+    antallgames = 100
     listOfGames = []
     currentGame = cg.chessgame()
     step = 1
@@ -51,6 +51,7 @@ def ReadChessDataBase(inputFile, filpath):
                 match = re.search(r'"([^"]+)"', line)
                 if match:
                     value = match.group(1)
+                    print(key, value)
                     if key == "White":
                         currentGame.setWhite(value)
                     elif key == "Black":
@@ -83,8 +84,8 @@ def ReadChessDataBase(inputFile, filpath):
                     step = 3
         elif step==3: # read moves
             line = ReadLine(inputFile)
-            if line==None:
-            #if line==None or antallgames*3 <= i:
+            #if line==None:
+            if line==None or antallgames*3 <= i:
                 break
             elif re.match("\[", line):
                 step = 2
@@ -267,9 +268,20 @@ def createtree(results):
             #     baby.adddraw()
             currentTree = currentTree.getChild(each.getMoves()[i])
     return root
+#testing task 4:
+listresults = ImportChessDataBase()
+#testing task 3:
+listresults[0].printgametofile("game1.txt")
+cg1 = cg.chessgame()
+cg1.extractgamefromfile("game1.txt")
+print(cg1.toString(), listresults[0].toString())
+#testing task 5:
+listresults[1].printgametofile("game2.txt")
+cg2 = cg.chessgame()
+cg2.extractgamefromfile("game2.txt")
+print(cg2.toString(), listresults[1].toString())
 
 #testing of task 6 and 7
-listresults = ImportChessDataBase()
 plotssss("gamesstillgoing.png", listresults)
 doc=nd.report()
 doc.addTitle("My Report")

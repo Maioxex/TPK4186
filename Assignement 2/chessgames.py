@@ -1,5 +1,5 @@
 import chessgame as cg
-
+#task 1
 class chessgames:
     def __init__(self, games = []):
         self.games = games
@@ -20,6 +20,7 @@ class chessgames:
         for game in self.games:
             print(game.getWhite(), game.getBlack(), game.getResult(), game.getPlyCount())
 
+    #task 3
     def printgamesfile(self, file = "chessgames.txt", state = "w"):
         file = open(file, state)
         for game in self.games:

@@ -24,6 +24,8 @@ class chessgame:
             result = self.result
         if self.winner == None:
             winner = "None"
+        else:
+            winner = self.winner
         if self.plyCount == None:
             plyCount = "None"
         else:
@@ -72,13 +74,13 @@ class chessgame:
     
     def setWinner(self, winner):
         self.winner = winner
-    
+    #task 3
     def printgametofile(self, file = "chessgame.txt", state = "w"):
         file = open(file, state)
-        file.write(self.white, self.black, self.result, self.plyCount)
+        file.write(f"{self.white}, {self.black}, {self.result}, {self.plyCount}")
         file.flush()
         file.close()
-        
+    #task 2
     def extractgamefromfile(self, file = "chessgame.txt"):
         file = open(file, "r")
         for each in file:
@@ -90,6 +92,7 @@ class chessgame:
         file.flush()
         file.close()
     
+    #task 5
     def exporttoexcel(self, file = "chessgame.xlsx"):
         import pandas as pd
         data = {'White': [self.white],
@@ -98,7 +101,7 @@ class chessgame:
                 'PlyCount': [self.plyCount]}
         df = pd.DataFrame(data)
         df.to_excel(file, index=False)
-    
+        
     def importfromexcel(self, file = "chessgame.xlsx"):
         import pandas as pd
         df = pd.read_excel(file)
@@ -107,9 +110,13 @@ class chessgame:
         self.setResult(df['Result'][0])
         self.setPlyCount(df['PlyCount'][0])
 
-# cg = chessgame([], "White", "Black", "1-0", 10)
+# cg = chessgame([], "White", "Black", "1-0", 10, "White")
+# cg.printgametofile()
 # cg.exporttoexcel()
 # cg2 = chessgame()
 # print(cg2.toString())
 # cg2.importfromexcel()
 # print(cg2.toString())
+# cg3 = chessgame()
+# cg3.extractgamefromfile()
+# print(cg3.toString())
