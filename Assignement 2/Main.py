@@ -37,7 +37,6 @@ def ReadChessDataBase(inputFile, filpath):
     moves = []
     i = 0
     while True:
-        i +=1
         if step==1: # Read a game
             if line==None:
                 break
@@ -51,7 +50,7 @@ def ReadChessDataBase(inputFile, filpath):
                 match = re.search(r'"([^"]+)"', line)
                 if match:
                     value = match.group(1)
-                    print(key, value)
+                    #print(key, value)
                     if key == "White":
                         currentGame.setWhite(value)
                     elif key == "Black":
@@ -76,16 +75,19 @@ def ReadChessDataBase(inputFile, filpath):
                         game = chess.pgn.read_game(pgn)
                         board = game.board()
                         currentGame = cg.chessgame()
-
-                line = ReadLine(inputFile)
-                if line==None:
-                    break
-                else:
+            #line = ReadLine(inputFile)
+            if line==None:
+                break
+            else:
                     step = 3
-        elif step==3: # read moves
+        elif step==3:
             line = ReadLine(inputFile)
-            #if line==None:
-            if line==None or antallgames*3 <= i:
+            i += 1
+            if i == 144202:
+                print("hei")
+                break
+            if line==None:
+            #if line==None or antallgames*3 <= i:
                 break
             elif re.match("\[", line):
                 step = 2
@@ -147,6 +149,7 @@ def getlengthofgames(gameslist, string = "none", wins = "none"):
         else:
             endingstates[each] = 1
     endlist = []
+    # print(lengthofgames)
     for i in range(1, np.max(lengthofgames) + 1):
         if i in endingstates:
             endlist.append(endingstates[i])
@@ -281,7 +284,7 @@ cg2 = cg.chessgame()
 cg2.extractgamefromfile("game2.txt")
 print(cg2.toString(), listresults[1].toString())
 
-#testing of task 6 and 7
+#testing of task 6 and 7 
 plotssss("gamesstillgoing.png", listresults)
 doc=nd.report()
 doc.addTitle("My Report")
@@ -292,6 +295,7 @@ doc.createtablestatdoc(findstatsforstockfish(listresults)[0], findstatsforstockf
 gamesending = howmanystillgoing(listresults)
 plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
+#task 8
 doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
 #task 9 and 10
 tree = createtree(listresults)

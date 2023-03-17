@@ -1,1 +1,1 @@
-Berserk 8.5.1 64-bit, None, 0-1, 129
+Arasan 23.3 64-bit, Stockfish 15 64-bit, 0-1, 121
