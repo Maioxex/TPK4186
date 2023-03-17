@@ -270,7 +270,7 @@ doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatesta
 doc.save("my_report.docx")
 tree = createtree(listresults)
 # tree.printTreetocount(20)
-tree.printTreetodepth(10)
+tree.printTreetodepth(5)
 
 # while True:
 #     root = tree
