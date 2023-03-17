@@ -284,7 +284,7 @@ doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatesta
 #task 9 and 10
 tree = createtree(listresults)
 #task 11 and 12 functions showing the moves given depth and count
-#tree.printTreetodepth(5)
+tree.printTreetodepth(5)
 tree.printTreetocount(500, doc)
 
 doc.save("my_report.docx")
