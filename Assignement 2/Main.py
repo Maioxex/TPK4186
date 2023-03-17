@@ -1,4 +1,4 @@
-import ChessGame as cg
+import chessgame as cg
 import move as mv
 import sys
 import re
@@ -26,7 +26,7 @@ def ReadLine(inputFile):
     return line.rstrip()
     
 def ReadChessDataBase(inputFile, filpath):
-    antallgames = 100000
+    antallgames = 1000
     listOfGames = []
     currentGame = cg.chessgame()
     step = 1
@@ -66,7 +66,7 @@ def ReadChessDataBase(inputFile, filpath):
                     elif key == "PlyCount":
                         currentGame.setPlyCount(value)
                         listOfGames.append(currentGame)
-                        
+                        #Task 10: add moves to game
                         for move in game.mainline_moves():
                             moves.append(board.san(move))
                             board.push(move)
@@ -84,7 +84,7 @@ def ReadChessDataBase(inputFile, filpath):
         elif step==3: # read moves
             line = ReadLine(inputFile)
             if line==None:
-            # if line==None or antallgames*3 <= i:
+            #if line==None or antallgames*3 <= i:
                 break
             elif re.match("\[", line):
                 step = 2
@@ -247,10 +247,24 @@ def createtree(results):
     root = tr.tree("start")
     root.setRoot(True)
     for each in results:
+        if each.getWinner() == "Draw":
+            stat = [0,0,1]
+        elif each.getWinner() == each.getWhite():
+            stat = [1,0,0]
+        elif each.getWinner() == each.getBlack():
+            stat = [0,1,0]
         for i in range(len(each.getMoves())):
-            if i ==0:
+            if i == 0:
                 currentTree = root
-            currentTree.createChildren(each.getMoves()[i])
+            currentTree.createChildren(each.getMoves()[i], stat)
+            # baby = currentTree.getChild(each.getMoves()[i])
+            # if each.getWinner() == each.getWhite():
+            #     baby.addwin()
+            # elif each.getWinner() == each.getBlack():
+            #     baby.addloss()
+            #     print(currentTree.getChild(each.getMoves()[i]).getMetadata())
+            # elif each.getWinner() == "Draw":
+            #     baby.adddraw()
             currentTree = currentTree.getChild(each.getMoves()[i])
     return root
 
@@ -268,18 +282,12 @@ plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
 doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
 doc.save("my_report.docx")
+#task 9 and 10
 tree = createtree(listresults)
-# tree.printTreetocount(20)
-tree.printTreetodepth(5)
+#task 11 and 12 functions showing the moves given depth and count
+#tree.printTreetodepth(5)
+tree.printTreetocount(500)
 
-# while True:
-#     root = tree
-#     print(tree.getChildren())
-#     for each in tree.getChildren():
-#         print(each.getMove(), each.getCount(), each.getIsEndNode())
-#     if root.getIsEndNode() != True:
-#         tree = tree.getChildren()[0]
-#     else:
-#         break
+
 
 

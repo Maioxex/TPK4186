@@ -1,6 +1,6 @@
 class tree:
     
-    def __init__(self, move, parent = None, depth = 0, metadata = None, isendnode = True, count = 1):
+    def __init__(self, move, parent = None, depth = 0, stats = [0,0,0], metadata = None,isendnode = True, count = 1):
         self.move = move
         self.children = []
         self.depth = depth
@@ -9,11 +9,13 @@ class tree:
         self.count = count
         self.isroot = False
         self.parent = parent
+        self.stats = stats
         
     def addChild(self, child):
         self.children.append(child)
         if self.getChildren() != []:
             self.setIsEndNode(False)
+            self.setStats([0,0,0])
         
     def setRoot(self, isroot):
         self.isroot = isroot
@@ -26,6 +28,8 @@ class tree:
         self.children.extend(children)
         if self.getChildren() != []:
             self.setIsEndNode(False)
+            self.setStats([0,0,0])
+
     
     def getChild(self, move):
         for child in self.getChildren():
@@ -41,11 +45,27 @@ class tree:
         if self.getChildren() != []:
             self.setIsEndNode(False)
     
+    def setStats(self, stats):
+        self.stats = stats
+    
+    def getStats(self):
+        return self.stats
+    
+    def addwin(self):
+        self.stats[0] += 1
+    
+    def addloss(self):
+        self.stats[1] += 1
+    
+    def adddraw(self):
+        self.stats[2] += 1
+    
     def getDepth(self):
         return self.depth
     
     def setDepth(self, depth):
         self.depth = depth
+    
     
     def getMetadata(self):
         if self.metadata == None:
@@ -54,10 +74,20 @@ class tree:
 
     def createBaseMetadata(self):
         parent_moves = []
+        color = ""
         for parent in self.getParents():
-            parent_moves.append(parent.getMove())
+            if parent.getDepth()%2 == 0:
+                color = "B"
+            else:
+                color = "W"
+            parent_moves.append(f"{color}, {parent.getMove()}")
         parent_moves.reverse()
-        metadata = f"depth: {self.getDepth()}, previous moves: {parent_moves}, move: {self.getMove()}, counted: {self.getCount()}"
+        if self.getDepth()%2 == 0:
+            color = "B"
+        else:
+            color = "W"
+        self.setStats(self.getstatsfromchildren())
+        metadata = f"depth: {self.getDepth()}, previous moves: {parent_moves}, move: {color} {self.getMove()}, counted: {self.getCount()}, Whitewins: {self.getStats()[0]}, Blackwins: {self.getStats()[1]}, draws: {self.getStats()[2]}"
         self.setMetadata(metadata)
     
     def setMetadata(self, metadata):
@@ -96,12 +126,28 @@ class tree:
             parentsmove.extend(self.getParent().getParents())
         return parentsmove
 
-    def createChildren(self, move):
+    def createChildren(self, move, stat):
         for child in self.getChildren():
             if child.getMove() == move:
                 child.setCount(child.getCount() + 1)
+                if child.getIsEndNode():
+                    cstats = child.getStats()
+                    child.setStats([cstats[0] + stat[0], cstats[1] + stat[1], cstats[2] + stat[2]])
                 return
-        self.addChild(tree(move, self, self.getDepth() + 1, self.metadata))
+        self.addChild(tree(move, self, self.getDepth() + 1, stat))
+    
+    def getstatsfromchildren(self):
+        if self.getIsEndNode():
+            return self.getStats()
+        else:
+            stats = [0,0,0]
+            for child in self.getChildren():
+                cstats = child.getstatsfromchildren()
+                stats[0] += cstats[0]
+                stats[1] += cstats[1]
+                stats[2] += cstats[2]
+            return stats
+        
     
     def printTreetodepth(self, depth = 0):
         if self.getRoot():
@@ -115,7 +161,7 @@ class tree:
 
     def printTreetocount(self, limit = 0):
         if self.getRoot():
-            print(self.getMetadata())
+            print("root node")
             for child in self.getChildren():
                 child.printTreetocount(limit)
         elif self.getCount() >= limit:

@@ -1,4 +1,4 @@
-import ChessGame as cg
+import chessgame as cg
 
 class chessgames:
     def __init__(self, games = []):
