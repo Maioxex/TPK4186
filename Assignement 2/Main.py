@@ -281,12 +281,13 @@ gamesending = howmanystillgoing(listresults)
 plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
 doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
-doc.save("my_report.docx")
 #task 9 and 10
 tree = createtree(listresults)
 #task 11 and 12 functions showing the moves given depth and count
 #tree.printTreetodepth(5)
-tree.printTreetocount(500)
+tree.printTreetocount(500, doc)
+
+doc.save("my_report.docx")
 
 
 

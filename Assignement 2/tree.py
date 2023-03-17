@@ -159,12 +159,19 @@ class tree:
             for child in self.getChildren():
                 child.printTreetodepth(depth)
 
-    def printTreetocount(self, limit = 0):
+    def printTreetocount(self, limit = 0, document = None):
         if self.getRoot():
             print("root node")
+            table = document.getdocument().add_table(rows=1, cols=1)
+            table.cell(0,0).text = "root node"
             for child in self.getChildren():
-                child.printTreetocount(limit)
+                child.printTreetocount(limit, table)
         elif self.getCount() >= limit:
+            if document != None:
+                new_row = document.add_row()
+                new_row.cells[0].text = self.getMetadata()
             print(self.getMetadata())
             for child in self.getChildren():
-                child.printTreetocount(limit)
+                child.printTreetocount(limit, document)
+        if document != None and self.getRoot():
+            document.getdocument().add_page_break()
