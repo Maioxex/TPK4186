@@ -4,4 +4,3 @@ class move:
         self.pliesChekced = pliesChekced
         self.time = time
         self.player = player
-        

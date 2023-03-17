@@ -149,28 +149,37 @@ class tree:
             return stats
         
     
-    def printTreetodepth(self, depth = 0):
+    def printTreetodepth(self, depth = 0, document = None):
         if self.getRoot():
-            print("root node")
+            #print("root node")
+            table = document.getdocument().add_table(rows=1, cols=1)
+            table.cell(0,0).text = f"Moves up to count {depth}"
             for child in self.getChildren():
-                child.printTreetodepth(depth)
+                child.printTreetodepth(depth, table)
         elif self.getDepth() <= depth:
-            print(self.getMetadata())
+            if document != None:
+                new_row = document.add_row()
+                new_row.cells[0].text = self.getMetadata()
+            #this print will show the same as we push to the document, but in terminal if we want to see it
+            #print(self.getMetadata())
             for child in self.getChildren():
-                child.printTreetodepth(depth)
+                child.printTreetodepth(depth, document)
+        if document != None and self.getRoot():
+            document.getdocument().add_page_break()
 
     def printTreetocount(self, limit = 0, document = None):
         if self.getRoot():
             print("root node")
             table = document.getdocument().add_table(rows=1, cols=1)
-            table.cell(0,0).text = "root node"
+            table.cell(0,0).text = f"Moves up to count {limit}"
             for child in self.getChildren():
                 child.printTreetocount(limit, table)
         elif self.getCount() >= limit:
             if document != None:
                 new_row = document.add_row()
                 new_row.cells[0].text = self.getMetadata()
-            print(self.getMetadata())
+            #this print will show the same as we push to the document, but in terminal if we want to see it
+            #print(self.getMetadata())
             for child in self.getChildren():
                 child.printTreetocount(limit, document)
         if document != None and self.getRoot():
