@@ -53,10 +53,12 @@ class tree:
         return self.metadata
 
     def createBaseMetadata(self):
-        parentsmoves = []
-        for parents in self.getParentsmoves():
-            parentsmoves.append(parents.getMove())
-        self.metadata = f"depth: {self.getDepth()}, previous moves: {self.getParents}, move:{self.getMove()}, counted:{self.getCount()}"
+        parent_moves = []
+        for parent in self.getParents():
+            parent_moves.append(parent.getMove())
+        parent_moves.reverse()
+        metadata = f"depth: {self.getDepth()}, previous moves: {parent_moves}, move: {self.getMove()}, counted: {self.getCount()}"
+        self.setMetadata(metadata)
     
     def setMetadata(self, metadata):
         self.metadata = metadata
@@ -85,13 +87,13 @@ class tree:
     def setParent(self, parent):
         self.parent = parent
     
-    def getParentsmoves(self):
+    def getParents(self):
         parentsmove = []
         if self.getParent().getRoot():
             return parentsmove
         if self.getParent() != None:
             parentsmove.append(self.getParent())
-            parentsmove.extend(self.getParent().getParentsmoves())
+            parentsmove.extend(self.getParent().getParents())
         return parentsmove
 
     def createChildren(self, move):
