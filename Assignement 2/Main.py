@@ -279,9 +279,9 @@ cg1 = cg.chessgame()
 cg1.extractgamefromfile("game1.txt")
 print(cg1.toString(), listresults[0].toString())
 #testing task 5:
-listresults[1].printgametofile("game2.txt")
+listresults[1].exporttoexcel("game2.xlsx")
 cg2 = cg.chessgame()
-cg2.extractgamefromfile("game2.txt")
+cg2.importfromexcel("game2.xlsx")
 print(cg2.toString(), listresults[1].toString())
 
 #testing of task 6 and 7 
