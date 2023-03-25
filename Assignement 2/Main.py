@@ -1,3 +1,5 @@
+#Martin Kristiansen Tømt og Nikolay Westengen assignment 2
+
 import chessgame as cg
 import move as mv
 import sys
@@ -11,7 +13,7 @@ import numpy as np
 import chess.pgn
 import tree as tr
 
-#task 2: design functions to import a game from a text file
+#task 
 def ImportChessDataBase(filePath = "Assignement 2/Stockfish_15_64-bit.commented.[2600].pgn"):
     inputFile = open(filePath, "r")
     gameslist = ReadChessDataBase(inputFile, filePath)
@@ -84,7 +86,7 @@ def ReadChessDataBase(inputFile, filpath):
             line = ReadLine(inputFile)
             i += 1
             if i == 144202:
-                print("hei")
+                #print("hei")
                 break
             if line==None:
             #if line==None or antallgames*3 <= i:
