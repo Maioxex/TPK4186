@@ -1,5 +1,3 @@
-from move import move
-
 class chessgame:
     def __init__(self, moveset = [], player1 = None, player2 = None, result = None, plyCount = None, winner = None):
         self.moveset = moveset

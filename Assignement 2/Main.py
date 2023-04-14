@@ -3,14 +3,12 @@
 import chessgame as cg
 import re
 import matplotlib.pyplot as plt
-from docx import Document
-from docx.shared import Inches
 import Newdoc as nd
 import numpy as np
 import tree as tr
 
 
-#pgn parser:
+#pgn parser class:
 class PGNGame:
     def __init__(self, headers, moves):
         self.headers = headers
@@ -29,7 +27,7 @@ def ReadLine(inputFile):
         return None
     return line.rstrip()
 
-#the parsing functions
+#the parsing functions:
 def parse_pgn_headers(lines):
     headers = {}
     for line in lines:
@@ -159,6 +157,7 @@ def ReadChessDataBase(inputFile):
     # pgn.close()
     # return listOfGames
 
+#help function for finding the statistiks for stockfish:
 def findstatsforstockfish(gameslist):
     #index 0 = wins, 1 = losses, 2 = draws
     stockstatsWhite = [0,0,0]
@@ -224,6 +223,7 @@ def getlengthofgames(gameslist, string = "none", wins = "none"):
             endlist.append(0)
     return endlist
 
+#function to find how many games are left for each game length for the graph
 def howmanystillgoing(gameslist, string = "none", wins = "none"):
     total = len(gameslist)
     whitegames, blackgames = findstatsforstockfish(gameslist)
@@ -248,7 +248,7 @@ def howmanystillgoing(gameslist, string = "none", wins = "none"):
     return eachleft
 
 
-
+#plotting of the graph
 def plotting(gameslist, name,  string = "none", wins = "none"):
     # plt.plot(getlengthofgames(gameslist))
     # plt.xlabel("Number of moves")
@@ -275,6 +275,7 @@ def plotting(gameslist, name,  string = "none", wins = "none"):
     plt.legend(["All","White", "Black",  "Wins", "Losses"])
     plt.savefig(name)
 
+#statistics for the games:
 def calculateaveragelengthofgame(gameslist, string = "none", wins = "none"):
     endingeach = getlengthofgames(gameslist, string, wins)
     weightedsum = 0
@@ -309,6 +310,7 @@ def calculatestandarddeviationoflenghthofgame(gameslist, string = "none", wins =
         weightedsum += ((i+1)-average)**2*endingeach[i]
     return np.sqrt(weightedsum/lens)        
 
+#function to plott all the graphs
 def plotssss(name, listresults):
     plotting(listresults,name)
     plotting(listresults,name, "white")# 
