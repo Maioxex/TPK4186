@@ -1,24 +1,26 @@
 #Martin Kristiansen Tømt og Nikolay Westengen assignment 2
 
 import chessgame as cg
-import move as mv
-import sys
 import re
 import matplotlib.pyplot as plt
 from docx import Document
 from docx.shared import Inches
 import Newdoc as nd
-from PIL import Image
 import numpy as np
-import chess.pgn
 import tree as tr
 
+
+#pgn parser:
+class PGNGame:
+    def __init__(self, headers, moves):
+        self.headers = headers
+        self.moves = moves
 #task 
 def ImportChessDataBase(filePath = "Assignement 2/Stockfish_15_64-bit.commented.[2600].pgn"):
-    inputFile = open(filePath, "r")
-    gameslist = ReadChessDataBase(inputFile, filePath)
-    inputFile.flush()
-    inputFile.close()
+    # inputFile = open(filePath, "r")
+    gameslist = ReadChessDataBase(filePath)
+    # inputFile.flush()
+    # inputFile.close()
     return gameslist
         
 def ReadLine(inputFile):
@@ -26,97 +28,160 @@ def ReadLine(inputFile):
     if line=="":
         return None
     return line.rstrip()
-    
-def ReadChessDataBase(inputFile, filpath):
-    antallgames = 100
-    listOfGames = []
-    currentGame = cg.chessgame()
-    step = 1
-    line = ReadLine(inputFile)
-    pgn = open(filpath)
-    game = chess.pgn.read_game(pgn)
-    board = game.board()
+
+#the parsing functions
+def parse_pgn_headers(lines):
+    headers = {}
+    for line in lines:
+        if line.startswith("["):
+            key, value = line[1:-1].split(" ", 1)
+            if headers.get(key) is None:
+                headers[key.strip()] = [value.strip('"')]
+            else:
+                headers[key.strip()].append(value.strip('"'))
+    return headers
+
+
+def parse_pgn_moves(lines):
     moves = []
-    i = 0
-    while True:
-        if step==1: # Read a game
-            if line==None:
-                break
-            else:
-                step = 2
-        elif step==2: # Read meta-data
-            if re.match("\[", line):
-                match = re.search("\[([a-zA-Z]+)", line)
-                if match:
-                    key = match.group(1)
-                match = re.search(r'"([^"]+)"', line)
-                if match:
-                    value = match.group(1)
-                    #print(key, value)
-                    if key == "White":
-                        currentGame.setWhite(value)
-                    elif key == "Black":
-                        currentGame.setBlack(value)
-                    elif key == "Result":
-                        currentGame.setResult(value)
-                        if value == "1-0":
-                            currentGame.setWinner(currentGame.getWhite())
-                        elif value == "0-1":
-                            currentGame.setWinner(currentGame.getBlack())
-                        else:
-                            currentGame.setWinner("Draw")
-                    elif key == "PlyCount":
-                        currentGame.setPlyCount(value)
-                        listOfGames.append(currentGame)
-                        #Task 10: add moves to game
-                        for move in game.mainline_moves():
-                            moves.append(board.san(move))
-                            board.push(move)
-                        currentGame.setMoves(moves)
-                        moves = []
-                        game = chess.pgn.read_game(pgn)
-                        board = game.board()
-                        currentGame = cg.chessgame()
-            #line = ReadLine(inputFile)
-            if line==None:
-                break
-            else:
-                    step = 3
-        elif step==3:
-            line = ReadLine(inputFile)
-            i += 1
-            if i == 144202:
-                #print("hei")
-                break
-            if line==None:
-            #if line==None or antallgames*3 <= i:
-                break
-            elif re.match("\[", line):
-                step = 2
-    pgn.close()
+    for line in lines:
+        if not line.startswith("["):
+            moves.extend(line.strip().split())
+    return moves
+
+
+def read_chess_game(filePath):
+    with open(filePath, "r", encoding="utf-8") as file:
+        content = file.read()
+
+    pattern = re.compile(r'\{[^}]*\}')
+    content = pattern.sub('', content).replace("  ", " ")
+
+    lines = content.splitlines()
+    headers = parse_pgn_headers(lines)
+    moves = parse_pgn_moves(lines)
+
+    return PGNGame(headers, moves)
+
+
+def ReadChessDataBase(inputFile):
+    datafrompgn = read_chess_game(inputFile)
+    datafrompgn.moves = [move for move in datafrompgn.moves if not move.endswith(".")]
+    # print(datafrompgn.moves)
+    # print(len(datafrompgn.moves))
+    listOfGames = []
+    movescount = 0
+    # for i in range(0, 2):
+    for i in range(0, len(datafrompgn.headers["Event"])):
+        moves = []
+        currentGame = cg.chessgame()
+        currentGame.setWhite(datafrompgn.headers["White"][i])
+        currentGame.setBlack(datafrompgn.headers["Black"][i])
+        currentGame.setResult(datafrompgn.headers["Result"][i])
+        if datafrompgn.headers["Result"][i] == "1-0":
+            currentGame.setWinner(currentGame.getWhite())
+        elif datafrompgn.headers["Result"][i] == "0-1":
+            currentGame.setWinner(currentGame.getBlack())
+        else:
+            currentGame.setWinner("Draw")
+        currentGame.setPlyCount(datafrompgn.headers["PlyCount"][i])
+        for j in range(movescount, movescount + int(datafrompgn.headers["PlyCount"][i])):
+            moves.append(datafrompgn.moves[j])
+            movescount += 1
+        movescount +=  1
+        currentGame.setMoves(moves)
+        
+        listOfGames.append(currentGame)
+
+    
     return listOfGames
+
+    
+        
+    
+    
+    # i = 0
+    # while True:
+    #     if step==1: # Read a game
+    #         if line==None:
+    #             break
+    #         else:
+    #             step = 2
+    #     elif step==2: # Read meta-data
+    #         if re.match("\[", line):
+    #             match = re.search("\[([a-zA-Z]+)", line)
+    #             if match:
+    #                 key = match.group(1)
+    #             match = re.search(r'"([^"]+)"', line)
+    #             if match:
+    #                 value = match.group(1)
+    #                 #print(key, value)
+    #                 if key == "White":
+    #                     currentGame.setWhite(value)
+    #                 elif key == "Black":
+    #                     currentGame.setBlack(value)
+    #                 elif key == "Result":
+    #                     currentGame.setResult(value)
+    #                     if value == "1-0":
+    #                         currentGame.setWinner(currentGame.getWhite())
+    #                     elif value == "0-1":
+    #                         currentGame.setWinner(currentGame.getBlack())
+    #                     else:
+    #                         currentGame.setWinner("Draw")
+    #                 elif key == "PlyCount":
+    #                     currentGame.setPlyCount(value)
+    #                     listOfGames.append(currentGame)
+    #                     #Task 10: add moves to game
+    #                     for move in game.mainline_moves():
+    #                         moves.append(board.san(move))
+    #                         board.push(move)
+    #                     currentGame.setMoves(moves)
+    #                     moves = []
+    #                     game = chess.pgn.read_game(pgn)
+    #                     board = game.board()
+    #                     currentGame = cg.chessgame()
+    #         #line = ReadLine(inputFile)
+    #         if line==None:
+    #             break
+    #         else:
+    #                 step = 3
+    #     elif step==3:
+    #         line = ReadLine(inputFile)
+    #         i += 1
+    #         if i == 144202:
+    #             #print("hei")
+    #             break
+    #         if line==None:
+    #         #if line==None or antallgames*3 <= i:
+    #             break
+    #         elif re.match("\[", line):
+    #             step = 2
+    # pgn.close()
+    # return listOfGames
 
 def findstatsforstockfish(gameslist):
     #index 0 = wins, 1 = losses, 2 = draws
-    whiteresults = [0,0,0]
-    blackresults = [0,0,0]
-    
-    for each in gameslist:
-        if each.getWhite() == "Stockfish 15 64-bit":
-            if each.getResult() == "1-0":
-                whiteresults[0] += 1
-            elif each.getResult() == "0-1":
-                whiteresults[1] += 1
-            elif each.getResult() == "1/2-1/2":
-                whiteresults[2] += 1
+    stockstatsWhite = [0,0,0]
+    stockstatsBlack = [0,0,0]
+    for game in gameslist:
+        if game.getWinner() == "Draw":
+            if game.getWhite() == "Stockfish 15 64-bit":
+                stockstatsWhite[2] += 1
+            else:
+                stockstatsBlack[2] += 1
+        elif game.getWinner() == "Stockfish 15 64-bit":
+            if game.getWhite() == "Stockfish 15 64-bit":
+                stockstatsWhite[0] += 1
+            else:
+                stockstatsBlack[0] += 1
         else:
-            if each.getResult() == "1-0":
-                blackresults[0] += 1
-            elif each.getResult() == "0-1":
-                blackresults[1] += 1
-            elif each.getResult() == "1/2-1/2":
-                blackresults[2] += 1
-    return whiteresults, blackresults
+            if game.getWhite() == "Stockfish 15 64-bit":
+                stockstatsWhite[1] += 1
+            else:
+                stockstatsBlack[1] += 1
+    #print(stockstatsWhite, stockstatsBlack)
+    
+    return stockstatsWhite, stockstatsBlack
 
 def findtotalstatsstockfish(gameslist):
     whiteresults, blackresults = findstatsforstockfish(gameslist)
@@ -175,6 +240,8 @@ def howmanystillgoing(gameslist, string = "none", wins = "none"):
     current = total
     endingeach = getlengthofgames(gameslist, string, wins)
     eachleft = []
+    #if wins == "losses":
+    #    print(sum(endingeach))
     for each in endingeach:
         current -= each
         eachleft.append(current/total*100)
@@ -202,7 +269,7 @@ def plotting(gameslist, name,  string = "none", wins = "none"):
     if string == "none" and wins == "none":
         plt.figure(figsize=(10, 6))
     plt.plot(howmanystillgoing(gameslist, string, wins), color = colors)
-    plt.xlabel("Number of moves")
+    plt.xlabel("Number of half moves")
     plt.ylabel("Percentage of games still going")
     plt.title("Number of games that are still going after each number of moves")
     plt.legend(["All","White", "Black",  "Wins", "Losses"])
@@ -252,7 +319,10 @@ def plotssss(name, listresults):
 def createtree(results):
     root = tr.tree("start")
     root.setRoot(True)
+    # a = 1
     for each in results:
+        # print(a)
+        # a +=1
         if each.getWinner() == "Draw":
             stat = [0,0,1]
         elif each.getWinner() == each.getWhite():
@@ -278,15 +348,20 @@ listresults = ImportChessDataBase()
 #testing task 3:
 listresults[0].printgametofile("game1.txt")
 cg1 = cg.chessgame()
+print("step 1")
 cg1.extractgamefromfile("game1.txt")
+print("step 2")
 print(cg1.toString(), listresults[0].toString())
 #testing task 5:
 listresults[1].exporttoexcel("game2.xlsx")
+print("step 3")
 cg2 = cg.chessgame()
 cg2.importfromexcel("game2.xlsx")
+print("step 4")
 print(cg2.toString(), listresults[1].toString())
 
 #testing of task 6 and 7 
+print("step 5")
 plotssss("gamesstillgoing.png", listresults)
 doc=nd.report()
 doc.addTitle("My Report")
@@ -297,14 +372,17 @@ doc.createtablestatdoc(findstatsforstockfish(listresults)[0], findstatsforstockf
 gamesending = howmanystillgoing(listresults)
 plotssss("gamesstillgoing.png", listresults)
 doc.addPlot("gamesstillgoing.png")
+print("step 6")
 #task 8
 doc.createtabletma4240doc(calculateaveragelengthofgame(listresults),calculatestandarddeviationoflenghthofgame(listresults),calculateaveragelengthofgame(listresults, "white"),calculateaveragelengthofgame(listresults, "black"),calculatestandarddeviationoflenghthofgame(listresults, "white"),calculatestandarddeviationoflenghthofgame(listresults, "black"), calculatestandarddeviationoflenghthofgame(listresults, "none", "wins"),calculateaveragelengthofgame(listresults, "none", "wins"), calculatestandarddeviationoflenghthofgame(listresults, "none", "losses"), calculateaveragelengthofgame(listresults, "none", "losses"))
 #task 9 and 10
+print("step 7")
 tree = createtree(listresults)
+print("step 8")
 #task 11 and 12 functions showing the moves given depth and count
 tree.printTreetodepth(3, doc)
 tree.printTreetocount(300, doc)
-
+print("step 9")
 doc.save("my_report.docx")
 print("done")
 
