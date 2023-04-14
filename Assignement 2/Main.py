@@ -1,6 +1,6 @@
 #Martin Kristiansen Tømt og Nikolay Westengen assignment 2
 
-import chessgame as cg
+import ChessGame as cg
 import re
 import matplotlib.pyplot as plt
 import Newdoc as nd
@@ -94,68 +94,6 @@ def ReadChessDataBase(inputFile):
     
     return listOfGames
 
-    
-        
-    
-    
-    # i = 0
-    # while True:
-    #     if step==1: # Read a game
-    #         if line==None:
-    #             break
-    #         else:
-    #             step = 2
-    #     elif step==2: # Read meta-data
-    #         if re.match("\[", line):
-    #             match = re.search("\[([a-zA-Z]+)", line)
-    #             if match:
-    #                 key = match.group(1)
-    #             match = re.search(r'"([^"]+)"', line)
-    #             if match:
-    #                 value = match.group(1)
-    #                 #print(key, value)
-    #                 if key == "White":
-    #                     currentGame.setWhite(value)
-    #                 elif key == "Black":
-    #                     currentGame.setBlack(value)
-    #                 elif key == "Result":
-    #                     currentGame.setResult(value)
-    #                     if value == "1-0":
-    #                         currentGame.setWinner(currentGame.getWhite())
-    #                     elif value == "0-1":
-    #                         currentGame.setWinner(currentGame.getBlack())
-    #                     else:
-    #                         currentGame.setWinner("Draw")
-    #                 elif key == "PlyCount":
-    #                     currentGame.setPlyCount(value)
-    #                     listOfGames.append(currentGame)
-    #                     #Task 10: add moves to game
-    #                     for move in game.mainline_moves():
-    #                         moves.append(board.san(move))
-    #                         board.push(move)
-    #                     currentGame.setMoves(moves)
-    #                     moves = []
-    #                     game = chess.pgn.read_game(pgn)
-    #                     board = game.board()
-    #                     currentGame = cg.chessgame()
-    #         #line = ReadLine(inputFile)
-    #         if line==None:
-    #             break
-    #         else:
-    #                 step = 3
-    #     elif step==3:
-    #         line = ReadLine(inputFile)
-    #         i += 1
-    #         if i == 144202:
-    #             #print("hei")
-    #             break
-    #         if line==None:
-    #         #if line==None or antallgames*3 <= i:
-    #             break
-    #         elif re.match("\[", line):
-    #             step = 2
-    # pgn.close()
-    # return listOfGames
 
 #help function for finding the statistiks for stockfish:
 def findstatsforstockfish(gameslist):
@@ -250,12 +188,6 @@ def howmanystillgoing(gameslist, string = "none", wins = "none"):
 
 #plotting of the graph
 def plotting(gameslist, name,  string = "none", wins = "none"):
-    # plt.plot(getlengthofgames(gameslist))
-    # plt.xlabel("Number of moves")
-    # plt.ylabel("Number of games")
-    # plt.title("Number of games that end with each number of moves")
-    # plt.show()
-    
     if string == "white":
         colors = "cyan"
     elif string == "black":
@@ -335,14 +267,6 @@ def createtree(results):
             if i == 0:
                 currentTree = root
             currentTree.createChildren(each.getMoves()[i], stat)
-            # baby = currentTree.getChild(each.getMoves()[i])
-            # if each.getWinner() == each.getWhite():
-            #     baby.addwin()
-            # elif each.getWinner() == each.getBlack():
-            #     baby.addloss()
-            #     print(currentTree.getChild(each.getMoves()[i]).getMetadata())
-            # elif each.getWinner() == "Draw":
-            #     baby.adddraw()
             currentTree = currentTree.getChild(each.getMoves()[i])
     return root
 #testing task 4:
