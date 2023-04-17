@@ -4,24 +4,25 @@ class buffers:
     def __init__(self, bufferNR):
         self.bufferNR = bufferNR
         self.load = 0
-        if bufferNR == 10:
+        if bufferNR == 9 or bufferNR == 0:
             self.limit = np.inf
         else:
             self.limit = 120
+        self.batches = []
         
-    def add(self, load):
-        if load + self.load <= self.limit:
-            self.load += load
+    def add(self, batch):
+        if self.load + batch.getSize() <= self.limit:
+            self.load += batch.getSize()
+            self.batches.append(batch)   
+        else:
+            raise ValueError("Batch does not fit in buffer")         
             
-    
-    def add1(self):
-        if self.load + 1 <= self.limit:
-            self.load += 1
-            
-    def remove1(self, load):
-        if self.load - load >= 0:
-            self.load -= load
-            
+    def remove(self, batch):
+        if batch in self.batches:
+            self.load -= batch.getSize()
+            self.batches.remove(batch)
+        else:
+            raise ValueError("Batch not in buffer")
     def getLoad(self):
         return self.load
     

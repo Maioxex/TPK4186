@@ -7,17 +7,24 @@ class units:
     
     def getTasks(self):
         return self.tasks
+    
     def getProductionTimes(self):
         return self.productiontimes
+    
     def getTime(self):
         return self.time
+    
     def getTask(self):
         return self.currenttask
+    
     def setTask(self, task):
         self.currenttask = task
+        
     def setTasks(self, tasks):
         self.tasks = tasks
+        
     def setProductionTimes(self, productiontimes):
         self.productiontimes = productiontimes
+        
     def setTime(self, time):
         self.time = time
