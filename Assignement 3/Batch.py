@@ -1,15 +1,14 @@
 class batches:
     def __init__(self, size, state = "idle", currenttask = 0
                  ):
-        if size < 0:
-            raise ValueError("Size of batch cannot be negative")
+        if size < 20:
+            raise ValueError("Size of batch cannot be smaller than 20")
         elif size > 50:
             raise ValueError("Size of batch cannot be larger than 50")
         else:
             self.size = size
         self.state = state
         self.currenttask = currenttask
-        self.possiblestates = ["idle", "loading", "processing", "unloading"]
     
     def getSize(self):
         return self.size

@@ -38,7 +38,7 @@ class units:
     def TimeIncrement(self):
         self.time += 1
         
-    def loadTask(self, task):
+    def loadTask(self, task, batch):
         if self.time != 0:
             raise ValueError("Unit is busy")
         if task not in self.tasks:
