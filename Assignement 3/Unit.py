@@ -37,6 +37,9 @@ class units:
     def setTime(self, time):
         self.time = time
     
+    def decreaseTime(self, time):
+        self.time -= time
+    
     def TimeIncrement(self):
         self.time += 1
         
@@ -49,7 +52,6 @@ class units:
             self.currenttask = task
             self.time = self.productiontimes[task]
         self.time = 1
-        pl.choosebatch(self)
         self.batch = batch
         self.state = "loading"
 
@@ -70,12 +72,16 @@ class units:
     
     def getState(self):
         return self.state
+    
     def setState(self, state):
         self.state = state
+        
     def getBatch(self):
         return self.batch
+    
     def setBatch(self, batch):
         self.batch = batch
+        
     def checkState(self):
         if self.state == "loading":
             if self.time == 0:
@@ -97,3 +103,6 @@ class units:
             return True
         else:
             return False
+    
+    def __str__(self):
+        return f"Unit is {self.state} and is currently working on task {self.currenttask} with batch {self.batch} and has {self.time} time left"
