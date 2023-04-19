@@ -44,38 +44,16 @@ class units:
     def TimeIncrement(self):
         self.time += 1
         
-    def loadTask(self, task, batch):
-        if self.time != 0:
-            raise ValueError("Unit is busy")
-        if task not in self.tasks:
-            raise ValueError("Task not possible")
-        else: 
-            self.currenttask = task
-            self.time = self.productiontimes[task]
-        self.time = 1
-        self.batch = batch
-        self.state = "loading"
-
-    def unloadTask(self):
-        if self.time != 0:
-            raise ValueError(f"Unit is busy being {self.state}")
-        self.currenttask = -1
-        self.time = 1
-        tempbatch = self.batch
-        self.batch = -1
-        self.state = "unloading"
-        return tempbatch
-    
-    def startTask(self):
-        if self.time != 0:
-            raise ValueError(f"Unit is busy being {self.state}")
-        self.time = self.productiontimes[self.currenttask]*self.batch.getSize()
     
     def getState(self):
         return self.state
     
     def setState(self, state):
+        if state not in self.possiblestates:
+            raise ValueError("State not possible")
         self.state = state
+
+        
         
     def getBatch(self):
         return self.batch
@@ -99,6 +77,7 @@ class units:
             pl.choosebatch(self)
         else:
             raise ValueError("State not possible")
+        
     def isIdle(self):
         if self.state == "idle":
             return True

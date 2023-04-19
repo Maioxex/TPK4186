@@ -49,8 +49,11 @@ class buffers:
         if self.load > self.limit:
             raise ValueError("Load is larger than limit")
     
-    def getLoadRatio(self):
-        return self.load/self.limit    
+    def getLoadRatio(self, totalwafers, nr1 = False,):
+        if nr1:
+            return self.load/totalwafers
+        else:
+            return self.load/self.limit    
     
     def __str__(self):
         return "Buffer " + str(self.bufferNR) + " has a load of " + str(self.load) + " and a limit of " + str(self.limit)

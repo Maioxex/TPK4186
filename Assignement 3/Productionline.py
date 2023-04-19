@@ -16,6 +16,7 @@ class productionline:
         for i in range(10):
             self.buffers.append(buffers(i))
         
+        
     def findUnitWithTask(self, task):
         for unit in self.units:
             if task in unit.getTasks():
@@ -62,6 +63,41 @@ class productionline:
                 return buffer
         raise ValueError("No buffer with task")
     
+    def loadTask(self, task, batch, unit):
+        if unit.isBusy():
+            raise ValueError("Unit is busy")
+        elif task not in unit.getTasks():
+            raise ValueError("Task not possible")
+        unit.setTask(task)
+        unit.setTime(1)
+        unit.setBatch(batch)
+        unit.setState("loading")
+
+    def unloadTask(self, unit):
+        if unit.getTime() != 0:
+            raise ValueError(f"Unit is busy being {unit.state}")
+        unit.setTask(-1)
+        unit.setTime(1)
+        tempbatch = unit.getBatch()
+        unit.setBatch(-1)
+        unit.setState("unloading")
+        return tempbatch
+    
+    def startTask(self, unit):
+        if self.time != 0:
+            raise ValueError(f"Unit is busy being {unit.state}")
+        unit.setTime(unit.productiontimes[unit.getTask()]*unit.getBatch().getSize())
+        unit.setState("processing")
+    
+    def loadUnitWithBatch(self, batch, unit):
+        unit.loadTask(batch.getTask(), batch)
+    
+    
+    
+    
+    
+    
+    
     def chooseBatchForUnit(self, unit, delta = 0.1):
         if unit.isBusy():
             raise ValueError("Unit is busy")
@@ -78,7 +114,7 @@ class productionline:
                 return "No buffer loaded"
             else:
                 bufferlist.sort(key  = lambda x: x.getLoadRatio())
-                if (self.buffers[0].getLoadRatio() >= 1-delta or self.buffers[0].getLoadRatio() >= 1-delta) and self.buffers[0] in bufferlist:
+                if (self.buffers[0].getLoadRatio(self.numberofwafers, True) >= 1-delta or self.buffers[0].getLoadRatio(self.numberofwafers, True) >= 1-delta) and self.buffers[0] in bufferlist:
                     buffer = self.buffers[0]
                     batch = self.chooseBatchForBuffer(buffer, smallest = True)
                     unit.loadTask(batch.getTask(), batch)
