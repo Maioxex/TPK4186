@@ -4,7 +4,8 @@ from Productionline import productionline as pl
 
 
 class units:
-    def __init__(self, tasks):
+    def __init__(self, tasks, id):
+        self.id = id
         self.time = 0
         self.tasks = tasks
         self.productiontimes = [0.5,3.5,1.2,3,0.8,0.5,1,1.9,0.3]
@@ -103,6 +104,18 @@ class units:
             return True
         else:
             return False
+        
+    def isBusy(self):
+        if self.state == "idle":
+            return False
+        else:
+            return True
+    
+    def getId(self):
+        return self.id
+    
+    def setId(self, id):
+        self.id = id
     
     def __str__(self):
         return f"Unit is {self.state} and is currently working on task {self.currenttask} with batch {self.batch} and has {self.time} time left"

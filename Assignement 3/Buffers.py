@@ -23,6 +23,7 @@ class buffers:
             self.batches.remove(batch)
         else:
             raise ValueError("Batch not in buffer")
+        
     def getLoad(self):
         return self.load
     
@@ -40,6 +41,16 @@ class buffers:
     
     def setBufferNR(self, bufferNR):
         self.bufferNR = bufferNR
+    
+    def updateLoad(self):
+        self.load = 0
+        for batch in self.batches:
+            self.load += batch.getSize()
+        if self.load > self.limit:
+            raise ValueError("Load is larger than limit")
+    
+    def getLoadRatio(self):
+        return self.load/self.limit    
     
     def __str__(self):
         return "Buffer " + str(self.bufferNR) + " has a load of " + str(self.load) + " and a limit of " + str(self.limit)

@@ -12,7 +12,7 @@ class productionline:
         self.time = 0
         tasks = [[0,2,5,8],[1,4,6],[3,7]]
         for i in range(3):
-            self.units.append(units(tasks[i]))
+            self.units.append(units(tasks[i]), i)
         for i in range(10):
             self.buffers.append(buffers(i))
         
@@ -21,6 +21,9 @@ class productionline:
             if task in unit.getTasks():
                 return unit
         return -1
+    
+    def increaseTime(self, time):
+        self.time += time
     
     def findUnitWithBatch(self, batch):
         for unit in self.units:
@@ -45,8 +48,45 @@ class productionline:
                 
     def progressTime(self, time):
         for unit in self.units:
-            if unit.time > 0:
+            if unit.getTime() - time >= 0:
                 unit.decreaseTime(time)
+                self.increaseTime(time)
+            elif unit.getTime() == 0:
+                pass
+            else:
+                raise ValueError("Time is not possible")
+            
+    def getBufferWithTask(self, task):
+        for buffer in self.buffers:
+            if buffer.getTask() == task:
+                return buffer
+        raise ValueError("No buffer with task")
     
-    def choosebatch(self, unit):
-        pass
+    def chooseBatchForUnit(self, unit, delta = 0.1):
+        if unit.isBusy():
+            raise ValueError("Unit is busy")
+        else:
+            unitID = unit.getID()
+            unitbuffers = []
+            for buffernr in self.tasks[unitID]:
+                unitbuffers.append(self.getBufferWithTask(buffernr))
+            bufferlist = []
+            for buffer in unitbuffers:
+                if not buffer.isBusy():
+                    bufferlist.append(buffer)
+            if len(bufferlist) == 0:
+                return "No buffer loaded"
+            else:
+                bufferlist.sort(key  = lambda x: x.getLoadRatio())
+                if self.buffers[0].getLoadRatio() >= 1-delta or self.buffers[0].getLoadRatio() >= 1-delta and self.buffers[0] in bufferlist:
+                    
+                    buffer = bufferlist[0]
+                    batch = self.chooseBatchForBuffer(buffer)
+                    unit.loadTask(batch.getTask(), batch)
+                    return batch
+                else:
+                buffer = bufferlist[0]
+                batch = buffer
+                unit.loadTask(batch.getTask(), batch)
+                return batch
+                                        
