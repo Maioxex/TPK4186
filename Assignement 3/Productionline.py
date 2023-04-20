@@ -12,12 +12,21 @@ class productionline:
         self.time = 0
         self.tasks = [[0,2,5,8],[1,4,6],[3,7]]
         for i in range(3):
-            self.units.append(units(self.tasks[i]), i)
+            self.units.append(units(self.tasks[i], i))
         for i in range(10):
             self.buffers.append(buffers(i))
     
     def loadBatchToInputBuffer(self, batch):
         self.buffers[0].addBatch(batch)
+    
+    def getBuffers(self):
+        return self.buffers
+    
+    def getUnits(self):
+        return self.units
+    
+    def getTime(self):
+        return self.time
     
     def getInputBuffer(self):
         return self.buffers[0]
@@ -27,6 +36,14 @@ class productionline:
     
     def getNumberOfWafers(self):
         return self.numberofwafers
+    
+    def findBuffersWithUnit(self, unit):
+        buffers = []
+        for buffer in self.buffers:
+            print(unit)
+            if buffer.getBufferNR() in unit.getTasks():
+                buffers.append(buffer)
+        return buffers
     
     def findUnitWithTask(self, task):
         for unit in self.units:
@@ -50,21 +67,25 @@ class productionline:
         return -1
     
     def checklowestTimeUnits(self):
-        lowest = np.inf
+        lowest = 10000000000000000
+        print("Checking lowest time units")
+        for unit in self.getUnits():
+            print(f"Unit {unit.getId()} has time {unit.getTime()}")
         bestunit = None
-        for unit in self.units:
+        for unit in self.getUnits():
             if unit.getTime() < lowest and unit.getTime() != 0:
                 lowest = unit.getTime()
                 bestunit = unit
         return lowest, bestunit
                 
     def progressTime(self, time):
+        print(f"Time: {time}")
         for unit in self.units:
             if unit.getTime() - time >= 0:
                 unit.decreaseTime(time)
                 self.increaseTime(time)
             elif unit.getTime() == 0:
-                pass
+                return
             else:
                 raise ValueError("Time is not possible")
             
@@ -116,7 +137,10 @@ class productionline:
         unit.setState("processing")
     
     def loadUnitWithBatch(self, unit, batch):
-        if self.canUnloadUnitWitchBatch(unit, batch):
+        # print(f"Loading {unit} with batch {batch}")
+        print(unit)
+        print(batch)
+        if self.canUnloadUnitWitchBatch(batch):
             self.loadTask(batch.getTask(), batch)
         else:
             raise ValueError("Unit cannot unload batch")
@@ -133,9 +157,10 @@ class productionline:
             return batch
         
     def canUnloadUnitWitchBatch(self, batch):
-        nextBuffer = self.buffer[batch.getTask()+1]
-        unit = self.findUnitWithBuffer(nextBuffer)
-        if nextBuffer.getLoad()+batch.getLoad() <= nextBuffer.getLimit() and unit.isBusy() == False:
+        nextBuffer = self.getBuffers()[batch.getTask()+1]
+        unit = self.findUnitWithTask(batch.getTask()+1)
+        print(f"Next buffer: {batch}")
+        if nextBuffer.getLoad()+ batch.getLoad() <= nextBuffer.getLimit() and unit.isBusy() == False:
             return True
         else:
             return False
@@ -192,7 +217,7 @@ class productionline:
             return True
     
     def checkIfDone(self):
-        if self.getOutputBuffer().getLoad() == self.getNumberofwafers():
+        if self.getOutputBuffer().getLoad() == self.getNumberOfWafers():
             return True
         return False
     
@@ -202,17 +227,72 @@ class productionline:
         for buffer in self.buffers:
             print(buffer)
     
-    def simulatorloop(self, wafers, dividinghueristic, choosinghueristic):
+    def checkState(self, unit):
+        if unit.state == "idle":
+            return
+        if unit.state == "loading":
+            if unit.time == 0:
+                unit.startTask()
+        elif unit.state == "processing" or unit.state == "unloading":
+            if unit.time == 0:
+                self.unloadBatchFromUnit(unit)
+        else:
+            raise ValueError("Unit in impossible state", unit.getState())
+    
+    def choosingHueristic1(self, unit):
+        for buffer in self.findBuffersWithUnit(unit):
+            if buffer.getLoad() > 0:
+                return buffer.getBatches()[0]
+    
+    def choosingInputHueristic1(self, batches):
+        batches.sort(key = lambda x: x.getSize())
+        return batches[0]
+    
+    def addToInputBufferHueristic1(self):
+        for buffer in self.getBuffers():
+            if buffer.getLoad() > 0 and buffer.getBufferNR() != 9:
+                return False
+        for unit in self.getUnits():
+            if unit.isBusy():
+                return False
+
+        return True
+    
+    def dividinghueristic1(self, wafers, size = 20):
+        if size <20 or size > 50:
+            raise ValueError("Size is not between 20 and 50")
+        batche = []
+        while wafers > 0 and wafers//size > 1 and wafers%size > 50-size:
+            batche.append(batches(size))
+            wafers -= size
+        if wafers > 0:
+            batche.append(batches(wafers))
+            
+        return batche
+    
+    def simulatorloop(self, wafers, dividinghueristic, choosinghueristic, choosingInputHueristic, addToInputBufferHueristic):
         self.numberofwafers = wafers
-        batches = dividinghueristic(wafers)
+        batc = dividinghueristic(wafers)
+        i = 0
         
         while self.checkIfDone() == False:
             for unit in self.units:
                 if unit.isBusy() == False:
                     batch = choosinghueristic(unit)
-            
-            
-            self.progressTime(self.checklowestTimeUnits())
+                    self.loadUnitWithBatch(unit, batch)
+                #print(addToInputBufferHueristic())
+                if addToInputBufferHueristic():
+                    batch = choosingInputHueristic(batc)                
+                    self.loadInputBuffer(batch)
+                    batc.remove(batch)
+            self.progressTime(self.checklowestTimeUnits()[0])
             self.printState()
+            i += 1
+            if i == 10:
+                print("itsa wrong, mario")
+                break
+        print(batc)
+        print("Done at time:", self.getTime())
         
-                
+Task41 = productionline()
+Task41.simulatorloop(20, Task41.dividinghueristic1,  Task41.choosingHueristic1, Task41.choosingInputHueristic1, Task41.addToInputBufferHueristic1)

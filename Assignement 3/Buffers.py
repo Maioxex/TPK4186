@@ -23,7 +23,10 @@ class buffers:
             self.batches.remove(batch)
         else:
             raise ValueError("Batch not in buffer")
-        
+    
+    def getBatches(self):
+        return self.batches
+    
     def getLoad(self):
         return self.load
     

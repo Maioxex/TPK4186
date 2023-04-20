@@ -1,7 +1,3 @@
-from Batch import batch
-from Buffers import buffer
-
-
 class units:
     def __init__(self, tasks, id):
         self.id = id
@@ -10,7 +6,7 @@ class units:
         self.productiontimes = [0.5,3.5,1.2,3,0.8,0.5,1,1.9,0.3]
         self.currenttask = -1
         self.batch = -1
-        self.state = -1  
+        self.state = "idle"  
         self.possiblestates = ["idle", "loading", "processing", "unloading"]
     
     def getTasks(self):
@@ -79,4 +75,4 @@ class units:
         self.id = id
     
     def __str__(self):
-        return f"Unit is {self.state} and is currently working on task {self.currenttask} with batch {self.batch} and has {self.time} time left"
+        return f"Unit is {self.getId()} and is currently working on task {self.currenttask} with batch {self.batch} and has {self.time} time left"
