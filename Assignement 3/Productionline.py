@@ -53,7 +53,7 @@ class productionline:
         lowest = np.inf
         bestunit = None
         for unit in self.units:
-            if unit.getTime() < lowest:
+            if unit.getTime() < lowest and unit.getTime() != 0:
                 lowest = unit.getTime()
                 bestunit = unit
         return lowest, bestunit
@@ -196,8 +196,23 @@ class productionline:
             return True
         return False
     
+    def printState(self):
+        for unit in self.units:
+            print(unit)
+        for buffer in self.buffers:
+            print(buffer)
+    
     def simulatorloop(self, wafers, dividinghueristic, choosinghueristic):
         self.numberofwafers = wafers
         batches = dividinghueristic(wafers)
+        
+        while self.checkIfDone() == False:
+            for unit in self.units:
+                if unit.isBusy() == False:
+                    batch = choosinghueristic(unit)
+            
+            
+            self.progressTime(self.checklowestTimeUnits())
+            self.printState()
         
                 

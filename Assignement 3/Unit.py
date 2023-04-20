@@ -1,6 +1,5 @@
 from Batch import batch
 from Buffers import buffer
-from Productionline import productionline as pl
 
 
 class units:
@@ -60,23 +59,6 @@ class units:
     
     def setBatch(self, batch):
         self.batch = batch
-        
-    def checkState(self):
-        if self.state == "loading":
-            if self.time == 0:
-                self.state = "processing"
-                self.startTask()
-        elif self.state == "processing":
-            if self.time == 0:
-                self.state = "unloading"
-                self.unloadTask()
-        elif self.state == "unloading":
-            if self.time == 0:
-                self.state = "idle"
-        elif self.state == "idle":
-            pl.choosebatch(self)
-        else:
-            raise ValueError("State not possible")
         
     def isIdle(self):
         if self.state == "idle":
