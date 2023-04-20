@@ -16,7 +16,15 @@ class simulator:
     
     def loadBatchToInputBuffer(self, batch):
         self.pl.loadBatchToInputBuffer(batch)
-        
+        timeCompleted = self.pl.getTime() + self.pl.findUnitWithBatch(batch).getTime()
+        return timeCompleted
+    
+    def loadUnitWithBatch(self, unit, batch):
+        if self.canUnloadUnitWitchBatch(unit, batch):
+            self.pl.loadTask(batch.getTask(), batch)
+        else:
+            raise ValueError("Unit cannot unload batch")
+                
     def chooseBatchForUnit(self, unit, delta = 0.1):
         if unit.isBusy():
             raise ValueError("Unit is busy")
