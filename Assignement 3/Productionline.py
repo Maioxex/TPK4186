@@ -30,7 +30,7 @@ class productionline:
     
     def findUnitWithBatch(self, batch):
         for unit in self.units:
-            if unit.batch == batch:
+            if unit.getBatch() == batch:
                 return unit
         return -1
     
@@ -44,8 +44,8 @@ class productionline:
         lowest = np.inf
         bestunit = None
         for unit in self.units:
-            if unit.time < lowest:
-                lowest = unit.time
+            if unit.getTime() < lowest:
+                lowest = unit.getTime()
                 bestunit = unit
         return lowest, bestunit
                 
@@ -66,7 +66,7 @@ class productionline:
         raise ValueError("No buffer with task")
     
     def loadTask(self, task, batch, unit):
-        if unit.isBusy():
+        if unit.isBusy() or unit.getTime() != 0:
             raise ValueError("Unit is busy")
         elif task not in unit.getTasks():
             raise ValueError("Task not possible")
@@ -90,6 +90,8 @@ class productionline:
     def unloadUnit(self, unit):
         if unit.getTime() != 0:
             raise ValueError(f"Unit is busy being {unit.state}")
+        if unit.getState() != "unloading":
+            raise ValueError("Unit is not unloading")
         unit.setTask(-1)
         batch = unit.getBatch()
         self.getBufferWithTask(batch.getTask()).addBatch(batch)
@@ -99,6 +101,8 @@ class productionline:
     def startTask(self, unit):
         if self.time != 0:
             raise ValueError(f"Unit is busy being {unit.state}")
+        if unit.getState() != "loading":
+            raise ValueError("Unit is not loading")
         unit.setTime(unit.productiontimes[unit.getTask()]*unit.getBatch().getSize())
         unit.setState("processing")
     

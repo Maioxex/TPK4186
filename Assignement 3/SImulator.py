@@ -24,6 +24,17 @@ class simulator:
             self.pl.loadTask(batch.getTask(), batch)
         else:
             raise ValueError("Unit cannot unload batch")
+        
+    def unloadBatchFromUnit(self, unit):
+        if unit.getTime() != 0:
+            raise ValueError("Unit cant unload a batch")
+        else:
+            batch = unit.getBatch()
+            if unit.getState() == "processing":
+                self.pl.unloadTask()
+            elif unit.getState() == "unloading":
+                self.pl.unloadUnit()
+            return batch
                 
     def chooseBatchForUnit(self, unit, delta = 0.1):
         if unit.isBusy():
@@ -73,7 +84,8 @@ class simulator:
     def canUnloadUnitWitchBatch(self, batch):
         nextBuffer = self.pl.buffer[batch.getTask()+1]
         unit = self.pl.findUnitWithBuffer(nextBuffer)
-        if nextBuffer.getLoad()+batch.getLoad() <= nextBuffer.getLimit():
+        if nextBuffer.getLoad()+batch.getLoad() <= nextBuffer.getLimit() and unit.isBusy() == False:
             return True
         else:
             return False
+        

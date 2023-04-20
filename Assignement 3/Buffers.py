@@ -4,7 +4,7 @@ class buffers:
     def __init__(self, bufferNR):
         self.bufferNR = bufferNR
         self.load = 0
-        if bufferNR == 9 or bufferNR == 0:
+        if bufferNR == 9:
             self.limit = np.inf
         else:
             self.limit = 120
