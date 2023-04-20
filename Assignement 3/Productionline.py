@@ -17,7 +17,7 @@ class productionline:
             self.buffers.append(buffers(i))
     
     def loadBatchToInputBuffer(self, batch):
-        self.buffers[0].addBatch(batch)
+        self.buffers[0].add(batch)
     
     def getBuffers(self):
         return self.buffers
@@ -40,7 +40,7 @@ class productionline:
     def findBuffersWithUnit(self, unit):
         buffers = []
         for buffer in self.buffers:
-            print(unit)
+            # print(unit)
             if buffer.getBufferNR() in unit.getTasks():
                 buffers.append(buffer)
         return buffers
@@ -52,7 +52,9 @@ class productionline:
         return -1
     
     def increaseTime(self, time):
-        self.time += time
+        a = self.getTime()
+        b = time + a
+        self.time = b
     
     def findUnitWithBatch(self, batch):
         for unit in self.units:
@@ -67,45 +69,50 @@ class productionline:
         return -1
     
     def checklowestTimeUnits(self):
-        lowest = 10000000000000000
-        print("Checking lowest time units")
-        for unit in self.getUnits():
-            print(f"Unit {unit.getId()} has time {unit.getTime()}")
+        lowest = np.inf
+        # print("Checking lowest time units")
+        # for unit in self.getUnits():
+        #     print(f"Unit {unit.getId()} has time {unit.getTime()}")
         bestunit = None
         for unit in self.getUnits():
             if unit.getTime() < lowest and unit.getTime() != 0:
                 lowest = unit.getTime()
                 bestunit = unit
+        if lowest == np.inf:
+            return 0, bestunit
         return lowest, bestunit
                 
     def progressTime(self, time):
-        print(f"Time: {time}")
+        #print(f"Time: {time}")
+        self.increaseTime(time)
         for unit in self.units:
             if unit.getTime() - time >= 0:
                 unit.decreaseTime(time)
-                self.increaseTime(time)
             elif unit.getTime() == 0:
-                return
+                continue
             else:
                 raise ValueError("Time is not possible")
             
     def getBufferWithTask(self, task):
         for buffer in self.buffers:
-            if buffer.getTask() == task:
+            if buffer.getBufferNR() == task:
                 return buffer
         raise ValueError("No buffer with task")
     
-    def loadTask(self, task, batch, unit):
+    def loadTask(self, task, batch):
+        unit = self.findUnitWithTask(task)
         if unit.isBusy() or unit.getTime() != 0:
             raise ValueError("Unit is busy")
         elif task not in unit.getTasks():
             raise ValueError("Task not possible")
-        elif batch.getTask() != task:
+        elif batch.getCurrentTask() != task:
             raise ValueError("Batch not possible")
         unit.setTask(task)
         unit.setTime(1)
         unit.setBatch(batch)
         batch.incrementCurrentTask()
+        buffer = self.getBufferWithTask(task)
+        buffer.remove(batch)
         unit.setState("loading")
 
     def unloadTask(self, unit):
@@ -124,12 +131,12 @@ class productionline:
             raise ValueError("Unit is not unloading")
         unit.setTask(-1)
         batch = unit.getBatch()
-        self.getBufferWithTask(batch.getTask()).addBatch(batch)
+        self.getBufferWithTask(batch.getCurrentTask()).add(batch)
         unit.setBatch(-1)
         unit.setState("idle")
     
     def startTask(self, unit):
-        if self.time != 0:
+        if unit.time != 0:
             raise ValueError(f"Unit is busy being {unit.state}")
         if unit.getState() != "loading":
             raise ValueError("Unit is not loading")
@@ -138,10 +145,10 @@ class productionline:
     
     def loadUnitWithBatch(self, unit, batch):
         # print(f"Loading {unit} with batch {batch}")
-        print(unit)
-        print(batch)
+        # print(unit)
+        # print(batch)
         if self.canUnloadUnitWitchBatch(batch):
-            self.loadTask(batch.getTask(), batch)
+            self.loadTask(batch.getCurrentTask(), batch)
         else:
             raise ValueError("Unit cannot unload batch")
         
@@ -151,16 +158,18 @@ class productionline:
         else:
             batch = unit.getBatch()
             if unit.getState() == "processing":
-                self.unloadTask()
+                self.unloadTask(unit)
             elif unit.getState() == "unloading":
-                self.unloadUnit()
+                self.unloadUnit(unit)
             return batch
         
     def canUnloadUnitWitchBatch(self, batch):
-        nextBuffer = self.getBuffers()[batch.getTask()+1]
-        unit = self.findUnitWithTask(batch.getTask()+1)
+        nextBuffer = self.getBuffers()[batch.getCurrentTask()+1]
+        unit = self.findUnitWithTask(batch.getCurrentTask()+1)
         print(f"Next buffer: {batch}")
-        if nextBuffer.getLoad()+ batch.getLoad() <= nextBuffer.getLimit() and unit.isBusy() == False:
+        if nextBuffer.getBufferNR() == 9:
+            return True
+        elif nextBuffer.getLoad()+ batch.getSize() <= nextBuffer.getLimit() and unit.isBusy() == False:
             return True
         else:
             return False
@@ -232,7 +241,7 @@ class productionline:
             return
         if unit.state == "loading":
             if unit.time == 0:
-                unit.startTask()
+                self.startTask(unit)
         elif unit.state == "processing" or unit.state == "unloading":
             if unit.time == 0:
                 self.unloadBatchFromUnit(unit)
@@ -277,21 +286,25 @@ class productionline:
         
         while self.checkIfDone() == False:
             for unit in self.units:
-                if unit.isBusy() == False:
+                if unit.isBusy() == False and choosinghueristic(unit) != None:
                     batch = choosinghueristic(unit)
                     self.loadUnitWithBatch(unit, batch)
                 #print(addToInputBufferHueristic())
                 if addToInputBufferHueristic():
-                    batch = choosingInputHueristic(batc)                
-                    self.loadInputBuffer(batch)
-                    batc.remove(batch)
+                    batch = choosingInputHueristic(batc)
+                    if batch != None:                
+                        self.loadBatchToInputBuffer(batch)
+                        batc.remove(batch)
             self.progressTime(self.checklowestTimeUnits()[0])
-            self.printState()
+            for unit in self.units:
+                self.checkState(unit)
+            #self.printState()
+            print("Total Time:", self.getTime())
             i += 1
-            if i == 10:
+            if i == 100:
                 print("itsa wrong, mario")
                 break
-        print(batc)
+        #print(batc)
         print("Done at time:", self.getTime())
         
 Task41 = productionline()
