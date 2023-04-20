@@ -62,7 +62,7 @@ class Simulator:
 	def performAction(self, action):
 		sys.stdout.write("{0:s}\t{1:d}\n".format(action.getName(), action.getCompletionDate()))
 		name = action.getName() + "'"
-		completionDate = action.getCompletionDate() + 5
+		completionDate = action.getCompletionDate() + 1
 		simulator.newAction(name, completionDate)
 		
 simulator = Simulator()

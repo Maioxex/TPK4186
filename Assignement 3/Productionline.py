@@ -4,21 +4,30 @@ from Buffers import buffers
 import numpy as np
 
 class productionline:
-    def __init__(self, numberofwafers):
-        self.numberofwafers = numberofwafers
+    def __init__(self):
+        self.numberofwafers = 0
         self.units = []
         self.batches = []
         self.buffers = []
         self.time = 0
-        tasks = [[0,2,5,8],[1,4,6],[3,7]]
+        self.tasks = [[0,2,5,8],[1,4,6],[3,7]]
         for i in range(3):
-            self.units.append(units(tasks[i]), i)
+            self.units.append(units(self.tasks[i]), i)
         for i in range(10):
             self.buffers.append(buffers(i))
     
     def loadBatchToInputBuffer(self, batch):
         self.buffers[0].addBatch(batch)
-        
+    
+    def getInputBuffer(self):
+        return self.buffers[0]
+    
+    def getOutputBuffer(self):
+        return self.buffers[9]
+    
+    def getNumberOfWafers(self):
+        return self.numberofwafers
+    
     def findUnitWithTask(self, task):
         for unit in self.units:
             if task in unit.getTasks():
@@ -106,3 +115,89 @@ class productionline:
         unit.setTime(unit.productiontimes[unit.getTask()]*unit.getBatch().getSize())
         unit.setState("processing")
     
+    def loadUnitWithBatch(self, unit, batch):
+        if self.canUnloadUnitWitchBatch(unit, batch):
+            self.loadTask(batch.getTask(), batch)
+        else:
+            raise ValueError("Unit cannot unload batch")
+        
+    def unloadBatchFromUnit(self, unit):
+        if unit.getTime() != 0:
+            raise ValueError("Unit cant unload a batch")
+        else:
+            batch = unit.getBatch()
+            if unit.getState() == "processing":
+                self.unloadTask()
+            elif unit.getState() == "unloading":
+                self.unloadUnit()
+            return batch
+        
+    def canUnloadUnitWitchBatch(self, batch):
+        nextBuffer = self.buffer[batch.getTask()+1]
+        unit = self.findUnitWithBuffer(nextBuffer)
+        if nextBuffer.getLoad()+batch.getLoad() <= nextBuffer.getLimit() and unit.isBusy() == False:
+            return True
+        else:
+            return False
+    
+    def chooseBatchForUnit(self, unit, delta = 0.1):
+        if unit.isBusy():
+            raise ValueError("Unit is busy")
+        else:
+            unitID = unit.getID()
+            unitbuffers = []
+            for buffernr in self.tasks[unitID]:
+                unitbuffers.append(self.getBufferWithTask(buffernr))
+            bufferlist = []
+            for buffer in unitbuffers:
+                if not buffer.isBusy():
+                    bufferlist.append(buffer)
+            if len(bufferlist) == 0:
+                return "No buffer loaded"
+            else:
+                bufferlist.sort(key  = lambda x: x.getLoadRatio())
+                if (self.getInputBuffer().getLoadRatio(self.numberofwafers, True) >= 1-delta or self.getInputBuffer().getLoadRatio(self.numberofwafers, True) >= 1-delta) and self.getInputBuffer() in bufferlist:
+                    buffer = self.buffers[0]
+                    batch = self.chooseBatchForBuffer(buffer, smallest = True)
+                    unit.loadTask(batch.getTask(), batch)
+                    return batch
+                else:
+                    buffer = self.getInputBuffer()
+                    batch = self.chooseBatchForBuffer(buffer, smallest = False)
+                    unit.loadTask(batch.getTask(), batch)
+                return batch
+    
+    def chooseBatchForBuffer(self, buffer, smallest = False):
+        if buffer.isBusy():
+            raise ValueError("Buffer is busy")
+        else:
+            proofedlist = []
+            for batch in buffer.getBatches():
+                if self.canUnloadUnitWitchBatch(batch):
+                    proofedlist.append(batch)
+            if len(proofedlist) == 0:
+                return "No batch can be unloaded"
+            else:
+                if smallest:
+                    proofedlist.sort(key = lambda x: x.getSize())
+                    return proofedlist[0]
+                else:
+                    proofedlist.sort(key = lambda x: x.getSize(), reverse = True)
+                    return proofedlist[0] 
+    
+    def loadInputHueristic1(self, batch):
+        if self.getLoad(self.getInputBuffer()) > 0:
+            return False
+        else:
+            return True
+    
+    def checkIfDone(self):
+        if self.getOutputBuffer().getLoad() == self.getNumberofwafers():
+            return True
+        return False
+    
+    def simulatorloop(self, wafers, dividinghueristic, choosinghueristic):
+        self.numberofwafers = wafers
+        batches = dividinghueristic(wafers)
+        
+                
