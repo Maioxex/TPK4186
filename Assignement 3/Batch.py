@@ -12,15 +12,6 @@ class batches:
     
     def getSize(self):
         return self.size
-    
-    # def getState(self):
-    #     return self.state
-    
-    # def setState(self, state):
-    #     if state not in self.possiblestates:
-    #         raise ValueError("State not possible")
-    #     else: 
-    #         self.state = state
             
     def getCurrentTask(self):
         return self.currenttask

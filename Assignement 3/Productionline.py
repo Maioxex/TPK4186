@@ -253,12 +253,12 @@ class productionline:
         else:
             raise ValueError("Unit in impossible state", unit.getState())
     
-    def choosingHueristic1(self, unit):
+    def choosingHueristic1(self, unit, priorOrder):
         for buffer in self.findBuffersWithUnit(unit):
             if buffer.getLoad() > 0:
                 return buffer.getBatches()[0]
     
-    def choosingHueristic2(self, unit):
+    def choosingHueristic2(self, unit, priorOrder):
         for buffer in self.findBuffersWithUnit(unit):
             if buffer.getLoad() > 0:
                 if self.canUnloadUnitWitchBatch(buffer.getBatchWithSmallestSize()):
@@ -356,34 +356,34 @@ class productionline:
     
     
         
-# Task41 = productionline()
-# Task41.simulatorloop(20, Task41.dividinghueristic1,  Task41.choosingHueristic1, Task41.choosingInputHueristic1, Task41.addToInputBufferHueristic1, "Task41output.txt")
-# Task42 = productionline()
-# Task42.simulatorloop(60, Task42.dividinghueristic1,  Task42.choosingHueristic1, Task42.choosingInputHueristic1, Task42.addToInputBufferHueristic1, "Task42output.txt")
-# Task43 = productionline()
-# Task43.simulatorloop(1000, Task43.dividinghueristic1,  Task43.choosingHueristic1, Task43.choosingInputHueristic1, Task43.addToInputBufferHueristic1, "Task43output.txt")
-# Task44 = productionline()
-# Task44.simulatorloop(1000, Task44.dividinghueristic1,  Task44.choosingHueristic1, Task44.choosingInputHueristic1, Task44.addToInputBufferHueristic1, "Task44output.txt", 30)
+Task41 = productionline()
+Task41.simulatorloop(20, Task41.dividinghueristic1,  Task41.choosingHueristic1, Task41.choosingInputHueristic1, Task41.addToInputBufferHueristic1, "Task41output.txt")
+Task42 = productionline()
+Task42.simulatorloop(60, Task42.dividinghueristic1,  Task42.choosingHueristic1, Task42.choosingInputHueristic1, Task42.addToInputBufferHueristic1, "Task42output.txt")
+Task43 = productionline()
+Task43.simulatorloop(1000, Task43.dividinghueristic1,  Task43.choosingHueristic1, Task43.choosingInputHueristic1, Task43.addToInputBufferHueristic1, "Task43output.txt")
+Task44 = productionline()
+Task44.simulatorloop(1000, Task44.dividinghueristic1,  Task44.choosingHueristic1, Task44.choosingInputHueristic1, Task44.addToInputBufferHueristic1, "Task44output.txt", 30)
 
-# Task5 = productionline()
-# value = [None]
-# num = np.inf
-# for i in range(20,51):
-#     tid = Task5.simulatorloop(1000, Task5.dividinghueristic1,  Task5.choosingHueristic1, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic1, "Task5output.txt", i)
-#     if tid < num:
-#         num = tid
-#         value[0] = i
-#     Task5 = productionline()
-# Task5 = productionline()
-# value = [None]
-# num = np.inf
-# for i in range(20, 51):
-#     tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic2, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
-#     if tid < num:
-#         num = tid
-#         value[0] = i
-#     Task5 = productionline()
-# print(value)
+Task5 = productionline()
+value = [None]
+num = np.inf
+for i in range(20,51):
+    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1,  Task5.choosingHueristic1, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic1, "Task5output.txt", i)
+    if tid < num:
+        num = tid
+        value[0] = i
+    Task5 = productionline()
+Task5 = productionline()
+value = [None]
+num = np.inf
+for i in range(20, 51):
+    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic2, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
+    if tid < num:
+        num = tid
+        value[0] = i
+    Task5 = productionline()
+print(value)
 def findOptimalSolution():
     baselist = [[0,2,5,8],[1,4,6],[3,7]]
     basedlist = []
@@ -398,7 +398,7 @@ def findOptimalSolution():
         for u2priorities in basedlist[1]:
             for u3priorities in basedlist[2]:
                 for i in range(20, 51):
-                    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic3, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i, [u1priorities, u2priorities, u3priorities])
+                    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic3, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task6output.txt", i, [u1priorities, u2priorities, u3priorities])
                     j += 1
                     if tid < num:
                         num = tid
