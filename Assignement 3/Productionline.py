@@ -1,3 +1,5 @@
+#Martin Kristiansen Tømt og Nikolay Westengen assignment 3
+
 import numpy as np
 from Batch import batches
 from Buffers import buffers
@@ -250,6 +252,7 @@ class productionline:
 
         return True
     
+    #task 5
     #this is the hueristic which chooses when to input a batch into the input buffer, it only does so when the input buffer is empty
     #this is now the optimal hueristic for the input buffer, as it has no chance of blocking the system at the start, and will always keep it running
     #thus being greatly more efficient than the other hueristic, over half the runtime with the same number of wafers. 
@@ -320,15 +323,7 @@ Task43.simulatorloop(1000, Task43.dividinghueristic1,  Task43.choosingHueristic1
 Task44 = productionline()
 Task44.simulatorloop(1000, Task44.dividinghueristic1,  Task44.choosingHueristic1, Task44.choosingInputHueristic1, Task44.addToInputBufferHueristic1, "Task44output.txt", 30)
 
-Task5 = productionline()
-value = [None]
-num = np.inf
-for i in range(20,51):
-    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1,  Task5.choosingHueristic1, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic1, "Task5output.txt", i)
-    if tid < num:
-        num = tid
-        value[0] = i
-    Task5 = productionline()
+#testing task 5 for dynamic inputbufferloading (is also done with all possible combinations of dividing the batches)
 Task5 = productionline()
 value = [None]
 num = np.inf
@@ -338,9 +333,10 @@ for i in range(20, 51):
         num = tid
         value[0] = i
     Task5 = productionline()
-print(value)
+print(f"best dviding size: {value} giving time: {num} with dynamic loading")
 
 
+#task 6 and 7
 #optimalization function to find the best parameters of both dividng wafers and choosing priorities for the units by brute forcing all possible combinations
 def findOptimalSolution():
     baselist = [[0,2,5,8],[1,4,6],[3,7]]
@@ -367,9 +363,14 @@ def findOptimalSolution():
                         print(j, value, num)
                     Task5 = productionline()
     return value
-values = findOptimalSolution()
-print(values)
-print(values[1])            
-Task7 = productionline()
-tid = Task7.simulatorloop(1000, Task7.dividinghueristic1, Task7.choosingHueristic3, Task7.choosingInputHueristic1, Task7.addToInputBufferHueristic_whenEmpty, "Task7output.txt", values[0], values[1])
-print(tid)
+
+#main function to run the optimalization function and then run the simulation with the optimal parameters
+def main():
+    values = findOptimalSolution()
+    print(values)
+    print(values[1])            
+    Task7 = productionline()
+    tid = Task7.simulatorloop(1000, Task7.dividinghueristic1, Task7.choosingHueristic3, Task7.choosingInputHueristic1, Task7.addToInputBufferHueristic_whenEmpty, "Task7output.txt", values[0], values[1])
+    print(tid)
+
+main()
