@@ -1,0 +1,756 @@
+Batch 37 is loaded into inputbuffer at time 0
+Time: 0 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 0
+Time: 1 started task 0 on unit 0 with batch 37
+Time: 20.5 unloaded batch 37 from unit 0
+Time: 20.5 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 20.5
+Time: 20.5 loading unit 1 with batch 37
+Time: 21.5 started task 0 on unit 0 with batch 37
+Time: 21.5 started task 1 on unit 1 with batch 37
+Time: 41.0 unloaded batch 37 from unit 0
+Time: 41.0 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 41.0
+Time: 42.0 started task 0 on unit 0 with batch 37
+Time: 61.5 unloaded batch 37 from unit 0
+Time: 61.5 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 61.5
+Time: 62.5 started task 0 on unit 0 with batch 37
+Time: 82.0 unloaded batch 37 from unit 0
+Time: 152.0 unloaded batch 37 from unit 1
+Time: 152.0 loading unit 0 with batch 37
+Time: 152.0 loading unit 1 with batch 37
+Time: 153.0 started task 2 on unit 0 with batch 37
+Time: 153.0 started task 1 on unit 1 with batch 37
+Time: 198.4 unloaded batch 37 from unit 0
+Time: 198.4 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 198.4
+Time: 198.4 loading unit 2 with batch 37
+Time: 199.4 started task 0 on unit 0 with batch 37
+Time: 199.4 started task 3 on unit 2 with batch 37
+Time: 218.9 unloaded batch 37 from unit 0
+Time: 283.5 unloaded batch 37 from unit 1
+Time: 283.5 loading unit 0 with batch 37
+Time: 283.5 loading unit 1 with batch 37
+Time: 284.5 started task 2 on unit 0 with batch 37
+Time: 284.5 started task 1 on unit 1 with batch 37
+Time: 311.4 unloaded batch 37 from unit 2
+Time: 329.9 unloaded batch 37 from unit 0
+Time: 329.9 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 329.9
+Time: 329.9 loading unit 2 with batch 37
+Time: 330.9 started task 0 on unit 0 with batch 37
+Time: 330.9 started task 3 on unit 2 with batch 37
+Time: 350.4 unloaded batch 37 from unit 0
+Time: 415.0 unloaded batch 37 from unit 1
+Time: 415.0 loading unit 0 with batch 37
+Time: 415.0 loading unit 1 with batch 37
+Time: 416.0 started task 2 on unit 0 with batch 37
+Time: 416.0 started task 4 on unit 1 with batch 37
+Time: 442.9 unloaded batch 37 from unit 2
+Time: 446.59999999999997 unloaded batch 37 from unit 1
+Time: 446.59999999999997 loading unit 1 with batch 37
+Time: 447.59999999999997 started task 4 on unit 1 with batch 37
+Time: 461.4 unloaded batch 37 from unit 0
+Time: 461.4 loading unit 0 with batch 37
+Time: 461.4 loading unit 2 with batch 37
+Time: 462.4 started task 5 on unit 0 with batch 37
+Time: 462.4 started task 3 on unit 2 with batch 37
+Time: 478.2 unloaded batch 37 from unit 1
+Time: 478.2 loading unit 1 with batch 37
+Time: 479.2 started task 1 on unit 1 with batch 37
+Time: 481.9 unloaded batch 37 from unit 0
+Time: 481.9 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 481.9
+Time: 482.9 started task 0 on unit 0 with batch 37
+Time: 502.4 unloaded batch 37 from unit 0
+Time: 502.4 loading unit 0 with batch 37
+Time: 503.4 started task 5 on unit 0 with batch 37
+Time: 522.9 unloaded batch 37 from unit 0
+Time: 574.4 unloaded batch 37 from unit 2
+Time: 609.7 unloaded batch 37 from unit 1
+Time: 609.7 loading unit 0 with batch 37
+Time: 609.7 loading unit 1 with batch 37
+Time: 610.7 started task 2 on unit 0 with batch 37
+Time: 610.7 started task 4 on unit 1 with batch 37
+Time: 641.3000000000001 unloaded batch 37 from unit 1
+Time: 641.3000000000001 loading unit 1 with batch 37
+Time: 642.3000000000001 started task 6 on unit 1 with batch 37
+Time: 656.1 unloaded batch 37 from unit 0
+Time: 656.1 loading unit 0 with batch 37
+Time: 656.1 loading unit 2 with batch 37
+Time: 657.1 started task 5 on unit 0 with batch 37
+Time: 657.1 started task 3 on unit 2 with batch 37
+Time: 676.6 unloaded batch 37 from unit 0
+Time: 680.3000000000001 unloaded batch 37 from unit 1
+Time: 680.3000000000001 loading unit 1 with batch 37
+Time: 681.3000000000001 started task 6 on unit 1 with batch 37
+Time: 719.3000000000001 unloaded batch 37 from unit 1
+Time: 719.3000000000001 loading unit 1 with batch 37
+Time: 720.3000000000001 started task 6 on unit 1 with batch 37
+Time: 758.3000000000001 unloaded batch 37 from unit 1
+Time: 758.3000000000001 loading unit 1 with batch 37
+Time: 759.3000000000001 started task 1 on unit 1 with batch 37
+Time: 759.3000000000001 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 759.3000000000001
+Time: 760.3000000000001 started task 0 on unit 0 with batch 37
+Time: 769.1 unloaded batch 37 from unit 2
+Time: 769.1 loading unit 2 with batch 37
+Time: 770.1 started task 7 on unit 2 with batch 37
+Time: 779.8000000000001 unloaded batch 37 from unit 0
+Time: 841.4000000000001 unloaded batch 37 from unit 2
+Time: 841.4000000000001 loading unit 0 with batch 37
+Time: 841.4000000000001 loading unit 2 with batch 37
+Time: 842.4000000000001 started task 8 on unit 0 with batch 37
+Time: 842.4000000000001 started task 7 on unit 2 with batch 37
+Time: 854.5000000000001 unloaded batch 37 from unit 0
+Time: 889.8000000000001 unloaded batch 37 from unit 1
+Time: 889.8000000000001 loading unit 0 with batch 37
+Time: 889.8000000000001 loading unit 1 with batch 37
+Time: 890.8000000000001 started task 2 on unit 0 with batch 37
+Time: 890.8000000000001 started task 4 on unit 1 with batch 37
+Time: 913.7 unloaded batch 37 from unit 2
+Time: 913.7 loading unit 2 with batch 37
+Time: 914.7 started task 7 on unit 2 with batch 37
+Time: 921.4000000000001 unloaded batch 37 from unit 1
+Time: 921.4000000000001 loading unit 1 with batch 37
+Time: 922.4000000000001 started task 1 on unit 1 with batch 37
+Time: 936.2 unloaded batch 37 from unit 0
+Time: 936.2 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 936.2
+Time: 937.2 started task 0 on unit 0 with batch 37
+Time: 956.7 unloaded batch 37 from unit 0
+Time: 956.7 loading unit 0 with batch 37
+Time: 957.7 started task 5 on unit 0 with batch 37
+Time: 977.2 unloaded batch 37 from unit 0
+Time: 977.2 loading unit 0 with batch 37
+Time: 978.2 started task 8 on unit 0 with batch 37
+Time: 986.0 unloaded batch 37 from unit 2
+Time: 986.0 loading unit 2 with batch 37
+Time: 987.0 started task 3 on unit 2 with batch 37
+Time: 990.3 unloaded batch 37 from unit 0
+Time: 990.3 loading unit 0 with batch 37
+Time: 991.3 started task 8 on unit 0 with batch 37
+Time: 1003.4 unloaded batch 37 from unit 0
+Time: 1052.9 unloaded batch 37 from unit 1
+Time: 1052.9 loading unit 0 with batch 37
+Time: 1052.9 loading unit 1 with batch 37
+Time: 1053.9 started task 2 on unit 0 with batch 37
+Time: 1053.9 started task 6 on unit 1 with batch 37
+Time: 1091.9 unloaded batch 37 from unit 1
+Time: 1091.9 loading unit 1 with batch 37
+Time: 1092.9 started task 1 on unit 1 with batch 37
+Time: 1099.0 unloaded batch 37 from unit 2
+Time: 1099.0 loading unit 2 with batch 37
+Time: 1099.3 unloaded batch 37 from unit 0
+Time: 1099.3 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 1099.3
+Time: 1100.0 started task 7 on unit 2 with batch 37
+Time: 1100.3 started task 0 on unit 0 with batch 37
+Time: 1119.8 unloaded batch 37 from unit 0
+Time: 1171.3 unloaded batch 37 from unit 2
+Time: 1171.3 loading unit 0 with batch 37
+Time: 1171.3 loading unit 2 with batch 37
+Time: 1172.3 started task 8 on unit 0 with batch 37
+Time: 1172.3 started task 3 on unit 2 with batch 37
+Time: 1184.3999999999999 unloaded batch 37 from unit 0
+Time: 1223.3999999999999 unloaded batch 37 from unit 1
+Time: 1223.3999999999999 loading unit 0 with batch 37
+Time: 1223.3999999999999 loading unit 1 with batch 37
+Time: 1224.3999999999999 started task 2 on unit 0 with batch 37
+Time: 1224.3999999999999 started task 4 on unit 1 with batch 37
+Time: 1254.9999999999998 unloaded batch 37 from unit 1
+Time: 1254.9999999999998 loading unit 1 with batch 37
+Time: 1255.9999999999998 started task 1 on unit 1 with batch 37
+Time: 1269.7999999999997 unloaded batch 37 from unit 0
+Time: 1269.7999999999997 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 1269.7999999999997
+Time: 1270.7999999999997 started task 0 on unit 0 with batch 37
+Time: 1284.2999999999997 unloaded batch 37 from unit 2
+Time: 1284.2999999999997 loading unit 2 with batch 37
+Time: 1285.2999999999997 started task 3 on unit 2 with batch 37
+Time: 1290.2999999999997 unloaded batch 37 from unit 0
+Time: 1290.2999999999997 loading unit 0 with batch 37
+Time: 1291.2999999999997 started task 5 on unit 0 with batch 37
+Time: 1310.7999999999997 unloaded batch 37 from unit 0
+Time: 1386.4999999999998 unloaded batch 37 from unit 1
+Time: 1386.4999999999998 loading unit 0 with batch 37
+Time: 1386.4999999999998 loading unit 1 with batch 37
+Time: 1387.4999999999998 started task 2 on unit 0 with batch 37
+Time: 1387.4999999999998 started task 4 on unit 1 with batch 37
+Time: 1397.2999999999997 unloaded batch 37 from unit 2
+Time: 1418.0999999999997 unloaded batch 37 from unit 1
+Time: 1418.0999999999997 loading unit 1 with batch 37
+Time: 1419.0999999999997 started task 4 on unit 1 with batch 37
+Time: 1432.8999999999996 unloaded batch 37 from unit 0
+Time: 1432.8999999999996 loading unit 0 with batch 37
+Time: 1432.8999999999996 loading unit 2 with batch 37
+Time: 1433.8999999999996 started task 5 on unit 0 with batch 37
+Time: 1433.8999999999996 started task 3 on unit 2 with batch 37
+Time: 1449.6999999999996 unloaded batch 37 from unit 1
+Time: 1449.6999999999996 loading unit 1 with batch 37
+Time: 1450.6999999999996 started task 6 on unit 1 with batch 37
+Time: 1453.3999999999996 unloaded batch 37 from unit 0
+Time: 1453.3999999999996 loading unit 0 with batch 37
+Time: 1454.3999999999996 started task 5 on unit 0 with batch 37
+Time: 1473.8999999999996 unloaded batch 37 from unit 0
+Time: 1488.6999999999996 unloaded batch 37 from unit 1
+Time: 1488.6999999999996 loading unit 1 with batch 37
+Time: 1489.6999999999996 started task 6 on unit 1 with batch 37
+Time: 1527.6999999999996 unloaded batch 37 from unit 1
+Time: 1527.6999999999996 loading unit 1 with batch 37
+Time: 1528.6999999999996 started task 6 on unit 1 with batch 37
+Time: 1545.8999999999996 unloaded batch 37 from unit 2
+Time: 1545.8999999999996 loading unit 2 with batch 37
+Time: 1546.8999999999996 started task 7 on unit 2 with batch 37
+Time: 1566.6999999999996 unloaded batch 37 from unit 1
+Time: 1566.6999999999996 loading unit 1 with batch 37
+Time: 1567.6999999999996 started task 4 on unit 1 with batch 37
+Time: 1598.2999999999995 unloaded batch 37 from unit 1
+Time: 1598.2999999999995 loading unit 0 with batch 37
+Time: 1598.2999999999995 loading unit 1 with batch 37
+Time: 1599.2999999999995 started task 5 on unit 0 with batch 37
+Time: 1599.2999999999995 started task 1 on unit 1 with batch 37
+Time: 1618.1999999999996 unloaded batch 37 from unit 2
+Time: 1618.1999999999996 loading unit 2 with batch 37
+Time: 1618.7999999999995 unloaded batch 37 from unit 0
+Time: 1618.7999999999995 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 1618.7999999999995
+Time: 1619.1999999999996 started task 7 on unit 2 with batch 37
+Time: 1619.7999999999995 started task 0 on unit 0 with batch 37
+Time: 1639.2999999999995 unloaded batch 37 from unit 0
+Time: 1639.2999999999995 loading unit 0 with batch 37
+Time: 1640.2999999999995 started task 8 on unit 0 with batch 37
+Time: 1652.3999999999994 unloaded batch 37 from unit 0
+Time: 1690.4999999999993 unloaded batch 37 from unit 2
+Time: 1690.4999999999993 loading unit 0 with batch 37
+Time: 1690.4999999999993 loading unit 2 with batch 37
+Time: 1691.4999999999993 started task 8 on unit 0 with batch 37
+Time: 1691.4999999999993 started task 7 on unit 2 with batch 37
+Time: 1703.5999999999992 unloaded batch 37 from unit 0
+Time: 1729.7999999999993 unloaded batch 37 from unit 1
+Time: 1729.7999999999993 loading unit 0 with batch 37
+Time: 1729.7999999999993 loading unit 1 with batch 37
+Time: 1730.7999999999993 started task 2 on unit 0 with batch 37
+Time: 1730.7999999999993 started task 6 on unit 1 with batch 37
+Time: 1762.7999999999993 unloaded batch 37 from unit 2
+Time: 1768.7999999999993 unloaded batch 37 from unit 1
+Time: 1768.7999999999993 loading unit 1 with batch 37
+Time: 1768.7999999999993 loading unit 2 with batch 37
+Time: 1769.7999999999993 started task 1 on unit 1 with batch 37
+Time: 1769.7999999999993 started task 7 on unit 2 with batch 37
+Time: 1776.1999999999994 unloaded batch 37 from unit 0
+Time: 1776.1999999999994 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 1776.1999999999994
+Time: 1777.1999999999994 started task 0 on unit 0 with batch 37
+Time: 1796.6999999999994 unloaded batch 37 from unit 0
+Time: 1796.6999999999994 loading unit 0 with batch 37
+Time: 1797.6999999999994 started task 8 on unit 0 with batch 37
+Time: 1809.7999999999993 unloaded batch 37 from unit 0
+Time: 1841.0999999999992 unloaded batch 37 from unit 2
+Time: 1841.0999999999992 loading unit 0 with batch 37
+Time: 1841.0999999999992 loading unit 2 with batch 37
+Time: 1842.0999999999992 started task 8 on unit 0 with batch 37
+Time: 1842.0999999999992 started task 3 on unit 2 with batch 37
+Time: 1854.1999999999991 unloaded batch 37 from unit 0
+Time: 1900.299999999999 unloaded batch 37 from unit 1
+Time: 1900.299999999999 loading unit 0 with batch 37
+Time: 1900.299999999999 loading unit 1 with batch 37
+Time: 1901.299999999999 started task 2 on unit 0 with batch 37
+Time: 1901.299999999999 started task 1 on unit 1 with batch 37
+Time: 1946.6999999999991 unloaded batch 37 from unit 0
+Time: 1946.6999999999991 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 1946.6999999999991
+Time: 1947.6999999999991 started task 0 on unit 0 with batch 37
+Time: 1954.0999999999992 unloaded batch 37 from unit 2
+Time: 1954.0999999999992 loading unit 2 with batch 37
+Time: 1955.0999999999992 started task 3 on unit 2 with batch 37
+Time: 1967.1999999999991 unloaded batch 37 from unit 0
+Time: 2031.799999999999 unloaded batch 37 from unit 1
+Time: 2031.799999999999 loading unit 0 with batch 37
+Time: 2031.799999999999 loading unit 1 with batch 37
+Time: 2032.799999999999 started task 2 on unit 0 with batch 37
+Time: 2032.799999999999 started task 4 on unit 1 with batch 37
+Time: 2063.399999999999 unloaded batch 37 from unit 1
+Time: 2063.399999999999 loading unit 1 with batch 37
+Time: 2064.399999999999 started task 1 on unit 1 with batch 37
+Time: 2067.099999999999 unloaded batch 37 from unit 2
+Time: 2078.199999999999 unloaded batch 37 from unit 0
+Time: 2078.199999999999 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 2078.199999999999
+Time: 2078.199999999999 loading unit 2 with batch 37
+Time: 2079.199999999999 started task 0 on unit 0 with batch 37
+Time: 2079.199999999999 started task 3 on unit 2 with batch 37
+Time: 2098.699999999999 unloaded batch 37 from unit 0
+Time: 2098.699999999999 loading unit 0 with batch 37
+Time: 2099.699999999999 started task 5 on unit 0 with batch 37
+Time: 2119.199999999999 unloaded batch 37 from unit 0
+Time: 2191.199999999999 unloaded batch 37 from unit 2
+Time: 2194.8999999999987 unloaded batch 37 from unit 1
+Time: 2194.8999999999987 loading unit 0 with batch 37
+Time: 2194.8999999999987 loading unit 1 with batch 37
+Time: 2195.8999999999987 started task 2 on unit 0 with batch 37
+Time: 2195.8999999999987 started task 4 on unit 1 with batch 37
+Time: 2226.4999999999986 unloaded batch 37 from unit 1
+Time: 2226.4999999999986 loading unit 1 with batch 37
+Time: 2227.4999999999986 started task 4 on unit 1 with batch 37
+Time: 2241.299999999999 unloaded batch 37 from unit 0
+Time: 2241.299999999999 loading unit 0 with batch 37
+Time: 2241.299999999999 loading unit 2 with batch 37
+Time: 2242.299999999999 started task 5 on unit 0 with batch 37
+Time: 2242.299999999999 started task 3 on unit 2 with batch 37
+Time: 2258.099999999999 unloaded batch 37 from unit 1
+Time: 2258.099999999999 loading unit 1 with batch 37
+Time: 2259.099999999999 started task 6 on unit 1 with batch 37
+Time: 2261.799999999999 unloaded batch 37 from unit 0
+Time: 2261.799999999999 loading unit 0 with batch 37
+Time: 2262.799999999999 started task 5 on unit 0 with batch 37
+Time: 2282.299999999999 unloaded batch 37 from unit 0
+Time: 2297.099999999999 unloaded batch 37 from unit 1
+Time: 2297.099999999999 loading unit 1 with batch 37
+Time: 2298.099999999999 started task 6 on unit 1 with batch 37
+Time: 2336.099999999999 unloaded batch 37 from unit 1
+Time: 2336.099999999999 loading unit 1 with batch 37
+Time: 2337.099999999999 started task 6 on unit 1 with batch 37
+Time: 2354.299999999999 unloaded batch 37 from unit 2
+Time: 2354.299999999999 loading unit 2 with batch 37
+Time: 2355.299999999999 started task 7 on unit 2 with batch 37
+Time: 2375.099999999999 unloaded batch 37 from unit 1
+Time: 2375.099999999999 loading unit 1 with batch 37
+Time: 2376.099999999999 started task 4 on unit 1 with batch 37
+Time: 2406.699999999999 unloaded batch 37 from unit 1
+Time: 2406.699999999999 loading unit 0 with batch 37
+Time: 2406.699999999999 loading unit 1 with batch 37
+Time: 2407.699999999999 started task 5 on unit 0 with batch 37
+Time: 2407.699999999999 started task 1 on unit 1 with batch 37
+Time: 2426.599999999999 unloaded batch 37 from unit 2
+Time: 2426.599999999999 loading unit 2 with batch 37
+Time: 2427.199999999999 unloaded batch 37 from unit 0
+Time: 2427.199999999999 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 2427.199999999999
+Time: 2427.599999999999 started task 7 on unit 2 with batch 37
+Time: 2428.199999999999 started task 0 on unit 0 with batch 37
+Time: 2447.699999999999 unloaded batch 37 from unit 0
+Time: 2447.699999999999 loading unit 0 with batch 37
+Time: 2448.699999999999 started task 8 on unit 0 with batch 37
+Time: 2460.799999999999 unloaded batch 37 from unit 0
+Time: 2498.8999999999987 unloaded batch 37 from unit 2
+Time: 2498.8999999999987 loading unit 0 with batch 37
+Time: 2498.8999999999987 loading unit 2 with batch 37
+Time: 2499.8999999999987 started task 8 on unit 0 with batch 37
+Time: 2499.8999999999987 started task 7 on unit 2 with batch 37
+Time: 2511.9999999999986 unloaded batch 37 from unit 0
+Time: 2538.1999999999985 unloaded batch 37 from unit 1
+Time: 2538.1999999999985 loading unit 0 with batch 37
+Time: 2538.1999999999985 loading unit 1 with batch 37
+Time: 2539.1999999999985 started task 2 on unit 0 with batch 37
+Time: 2539.1999999999985 started task 6 on unit 1 with batch 37
+Time: 2571.1999999999985 unloaded batch 37 from unit 2
+Time: 2577.1999999999985 unloaded batch 37 from unit 1
+Time: 2577.1999999999985 loading unit 1 with batch 37
+Time: 2577.1999999999985 loading unit 2 with batch 37
+Time: 2578.1999999999985 started task 1 on unit 1 with batch 37
+Time: 2578.1999999999985 started task 7 on unit 2 with batch 37
+Time: 2584.5999999999985 unloaded batch 37 from unit 0
+Time: 2584.5999999999985 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 2584.5999999999985
+Time: 2585.5999999999985 started task 0 on unit 0 with batch 37
+Time: 2605.0999999999985 unloaded batch 37 from unit 0
+Time: 2605.0999999999985 loading unit 0 with batch 37
+Time: 2606.0999999999985 started task 8 on unit 0 with batch 37
+Time: 2618.1999999999985 unloaded batch 37 from unit 0
+Time: 2649.4999999999986 unloaded batch 37 from unit 2
+Time: 2649.4999999999986 loading unit 0 with batch 37
+Time: 2649.4999999999986 loading unit 2 with batch 37
+Time: 2650.4999999999986 started task 8 on unit 0 with batch 37
+Time: 2650.4999999999986 started task 3 on unit 2 with batch 37
+Time: 2662.5999999999985 unloaded batch 37 from unit 0
+Time: 2708.6999999999985 unloaded batch 37 from unit 1
+Time: 2708.6999999999985 loading unit 0 with batch 37
+Time: 2708.6999999999985 loading unit 1 with batch 37
+Time: 2709.6999999999985 started task 2 on unit 0 with batch 37
+Time: 2709.6999999999985 started task 1 on unit 1 with batch 37
+Time: 2755.0999999999985 unloaded batch 37 from unit 0
+Time: 2755.0999999999985 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 2755.0999999999985
+Time: 2756.0999999999985 started task 0 on unit 0 with batch 37
+Time: 2762.4999999999986 unloaded batch 37 from unit 2
+Time: 2762.4999999999986 loading unit 2 with batch 37
+Time: 2763.4999999999986 started task 3 on unit 2 with batch 37
+Time: 2775.5999999999985 unloaded batch 37 from unit 0
+Time: 2840.1999999999985 unloaded batch 37 from unit 1
+Time: 2840.1999999999985 loading unit 0 with batch 37
+Time: 2840.1999999999985 loading unit 1 with batch 37
+Time: 2841.1999999999985 started task 2 on unit 0 with batch 37
+Time: 2841.1999999999985 started task 4 on unit 1 with batch 37
+Time: 2871.7999999999984 unloaded batch 37 from unit 1
+Time: 2871.7999999999984 loading unit 1 with batch 37
+Time: 2872.7999999999984 started task 1 on unit 1 with batch 37
+Time: 2875.499999999998 unloaded batch 37 from unit 2
+Time: 2886.599999999998 unloaded batch 37 from unit 0
+Time: 2886.599999999998 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 2886.599999999998
+Time: 2886.599999999998 loading unit 2 with batch 37
+Time: 2887.599999999998 started task 0 on unit 0 with batch 37
+Time: 2887.599999999998 started task 3 on unit 2 with batch 37
+Time: 2907.099999999998 unloaded batch 37 from unit 0
+Time: 2907.099999999998 loading unit 0 with batch 37
+Time: 2908.099999999998 started task 5 on unit 0 with batch 37
+Time: 2927.599999999998 unloaded batch 37 from unit 0
+Time: 2999.599999999998 unloaded batch 37 from unit 2
+Time: 3003.299999999998 unloaded batch 37 from unit 1
+Time: 3003.299999999998 loading unit 0 with batch 37
+Time: 3003.299999999998 loading unit 1 with batch 37
+Time: 3004.299999999998 started task 2 on unit 0 with batch 37
+Time: 3004.299999999998 started task 4 on unit 1 with batch 37
+Time: 3034.899999999998 unloaded batch 37 from unit 1
+Time: 3034.899999999998 loading unit 1 with batch 37
+Time: 3035.899999999998 started task 4 on unit 1 with batch 37
+Time: 3049.699999999998 unloaded batch 37 from unit 0
+Time: 3049.699999999998 loading unit 0 with batch 37
+Time: 3049.699999999998 loading unit 2 with batch 37
+Time: 3050.699999999998 started task 5 on unit 0 with batch 37
+Time: 3050.699999999998 started task 3 on unit 2 with batch 37
+Time: 3066.499999999998 unloaded batch 37 from unit 1
+Time: 3066.499999999998 loading unit 1 with batch 37
+Time: 3067.499999999998 started task 6 on unit 1 with batch 37
+Time: 3070.199999999998 unloaded batch 37 from unit 0
+Time: 3070.199999999998 loading unit 0 with batch 37
+Time: 3071.199999999998 started task 5 on unit 0 with batch 37
+Time: 3090.699999999998 unloaded batch 37 from unit 0
+Time: 3105.499999999998 unloaded batch 37 from unit 1
+Time: 3105.499999999998 loading unit 1 with batch 37
+Time: 3106.499999999998 started task 6 on unit 1 with batch 37
+Time: 3144.499999999998 unloaded batch 37 from unit 1
+Time: 3144.499999999998 loading unit 1 with batch 37
+Time: 3145.499999999998 started task 6 on unit 1 with batch 37
+Time: 3162.699999999998 unloaded batch 37 from unit 2
+Time: 3162.699999999998 loading unit 2 with batch 37
+Time: 3163.699999999998 started task 7 on unit 2 with batch 37
+Time: 3183.499999999998 unloaded batch 37 from unit 1
+Time: 3183.499999999998 loading unit 1 with batch 37
+Time: 3184.499999999998 started task 4 on unit 1 with batch 37
+Time: 3215.099999999998 unloaded batch 37 from unit 1
+Time: 3215.099999999998 loading unit 0 with batch 37
+Time: 3215.099999999998 loading unit 1 with batch 37
+Time: 3216.099999999998 started task 5 on unit 0 with batch 37
+Time: 3216.099999999998 started task 1 on unit 1 with batch 37
+Time: 3234.999999999998 unloaded batch 37 from unit 2
+Time: 3234.999999999998 loading unit 2 with batch 37
+Time: 3235.599999999998 unloaded batch 37 from unit 0
+Time: 3235.599999999998 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 3235.599999999998
+Time: 3235.999999999998 started task 7 on unit 2 with batch 37
+Time: 3236.599999999998 started task 0 on unit 0 with batch 37
+Time: 3256.099999999998 unloaded batch 37 from unit 0
+Time: 3256.099999999998 loading unit 0 with batch 37
+Time: 3257.099999999998 started task 8 on unit 0 with batch 37
+Time: 3269.199999999998 unloaded batch 37 from unit 0
+Time: 3307.299999999998 unloaded batch 37 from unit 2
+Time: 3307.299999999998 loading unit 0 with batch 37
+Time: 3307.299999999998 loading unit 2 with batch 37
+Time: 3308.299999999998 started task 8 on unit 0 with batch 37
+Time: 3308.299999999998 started task 7 on unit 2 with batch 37
+Time: 3320.399999999998 unloaded batch 37 from unit 0
+Time: 3346.5999999999976 unloaded batch 37 from unit 1
+Time: 3346.5999999999976 loading unit 0 with batch 37
+Time: 3346.5999999999976 loading unit 1 with batch 37
+Time: 3347.5999999999976 started task 2 on unit 0 with batch 37
+Time: 3347.5999999999976 started task 6 on unit 1 with batch 37
+Time: 3379.5999999999976 unloaded batch 37 from unit 2
+Time: 3385.5999999999976 unloaded batch 37 from unit 1
+Time: 3385.5999999999976 loading unit 1 with batch 37
+Time: 3385.5999999999976 loading unit 2 with batch 37
+Time: 3386.5999999999976 started task 1 on unit 1 with batch 37
+Time: 3386.5999999999976 started task 7 on unit 2 with batch 37
+Time: 3392.9999999999977 unloaded batch 37 from unit 0
+Time: 3392.9999999999977 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 3392.9999999999977
+Time: 3393.9999999999977 started task 0 on unit 0 with batch 37
+Time: 3413.4999999999977 unloaded batch 37 from unit 0
+Time: 3413.4999999999977 loading unit 0 with batch 37
+Time: 3414.4999999999977 started task 8 on unit 0 with batch 37
+Time: 3426.5999999999976 unloaded batch 37 from unit 0
+Time: 3457.899999999998 unloaded batch 37 from unit 2
+Time: 3457.899999999998 loading unit 0 with batch 37
+Time: 3457.899999999998 loading unit 2 with batch 37
+Time: 3458.899999999998 started task 8 on unit 0 with batch 37
+Time: 3458.899999999998 started task 3 on unit 2 with batch 37
+Time: 3470.9999999999977 unloaded batch 37 from unit 0
+Time: 3517.0999999999976 unloaded batch 37 from unit 1
+Time: 3517.0999999999976 loading unit 0 with batch 37
+Time: 3517.0999999999976 loading unit 1 with batch 37
+Time: 3518.0999999999976 started task 2 on unit 0 with batch 37
+Time: 3518.0999999999976 started task 1 on unit 1 with batch 37
+Time: 3563.4999999999977 unloaded batch 37 from unit 0
+Time: 3563.4999999999977 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 3563.4999999999977
+Time: 3564.4999999999977 started task 0 on unit 0 with batch 37
+Time: 3570.899999999998 unloaded batch 37 from unit 2
+Time: 3570.899999999998 loading unit 2 with batch 37
+Time: 3571.899999999998 started task 3 on unit 2 with batch 37
+Time: 3583.9999999999977 unloaded batch 37 from unit 0
+Time: 3648.5999999999976 unloaded batch 37 from unit 1
+Time: 3648.5999999999976 loading unit 0 with batch 37
+Time: 3648.5999999999976 loading unit 1 with batch 37
+Time: 3649.5999999999976 started task 2 on unit 0 with batch 37
+Time: 3649.5999999999976 started task 4 on unit 1 with batch 37
+Time: 3680.1999999999975 unloaded batch 37 from unit 1
+Time: 3680.1999999999975 loading unit 1 with batch 37
+Time: 3681.1999999999975 started task 1 on unit 1 with batch 37
+Time: 3683.8999999999974 unloaded batch 37 from unit 2
+Time: 3694.9999999999973 unloaded batch 37 from unit 0
+Time: 3694.9999999999973 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 3694.9999999999973
+Time: 3694.9999999999973 loading unit 2 with batch 37
+Time: 3695.9999999999973 started task 0 on unit 0 with batch 37
+Time: 3695.9999999999973 started task 3 on unit 2 with batch 37
+Time: 3715.4999999999973 unloaded batch 37 from unit 0
+Time: 3715.4999999999973 loading unit 0 with batch 37
+Time: 3716.4999999999973 started task 5 on unit 0 with batch 37
+Time: 3735.9999999999973 unloaded batch 37 from unit 0
+Time: 3807.9999999999973 unloaded batch 37 from unit 2
+Time: 3811.699999999997 unloaded batch 37 from unit 1
+Time: 3811.699999999997 loading unit 0 with batch 37
+Time: 3811.699999999997 loading unit 1 with batch 37
+Time: 3812.699999999997 started task 2 on unit 0 with batch 37
+Time: 3812.699999999997 started task 4 on unit 1 with batch 37
+Time: 3843.299999999997 unloaded batch 37 from unit 1
+Time: 3843.299999999997 loading unit 1 with batch 37
+Time: 3844.299999999997 started task 4 on unit 1 with batch 37
+Time: 3858.099999999997 unloaded batch 37 from unit 0
+Time: 3858.099999999997 loading unit 0 with batch 37
+Time: 3858.099999999997 loading unit 2 with batch 37
+Time: 3859.099999999997 started task 5 on unit 0 with batch 37
+Time: 3859.099999999997 started task 3 on unit 2 with batch 37
+Time: 3874.8999999999974 unloaded batch 37 from unit 1
+Time: 3874.8999999999974 loading unit 1 with batch 37
+Time: 3875.8999999999974 started task 6 on unit 1 with batch 37
+Time: 3878.599999999997 unloaded batch 37 from unit 0
+Time: 3878.599999999997 loading unit 0 with batch 37
+Time: 3879.599999999997 started task 5 on unit 0 with batch 37
+Time: 3899.099999999997 unloaded batch 37 from unit 0
+Time: 3913.8999999999974 unloaded batch 37 from unit 1
+Time: 3913.8999999999974 loading unit 1 with batch 37
+Time: 3914.8999999999974 started task 6 on unit 1 with batch 37
+Time: 3952.8999999999974 unloaded batch 37 from unit 1
+Time: 3952.8999999999974 loading unit 1 with batch 37
+Time: 3953.8999999999974 started task 6 on unit 1 with batch 37
+Time: 3971.099999999997 unloaded batch 37 from unit 2
+Time: 3971.099999999997 loading unit 2 with batch 37
+Time: 3972.099999999997 started task 7 on unit 2 with batch 37
+Time: 3991.8999999999974 unloaded batch 37 from unit 1
+Time: 3991.8999999999974 loading unit 1 with batch 37
+Time: 3992.8999999999974 started task 4 on unit 1 with batch 37
+Time: 4023.4999999999973 unloaded batch 37 from unit 1
+Time: 4023.4999999999973 loading unit 0 with batch 37
+Time: 4023.4999999999973 loading unit 1 with batch 37
+Time: 4024.4999999999973 started task 5 on unit 0 with batch 37
+Time: 4024.4999999999973 started task 1 on unit 1 with batch 37
+Time: 4043.3999999999974 unloaded batch 37 from unit 2
+Time: 4043.3999999999974 loading unit 2 with batch 37
+Time: 4043.9999999999973 unloaded batch 37 from unit 0
+Time: 4043.9999999999973 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 4043.9999999999973
+Time: 4044.3999999999974 started task 7 on unit 2 with batch 37
+Time: 4044.9999999999973 started task 0 on unit 0 with batch 37
+Time: 4064.4999999999973 unloaded batch 37 from unit 0
+Time: 4064.4999999999973 loading unit 0 with batch 37
+Time: 4065.4999999999973 started task 8 on unit 0 with batch 37
+Time: 4077.599999999997 unloaded batch 37 from unit 0
+Time: 4115.699999999997 unloaded batch 37 from unit 2
+Time: 4115.699999999997 loading unit 0 with batch 37
+Time: 4115.699999999997 loading unit 2 with batch 37
+Time: 4116.699999999997 started task 8 on unit 0 with batch 37
+Time: 4116.699999999997 started task 7 on unit 2 with batch 37
+Time: 4128.799999999997 unloaded batch 37 from unit 0
+Time: 4154.999999999997 unloaded batch 37 from unit 1
+Time: 4154.999999999997 loading unit 0 with batch 37
+Time: 4154.999999999997 loading unit 1 with batch 37
+Time: 4155.999999999997 started task 2 on unit 0 with batch 37
+Time: 4155.999999999997 started task 6 on unit 1 with batch 37
+Time: 4187.999999999997 unloaded batch 37 from unit 2
+Time: 4193.999999999997 unloaded batch 37 from unit 1
+Time: 4193.999999999997 loading unit 1 with batch 37
+Time: 4193.999999999997 loading unit 2 with batch 37
+Time: 4194.999999999997 started task 1 on unit 1 with batch 37
+Time: 4194.999999999997 started task 7 on unit 2 with batch 37
+Time: 4201.399999999997 unloaded batch 37 from unit 0
+Time: 4201.399999999997 loading unit 0 with batch 37
+Batch 37 is loaded into inputbuffer at time 4201.399999999997
+Time: 4202.399999999997 started task 0 on unit 0 with batch 37
+Time: 4221.899999999997 unloaded batch 37 from unit 0
+Time: 4221.899999999997 loading unit 0 with batch 37
+Time: 4222.899999999997 started task 8 on unit 0 with batch 37
+Time: 4234.999999999997 unloaded batch 37 from unit 0
+Time: 4266.299999999997 unloaded batch 37 from unit 2
+Time: 4266.299999999997 loading unit 0 with batch 37
+Time: 4266.299999999997 loading unit 2 with batch 37
+Time: 4267.299999999997 started task 8 on unit 0 with batch 37
+Time: 4267.299999999997 started task 3 on unit 2 with batch 37
+Time: 4279.399999999998 unloaded batch 37 from unit 0
+Time: 4325.499999999998 unloaded batch 37 from unit 1
+Time: 4325.499999999998 loading unit 0 with batch 37
+Time: 4325.499999999998 loading unit 1 with batch 37
+Time: 4326.499999999998 started task 2 on unit 0 with batch 37
+Time: 4326.499999999998 started task 1 on unit 1 with batch 37
+Time: 4371.899999999998 unloaded batch 37 from unit 0
+Time: 4371.899999999998 loading unit 0 with batch 37
+Batch 38 is loaded into inputbuffer at time 4371.899999999998
+Time: 4372.899999999998 started task 0 on unit 0 with batch 37
+Time: 4379.299999999997 unloaded batch 37 from unit 2
+Time: 4379.299999999997 loading unit 2 with batch 37
+Time: 4380.299999999997 started task 3 on unit 2 with batch 37
+Time: 4392.399999999998 unloaded batch 37 from unit 0
+Time: 4456.999999999998 unloaded batch 37 from unit 1
+Time: 4456.999999999998 loading unit 0 with batch 37
+Time: 4456.999999999998 loading unit 1 with batch 37
+Time: 4457.999999999998 started task 2 on unit 0 with batch 37
+Time: 4457.999999999998 started task 4 on unit 1 with batch 37
+Time: 4488.5999999999985 unloaded batch 37 from unit 1
+Time: 4488.5999999999985 loading unit 1 with batch 37
+Time: 4489.5999999999985 started task 1 on unit 1 with batch 37
+Time: 4492.299999999998 unloaded batch 37 from unit 2
+Time: 4503.399999999999 unloaded batch 37 from unit 0
+Time: 4503.399999999999 loading unit 0 with batch 38
+Time: 4503.399999999999 loading unit 2 with batch 37
+Time: 4504.399999999999 started task 0 on unit 0 with batch 38
+Time: 4504.399999999999 started task 3 on unit 2 with batch 37
+Time: 4524.399999999999 unloaded batch 38 from unit 0
+Time: 4524.399999999999 loading unit 0 with batch 37
+Time: 4525.399999999999 started task 5 on unit 0 with batch 37
+Time: 4544.899999999999 unloaded batch 37 from unit 0
+Time: 4616.399999999999 unloaded batch 37 from unit 2
+Time: 4620.0999999999985 unloaded batch 37 from unit 1
+Time: 4620.0999999999985 loading unit 0 with batch 37
+Time: 4620.0999999999985 loading unit 1 with batch 37
+Time: 4621.0999999999985 started task 2 on unit 0 with batch 37
+Time: 4621.0999999999985 started task 4 on unit 1 with batch 37
+Time: 4651.699999999999 unloaded batch 37 from unit 1
+Time: 4651.699999999999 loading unit 1 with batch 37
+Time: 4652.699999999999 started task 4 on unit 1 with batch 37
+Time: 4666.499999999999 unloaded batch 37 from unit 0
+Time: 4666.499999999999 loading unit 0 with batch 37
+Time: 4666.499999999999 loading unit 2 with batch 37
+Time: 4667.499999999999 started task 5 on unit 0 with batch 37
+Time: 4667.499999999999 started task 3 on unit 2 with batch 37
+Time: 4683.299999999999 unloaded batch 37 from unit 1
+Time: 4683.299999999999 loading unit 1 with batch 37
+Time: 4684.299999999999 started task 6 on unit 1 with batch 37
+Time: 4686.999999999999 unloaded batch 37 from unit 0
+Time: 4686.999999999999 loading unit 0 with batch 37
+Time: 4687.999999999999 started task 5 on unit 0 with batch 37
+Time: 4707.499999999999 unloaded batch 37 from unit 0
+Time: 4722.299999999999 unloaded batch 37 from unit 1
+Time: 4722.299999999999 loading unit 1 with batch 37
+Time: 4723.299999999999 started task 6 on unit 1 with batch 37
+Time: 4761.299999999999 unloaded batch 37 from unit 1
+Time: 4761.299999999999 loading unit 1 with batch 37
+Time: 4762.299999999999 started task 6 on unit 1 with batch 37
+Time: 4779.499999999999 unloaded batch 37 from unit 2
+Time: 4779.499999999999 loading unit 2 with batch 37
+Time: 4780.499999999999 started task 7 on unit 2 with batch 37
+Time: 4800.299999999999 unloaded batch 37 from unit 1
+Time: 4800.299999999999 loading unit 1 with batch 37
+Time: 4801.299999999999 started task 4 on unit 1 with batch 37
+Time: 4831.9 unloaded batch 37 from unit 1
+Time: 4831.9 loading unit 0 with batch 37
+Time: 4831.9 loading unit 1 with batch 37
+Time: 4832.9 started task 5 on unit 0 with batch 37
+Time: 4832.9 started task 1 on unit 1 with batch 37
+Time: 4851.799999999999 unloaded batch 37 from unit 2
+Time: 4851.799999999999 loading unit 2 with batch 37
+Time: 4852.4 unloaded batch 37 from unit 0
+Time: 4852.4 loading unit 0 with batch 37
+Time: 4852.799999999999 started task 7 on unit 2 with batch 37
+Time: 4853.4 started task 8 on unit 0 with batch 37
+Time: 4865.5 unloaded batch 37 from unit 0
+Time: 4924.1 unloaded batch 37 from unit 2
+Time: 4924.1 loading unit 0 with batch 37
+Time: 4924.1 loading unit 2 with batch 37
+Time: 4925.1 started task 8 on unit 0 with batch 37
+Time: 4925.1 started task 7 on unit 2 with batch 37
+Time: 4937.200000000001 unloaded batch 37 from unit 0
+Time: 4963.400000000001 unloaded batch 37 from unit 1
+Time: 4963.400000000001 loading unit 0 with batch 37
+Time: 4963.400000000001 loading unit 1 with batch 37
+Time: 4964.400000000001 started task 2 on unit 0 with batch 37
+Time: 4964.400000000001 started task 6 on unit 1 with batch 37
+Time: 4996.400000000001 unloaded batch 37 from unit 2
+Time: 5002.400000000001 unloaded batch 37 from unit 1
+Time: 5002.400000000001 loading unit 1 with batch 37
+Time: 5002.400000000001 loading unit 2 with batch 37
+Time: 5003.400000000001 started task 1 on unit 1 with batch 37
+Time: 5003.400000000001 started task 7 on unit 2 with batch 37
+Time: 5009.8 unloaded batch 37 from unit 0
+Time: 5009.8 loading unit 0 with batch 37
+Time: 5010.8 started task 8 on unit 0 with batch 37
+Time: 5022.900000000001 unloaded batch 37 from unit 0
+Time: 5074.700000000001 unloaded batch 37 from unit 2
+Time: 5074.700000000001 loading unit 0 with batch 37
+Time: 5074.700000000001 loading unit 2 with batch 37
+Time: 5075.700000000001 started task 8 on unit 0 with batch 37
+Time: 5075.700000000001 started task 3 on unit 2 with batch 37
+Time: 5087.800000000001 unloaded batch 37 from unit 0
+Time: 5133.9000000000015 unloaded batch 37 from unit 1
+Time: 5133.9000000000015 loading unit 0 with batch 37
+Time: 5133.9000000000015 loading unit 1 with batch 38
+Time: 5134.9000000000015 started task 2 on unit 0 with batch 37
+Time: 5134.9000000000015 started task 1 on unit 1 with batch 38
+Time: 5180.300000000001 unloaded batch 37 from unit 0
+Time: 5187.700000000001 unloaded batch 37 from unit 2
+Time: 5187.700000000001 loading unit 2 with batch 37
+Time: 5188.700000000001 started task 3 on unit 2 with batch 37
+Time: 5268.900000000001 unloaded batch 38 from unit 1
+Time: 5268.900000000001 loading unit 0 with batch 38
+Time: 5268.900000000001 loading unit 1 with batch 37
+Time: 5269.900000000001 started task 2 on unit 0 with batch 38
+Time: 5269.900000000001 started task 4 on unit 1 with batch 37
+Time: 5300.500000000001 unloaded batch 37 from unit 1
+Time: 5300.700000000001 unloaded batch 37 from unit 2
+Time: 5300.700000000001 loading unit 1 with batch 37
+Time: 5301.700000000001 started task 4 on unit 1 with batch 37
+Time: 5316.500000000001 unloaded batch 38 from unit 0
+Time: 5316.500000000001 loading unit 0 with batch 37
+Time: 5316.500000000001 loading unit 2 with batch 38
+Time: 5317.500000000001 started task 5 on unit 0 with batch 37
+Time: 5317.500000000001 started task 3 on unit 2 with batch 38
+Time: 5332.300000000001 unloaded batch 37 from unit 1
+Time: 5337.000000000001 unloaded batch 37 from unit 0
+Time: 5337.000000000001 loading unit 0 with batch 37
+Time: 5337.000000000001 loading unit 1 with batch 37
+Time: 5338.000000000001 started task 5 on unit 0 with batch 37
+Time: 5338.000000000001 started task 6 on unit 1 with batch 37
+Time: 5357.500000000001 unloaded batch 37 from unit 0
+Time: 5376.000000000001 unloaded batch 37 from unit 1
+Time: 5376.000000000001 loading unit 1 with batch 37
+Time: 5377.000000000001 started task 6 on unit 1 with batch 37
+Time: 5415.000000000001 unloaded batch 37 from unit 1
+Time: 5432.500000000001 unloaded batch 38 from unit 2
+Time: 5432.500000000001 loading unit 1 with batch 38
+Time: 5432.500000000001 loading unit 2 with batch 37
+Time: 5433.500000000001 started task 4 on unit 1 with batch 38
+Time: 5433.500000000001 started task 7 on unit 2 with batch 37
+Time: 5464.900000000001 unloaded batch 38 from unit 1
+Time: 5464.900000000001 loading unit 0 with batch 38
+Time: 5465.900000000001 started task 5 on unit 0 with batch 38
+Time: 5485.900000000001 unloaded batch 38 from unit 0
+Time: 5485.900000000001 loading unit 1 with batch 38
+Time: 5486.900000000001 started task 6 on unit 1 with batch 38
+Time: 5504.8 unloaded batch 37 from unit 2
+Time: 5504.8 loading unit 0 with batch 37
+Time: 5504.8 loading unit 2 with batch 37
+Time: 5505.8 started task 8 on unit 0 with batch 37
+Time: 5505.8 started task 7 on unit 2 with batch 37
+Time: 5517.900000000001 unloaded batch 37 from unit 0
+Time: 5525.900000000001 unloaded batch 38 from unit 1
+Time: 5577.1 unloaded batch 37 from unit 2
+Time: 5577.1 loading unit 0 with batch 37
+Time: 5577.1 loading unit 2 with batch 38
+Time: 5578.1 started task 8 on unit 0 with batch 37
+Time: 5578.1 started task 7 on unit 2 with batch 38
+Time: 5590.200000000001 unloaded batch 37 from unit 0
+Time: 5651.300000000001 unloaded batch 38 from unit 2
+Time: 5651.300000000001 loading unit 0 with batch 38
+Time: 5652.300000000001 started task 8 on unit 0 with batch 38
+Time: 5664.700000000001 unloaded batch 38 from unit 0

@@ -1,7 +1,8 @@
-from Unit import units
+import numpy as np
 from Batch import batches
 from Buffers import buffers
-import numpy as np
+from Unit import units
+import itertools
 
 class productionline:
     def __init__(self):
@@ -312,7 +313,7 @@ class productionline:
                 groups.append(num_wafers/2)
                 groups.append(num_wafers/2)
         batche = []
-        print(groups)
+        #print(groups)
         for group in groups:
             batche.append(batches(group))
             
@@ -321,7 +322,7 @@ class productionline:
     def clear(self):
         self = productionline()
     
-    def simulatorloop(self, wafers, dividinghueristic, choosinghueristic, choosingInputHueristic, addToInputBufferHueristic, filename, n = 20):
+    def simulatorloop(self, wafers, dividinghueristic, choosinghueristic, choosingInputHueristic, addToInputBufferHueristic, filename, n = 20, prioOrder = [[0,2,5,8],[1,4,6],[3,7]]):
         self.numberofwafers = wafers
         batc = dividinghueristic(wafers, n)
         i = 0
@@ -330,8 +331,8 @@ class productionline:
 
         while self.checkIfDone() == False:
             for unit in self.units:
-                if unit.isBusy() == False and choosinghueristic(unit) != None:
-                    batch = choosinghueristic(unit)
+                if unit.isBusy() == False and choosinghueristic(unit, prioOrder[unit.getId()]) != None:
+                    batch = choosinghueristic(unit, prioOrder[unit.getId()])
                     self.loadUnitWithBatch(unit, batch, f)
                 #print(addToInputBufferHueristic())
                 if addToInputBufferHueristic() and len(batc) > 0:
@@ -349,7 +350,7 @@ class productionline:
             #     print("itsa wrong, mario")
             #     break
         #print(batc)
-        print("Done at time:", self.getTime())
+        #print("Done at time:", self.getTime())
         f.close()
         return self.getTime()
     
@@ -383,13 +384,34 @@ class productionline:
 #         value[0] = i
 #     Task5 = productionline()
 # print(value)
-Task5 = productionline()
-value = [None]
-num = np.inf
-for i in range(20, 51):
-    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic3, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
-    if tid < num:
-        num = tid
-        value[0] = i
+def findOptimalSolution():
+    baselist = [[0,2,5,8],[1,4,6],[3,7]]
+    basedlist = []
+    basedlist.append(list(itertools.permutations(baselist[0])))
+    basedlist.append(list(itertools.permutations(baselist[1])))
+    basedlist.append(list(itertools.permutations(baselist[2])))
     Task5 = productionline()
-print(value)
+    value = [None, None]
+    num = np.inf
+    j = 0
+    for u1priorities in basedlist[0]:
+        for u2priorities in basedlist[1]:
+            for u3priorities in basedlist[2]:
+                for i in range(20, 51):
+                    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic3, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i, [u1priorities, u2priorities, u3priorities])
+                    j += 1
+                    if tid < num:
+                        num = tid
+                        value[0] = i
+                        value[1] = [u1priorities, u2priorities, u3priorities]
+                        print(j, value, num)
+                    if j%1400 == 0:
+                        print(j, value, num)
+                    Task5 = productionline()
+    return value
+values = findOptimalSolution()
+print(values)
+print(values[1])            
+Task7 = productionline()
+tid = Task7.simulatorloop(1000, Task7.dividinghueristic1, Task7.choosingHueristic3, Task7.choosingInputHueristic1, Task7.addToInputBufferHueristic_whenEmpty, "Task7output.txt", values[0], values[1])
+print(tid)
