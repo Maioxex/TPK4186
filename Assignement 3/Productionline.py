@@ -292,8 +292,12 @@ class productionline:
         if num_wafers/2 < 20:
             groups.append(num_wafers)
         else:
-            groups.append(num_wafers/2)
-            groups.append(num_wafers/2)
+            if num_wafers%2 == 1:
+                groups.append(num_wafers//2+1)
+                groups.append(num_wafers//2)
+            else:
+                groups.append(num_wafers/2)
+                groups.append(num_wafers/2)
         batche = []
         print(groups)
         for group in groups:
@@ -364,3 +368,4 @@ for i in range(20, 51):
         num = tid
         value[0] = i
     Task5 = productionline()
+print(value)
