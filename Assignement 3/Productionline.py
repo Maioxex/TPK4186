@@ -17,10 +17,6 @@ class productionline:
         for i in range(10):
             self.buffers.append(buffers(i))
     
-    def loadBatchToInputBuffer(self, batch, f):
-        self.buffers[0].add(batch)
-        f.write(f"Batch {batch.getSize()} is loaded into inputbuffer at time {self.getTime()}\n")
-    
     def getBuffers(self):
         return self.buffers
     
@@ -85,7 +81,6 @@ class productionline:
         return lowest, bestunit
                 
     def progressTime(self, time):
-        #print(f"Time: {time}")
         self.increaseTime(time)
         for unit in self.units:
             if unit.getTime() - time >= 0:
@@ -101,6 +96,21 @@ class productionline:
                 return buffer
         raise ValueError("No buffer with task")
     
+    #task 2
+    #the printer for the system, will print out the state of the entire production line at the time of calling
+    #we are not using it activly in  our main function, as it increases the runtime of the program by a lot, espescially when using the optimization function that brute forces
+    def printState(self):
+        for unit in self.units:
+            print(unit)
+        for buffer in self.buffers:
+            print(buffer)
+    
+    #task 3
+    #here we have implemented the different actions, but as functions in the productionline class instead of an entire new class
+    def loadBatchToInputBuffer(self, batch, f):
+        self.buffers[0].add(batch)
+        f.write(f"Batch {batch.getSize()} is loaded into inputbuffer at time {self.getTime()}\n")
+        
     def loadTask(self, task, batch):
         unit = self.findUnitWithTask(task)
         if unit.isBusy() or unit.getTime() != 0:
@@ -147,9 +157,6 @@ class productionline:
         f.write(f"Time: {self.getTime()} started task {unit.getTask()} on unit {unit.getId()} with batch {unit.getBatch().getSize()}\n")  
     
     def loadUnitWithBatch(self, unit, batch, f):
-        # print(f"Loading {unit} with batch {batch}")
-        # print(unit)
-        # print(batch)
         if self.canUnloadUnitWitchBatch(batch):
             self.loadTask(batch.getCurrentTask(), batch)
             f.write(f"Time: {self.getTime()} loading unit {unit.getId()} with batch {batch.getSize()}\n")
@@ -167,7 +174,9 @@ class productionline:
                 self.unloadUnit(unit)
                 f.write(f"Time: {self.getTime()} unloaded batch {batch.getSize()} from unit {unit.getId()}\n")
             return batch
-        
+    
+    #helping functions for the actions
+    #this checks if you can unload a batch to the next buffer
     def canUnloadUnitWitchBatch(self, batch):
         nextBuffer = self.getBuffers()[batch.getCurrentTask()+1]
         unit = self.findUnitWithTask(batch.getCurrentTask())
@@ -179,68 +188,14 @@ class productionline:
         else:
             return False
     
-    def chooseBatchForUnit(self, unit, delta = 0.1):
-        if unit.isBusy():
-            raise ValueError("Unit is busy")
-        else:
-            unitID = unit.getID()
-            unitbuffers = []
-            for buffernr in self.tasks[unitID]:
-                unitbuffers.append(self.getBufferWithTask(buffernr))
-            bufferlist = []
-            for buffer in unitbuffers:
-                if not buffer.isBusy():
-                    bufferlist.append(buffer)
-            if len(bufferlist) == 0:
-                return "No buffer loaded"
-            else:
-                bufferlist.sort(key  = lambda x: x.getLoadRatio())
-                if (self.getInputBuffer().getLoadRatio(self.numberofwafers, True) >= 1-delta or self.getInputBuffer().getLoadRatio(self.numberofwafers, True) >= 1-delta) and self.getInputBuffer() in bufferlist:
-                    buffer = self.buffers[0]
-                    batch = self.chooseBatchForBuffer(buffer, smallest = True)
-                    unit.loadTask(batch.getTask(), batch)
-                    return batch
-                else:
-                    buffer = self.getInputBuffer()
-                    batch = self.chooseBatchForBuffer(buffer, smallest = False)
-                    unit.loadTask(batch.getTask(), batch)
-                return batch
-    
-    def chooseBatchForBuffer(self, buffer, smallest = False):
-        if buffer.isBusy():
-            raise ValueError("Buffer is busy")
-        else:
-            proofedlist = []
-            for batch in buffer.getBatches():
-                if self.canUnloadUnitWitchBatch(batch):
-                    proofedlist.append(batch)
-            if len(proofedlist) == 0:
-                return "No batch can be unloaded"
-            else:
-                if smallest:
-                    proofedlist.sort(key = lambda x: x.getSize())
-                    return proofedlist[0]
-                else:
-                    proofedlist.sort(key = lambda x: x.getSize(), reverse = True)
-                    return proofedlist[0] 
-    
-    def loadInputHueristic1(self, batch):
-        if self.getLoad(self.getInputBuffer()) > 0:
-            return False
-        else:
-            return True
-    
+    #this checks if the output buffer is full, thus meaning the loop should break
     def checkIfDone(self):
         if self.getOutputBuffer().getLoad() == self.getNumberOfWafers():
             return True
         return False
+
     
-    def printState(self):
-        for unit in self.units:
-            print(unit)
-        for buffer in self.buffers:
-            print(buffer)
-    
+    #checks the state of a unit, and calls the correct action if there is a natural next step
     def checkState(self, unit, f):
         if unit.state == "idle":
             return
@@ -253,18 +208,20 @@ class productionline:
         else:
             raise ValueError("Unit in impossible state", unit.getState())
     
+    #this is the choosing hueristic for choosing a batch to load into a unit without any prior order or logic
     def choosingHueristic1(self, unit, priorOrder):
         for buffer in self.findBuffersWithUnit(unit):
             if buffer.getLoad() > 0:
                 return buffer.getBatches()[0]
     
+    #this is the choosing hueristic for choosing a batch to load into a unit without a prior order, but always choosing the smallest batch as we found that was helpfull to start loading the production line at the start
     def choosingHueristic2(self, unit, priorOrder):
         for buffer in self.findBuffersWithUnit(unit):
             if buffer.getLoad() > 0:
                 if self.canUnloadUnitWitchBatch(buffer.getBatchWithSmallestSize()):
                     return buffer.getBatchWithSmallestSize()
     
-    #basicly ordering hueristic
+    #this is the choosing hueristic for choosing a batch to load into a unit with a prior order, but always choosing the smallest batch as we found that was helpfull to start loading the production line at the start
     def choosingHueristic3(self, unit, priorOrder):
         orderedBuffers = []
         for task in priorOrder:
@@ -274,11 +231,15 @@ class productionline:
                 if self.canUnloadUnitWitchBatch(buffer.getBatchWithSmallestSize()):
                     return buffer.getBatchWithSmallestSize()
     
-    
+    #this is the hueristic which chooses what batch to into the input buffer, it is always the smallest batch
+    #can be expanded to be more complex, but not within the scope of the assignement
+    #we found that this was the best hueristic for the input buffer, as it helped the system get started
+    #a natural next step would be to implement a hueristic that takes in a delta so that it chooses smallest batches at the start and end, while bigger between
     def choosingInputHueristic1(self, batches):
         batches.sort(key = lambda x: x.getSize())
         return batches[0]
     
+    #this is the hueristic which chooses when to input a batch into the input buffer, it only does so when the entire system is idle
     def addToInputBufferHueristic1(self):
         for buffer in self.getBuffers():
             if buffer.getLoad() > 0 and buffer.getBufferNR() != 9:
@@ -289,13 +250,17 @@ class productionline:
 
         return True
     
+    #this is the hueristic which chooses when to input a batch into the input buffer, it only does so when the input buffer is empty
+    #this is now the optimal hueristic for the input buffer, as it has no chance of blocking the system at the start, and will always keep it running
+    #thus being greatly more efficient than the other hueristic, over half the runtime with the same number of wafers. 
+    #we found this was a better way to deal with than timesteps, as it is more dynamic and can be used in more situations, thus always being optimal timed to input a batch
     def addToInputBufferHueristic_whenEmpty(self):
         if self.getInputBuffer().getLoad() == 0:
             return True
         else:
             return False
 
-    
+    #this is the hueristic to divide the wafers into batches. default size is 20, but can be changed with input
     def dividinghueristic1(self, num_wafers, size = 20):
         groups = []
         while num_wafers - size >= 20 and not num_wafers == size:
@@ -313,15 +278,14 @@ class productionline:
                 groups.append(num_wafers/2)
                 groups.append(num_wafers/2)
         batche = []
-        #print(groups)
         for group in groups:
             batche.append(batches(group))
-            
         return batche
     
-    def clear(self):
-        self = productionline()
-    
+    #simulator for task 3
+    #this is the simulator loop, it will run the simulation until all wafers are processed
+    #it takes in the amount of wafers, how to divide the wafers, how to choose a batch to load into a unit, when to add a batch to the input buffer, the file it should print to, the prefered size of batches, and the prioritation order for the units
+    #it gives out the time it took to process all wafers
     def simulatorloop(self, wafers, dividinghueristic, choosinghueristic, choosingInputHueristic, addToInputBufferHueristic, filename, n = 20, prioOrder = [[0,2,5,8],[1,4,6],[3,7]]):
         self.numberofwafers = wafers
         batc = dividinghueristic(wafers, n)
@@ -334,7 +298,6 @@ class productionline:
                 if unit.isBusy() == False and choosinghueristic(unit, prioOrder[unit.getId()]) != None:
                     batch = choosinghueristic(unit, prioOrder[unit.getId()])
                     self.loadUnitWithBatch(unit, batch, f)
-                #print(addToInputBufferHueristic())
                 if addToInputBufferHueristic() and len(batc) > 0:
                     batch = choosingInputHueristic(batc)
                     if batch != None:                
@@ -343,19 +306,11 @@ class productionline:
             self.progressTime(self.checklowestTimeUnits()[0])
             for unit in self.units:
                 self.checkState(unit, f)
-            #self.printState()
-            #print("Total Time:", self.getTime())
-            # i += 1
-            # if i == 100:
-            #     print("itsa wrong, mario")
-            #     break
-        #print(batc)
-        #print("Done at time:", self.getTime())
         f.close()
         return self.getTime()
     
     
-        
+#testing task 4, first with 1 batch, then with 3 batches, then with 1000 wafers, then with 1000 wafers with possibility to set batch size (44)    
 Task41 = productionline()
 Task41.simulatorloop(20, Task41.dividinghueristic1,  Task41.choosingHueristic1, Task41.choosingInputHueristic1, Task41.addToInputBufferHueristic1, "Task41output.txt")
 Task42 = productionline()
@@ -384,6 +339,9 @@ for i in range(20, 51):
         value[0] = i
     Task5 = productionline()
 print(value)
+
+
+#optimalization function to find the best parameters of both dividng wafers and choosing priorities for the units by brute forcing all possible combinations
 def findOptimalSolution():
     baselist = [[0,2,5,8],[1,4,6],[3,7]]
     basedlist = []

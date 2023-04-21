@@ -39,7 +39,6 @@ class units:
     def TimeIncrement(self):
         self.time += 1
         
-    
     def getState(self):
         return self.state
     
@@ -47,8 +46,6 @@ class units:
         if state not in self.possiblestates:
             raise ValueError("State not possible")
         self.state = state
-
-        
         
     def getBatch(self):
         return self.batch

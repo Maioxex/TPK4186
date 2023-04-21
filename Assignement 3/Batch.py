@@ -24,5 +24,3 @@ class batches:
         
     def __str__(self):
         return "Batch of size " + str(self.size) + " and is currently working on task " + str(self.currenttask)
-        
-        
