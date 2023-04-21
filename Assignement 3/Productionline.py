@@ -286,10 +286,12 @@ class productionline:
     
     def dividinghueristic1(self, num_wafers, size = 20):
         groups = []
-        while num_wafers - size > 20:
+        while num_wafers - size >= 20 and not num_wafers == size:
             groups.append(size)
             num_wafers -= size
-        if num_wafers/2 < 20:
+        if num_wafers == size:
+            groups.append(size)
+        elif num_wafers/2 <= 20:
             groups.append(num_wafers)
         else:
             if num_wafers%2 == 1:
@@ -339,7 +341,8 @@ class productionline:
         print("Done at time:", self.getTime())
         f.close()
         return self.getTime()
-        
+    
+    
         
 # Task41 = productionline()
 # Task41.simulatorloop(20, Task41.dividinghueristic1,  Task41.choosingHueristic1, Task41.choosingInputHueristic1, Task41.addToInputBufferHueristic1, "Task41output.txt")
