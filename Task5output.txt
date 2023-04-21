@@ -1,0 +1,588 @@
+Batch 25.0 is loaded into inputbuffer at time 0
+Time: 0 loading unit 0 with batch 25.0
+Time: 1 started task 0 on unit 0 with batch 25.0
+Time: 14.5 unloaded batch 25.0 from unit 0
+Time: 14.5 loading unit 1 with batch 25.0
+Time: 15.5 started task 1 on unit 1 with batch 25.0
+Time: 104.0 unloaded batch 25.0 from unit 1
+Time: 104.0 loading unit 0 with batch 25.0
+Time: 105.0 started task 2 on unit 0 with batch 25.0
+Time: 136.0 unloaded batch 25.0 from unit 0
+Time: 136.0 loading unit 2 with batch 25.0
+Time: 137.0 started task 3 on unit 2 with batch 25.0
+Time: 213.0 unloaded batch 25.0 from unit 2
+Time: 213.0 loading unit 1 with batch 25.0
+Time: 214.0 started task 4 on unit 1 with batch 25.0
+Time: 235.0 unloaded batch 25.0 from unit 1
+Time: 235.0 loading unit 0 with batch 25.0
+Time: 236.0 started task 5 on unit 0 with batch 25.0
+Time: 249.5 unloaded batch 25.0 from unit 0
+Time: 249.5 loading unit 1 with batch 25.0
+Time: 250.5 started task 6 on unit 1 with batch 25.0
+Time: 276.5 unloaded batch 25.0 from unit 1
+Time: 276.5 loading unit 2 with batch 25.0
+Time: 277.5 started task 7 on unit 2 with batch 25.0
+Time: 326.0 unloaded batch 25.0 from unit 2
+Time: 326.0 loading unit 0 with batch 25.0
+Time: 327.0 started task 8 on unit 0 with batch 25.0
+Time: 335.5 unloaded batch 25.0 from unit 0
+Batch 25.0 is loaded into inputbuffer at time 335.5
+Time: 335.5 loading unit 0 with batch 25.0
+Time: 336.5 started task 0 on unit 0 with batch 25.0
+Time: 350.0 unloaded batch 25.0 from unit 0
+Time: 350.0 loading unit 1 with batch 25.0
+Time: 351.0 started task 1 on unit 1 with batch 25.0
+Time: 439.5 unloaded batch 25.0 from unit 1
+Time: 439.5 loading unit 0 with batch 25.0
+Time: 440.5 started task 2 on unit 0 with batch 25.0
+Time: 471.5 unloaded batch 25.0 from unit 0
+Time: 471.5 loading unit 2 with batch 25.0
+Time: 472.5 started task 3 on unit 2 with batch 25.0
+Time: 548.5 unloaded batch 25.0 from unit 2
+Time: 548.5 loading unit 1 with batch 25.0
+Time: 549.5 started task 4 on unit 1 with batch 25.0
+Time: 570.5 unloaded batch 25.0 from unit 1
+Time: 570.5 loading unit 0 with batch 25.0
+Time: 571.5 started task 5 on unit 0 with batch 25.0
+Time: 585.0 unloaded batch 25.0 from unit 0
+Time: 585.0 loading unit 1 with batch 25.0
+Time: 586.0 started task 6 on unit 1 with batch 25.0
+Time: 612.0 unloaded batch 25.0 from unit 1
+Time: 612.0 loading unit 2 with batch 25.0
+Time: 613.0 started task 7 on unit 2 with batch 25.0
+Time: 661.5 unloaded batch 25.0 from unit 2
+Time: 661.5 loading unit 0 with batch 25.0
+Time: 662.5 started task 8 on unit 0 with batch 25.0
+Time: 671.0 unloaded batch 25.0 from unit 0
+Batch 50 is loaded into inputbuffer at time 671.0
+Time: 671.0 loading unit 0 with batch 50
+Time: 672.0 started task 0 on unit 0 with batch 50
+Time: 698.0 unloaded batch 50 from unit 0
+Time: 698.0 loading unit 1 with batch 50
+Time: 699.0 started task 1 on unit 1 with batch 50
+Time: 875.0 unloaded batch 50 from unit 1
+Time: 875.0 loading unit 0 with batch 50
+Time: 876.0 started task 2 on unit 0 with batch 50
+Time: 937.0 unloaded batch 50 from unit 0
+Time: 937.0 loading unit 2 with batch 50
+Time: 938.0 started task 3 on unit 2 with batch 50
+Time: 1089.0 unloaded batch 50 from unit 2
+Time: 1089.0 loading unit 1 with batch 50
+Time: 1090.0 started task 4 on unit 1 with batch 50
+Time: 1131.0 unloaded batch 50 from unit 1
+Time: 1131.0 loading unit 0 with batch 50
+Time: 1132.0 started task 5 on unit 0 with batch 50
+Time: 1158.0 unloaded batch 50 from unit 0
+Time: 1158.0 loading unit 1 with batch 50
+Time: 1159.0 started task 6 on unit 1 with batch 50
+Time: 1210.0 unloaded batch 50 from unit 1
+Time: 1210.0 loading unit 2 with batch 50
+Time: 1211.0 started task 7 on unit 2 with batch 50
+Time: 1307.0 unloaded batch 50 from unit 2
+Time: 1307.0 loading unit 0 with batch 50
+Time: 1308.0 started task 8 on unit 0 with batch 50
+Time: 1324.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 1324.0
+Time: 1324.0 loading unit 0 with batch 50
+Time: 1325.0 started task 0 on unit 0 with batch 50
+Time: 1351.0 unloaded batch 50 from unit 0
+Time: 1351.0 loading unit 1 with batch 50
+Time: 1352.0 started task 1 on unit 1 with batch 50
+Time: 1528.0 unloaded batch 50 from unit 1
+Time: 1528.0 loading unit 0 with batch 50
+Time: 1529.0 started task 2 on unit 0 with batch 50
+Time: 1590.0 unloaded batch 50 from unit 0
+Time: 1590.0 loading unit 2 with batch 50
+Time: 1591.0 started task 3 on unit 2 with batch 50
+Time: 1742.0 unloaded batch 50 from unit 2
+Time: 1742.0 loading unit 1 with batch 50
+Time: 1743.0 started task 4 on unit 1 with batch 50
+Time: 1784.0 unloaded batch 50 from unit 1
+Time: 1784.0 loading unit 0 with batch 50
+Time: 1785.0 started task 5 on unit 0 with batch 50
+Time: 1811.0 unloaded batch 50 from unit 0
+Time: 1811.0 loading unit 1 with batch 50
+Time: 1812.0 started task 6 on unit 1 with batch 50
+Time: 1863.0 unloaded batch 50 from unit 1
+Time: 1863.0 loading unit 2 with batch 50
+Time: 1864.0 started task 7 on unit 2 with batch 50
+Time: 1960.0 unloaded batch 50 from unit 2
+Time: 1960.0 loading unit 0 with batch 50
+Time: 1961.0 started task 8 on unit 0 with batch 50
+Time: 1977.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 1977.0
+Time: 1977.0 loading unit 0 with batch 50
+Time: 1978.0 started task 0 on unit 0 with batch 50
+Time: 2004.0 unloaded batch 50 from unit 0
+Time: 2004.0 loading unit 1 with batch 50
+Time: 2005.0 started task 1 on unit 1 with batch 50
+Time: 2181.0 unloaded batch 50 from unit 1
+Time: 2181.0 loading unit 0 with batch 50
+Time: 2182.0 started task 2 on unit 0 with batch 50
+Time: 2243.0 unloaded batch 50 from unit 0
+Time: 2243.0 loading unit 2 with batch 50
+Time: 2244.0 started task 3 on unit 2 with batch 50
+Time: 2395.0 unloaded batch 50 from unit 2
+Time: 2395.0 loading unit 1 with batch 50
+Time: 2396.0 started task 4 on unit 1 with batch 50
+Time: 2437.0 unloaded batch 50 from unit 1
+Time: 2437.0 loading unit 0 with batch 50
+Time: 2438.0 started task 5 on unit 0 with batch 50
+Time: 2464.0 unloaded batch 50 from unit 0
+Time: 2464.0 loading unit 1 with batch 50
+Time: 2465.0 started task 6 on unit 1 with batch 50
+Time: 2516.0 unloaded batch 50 from unit 1
+Time: 2516.0 loading unit 2 with batch 50
+Time: 2517.0 started task 7 on unit 2 with batch 50
+Time: 2613.0 unloaded batch 50 from unit 2
+Time: 2613.0 loading unit 0 with batch 50
+Time: 2614.0 started task 8 on unit 0 with batch 50
+Time: 2630.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 2630.0
+Time: 2630.0 loading unit 0 with batch 50
+Time: 2631.0 started task 0 on unit 0 with batch 50
+Time: 2657.0 unloaded batch 50 from unit 0
+Time: 2657.0 loading unit 1 with batch 50
+Time: 2658.0 started task 1 on unit 1 with batch 50
+Time: 2834.0 unloaded batch 50 from unit 1
+Time: 2834.0 loading unit 0 with batch 50
+Time: 2835.0 started task 2 on unit 0 with batch 50
+Time: 2896.0 unloaded batch 50 from unit 0
+Time: 2896.0 loading unit 2 with batch 50
+Time: 2897.0 started task 3 on unit 2 with batch 50
+Time: 3048.0 unloaded batch 50 from unit 2
+Time: 3048.0 loading unit 1 with batch 50
+Time: 3049.0 started task 4 on unit 1 with batch 50
+Time: 3090.0 unloaded batch 50 from unit 1
+Time: 3090.0 loading unit 0 with batch 50
+Time: 3091.0 started task 5 on unit 0 with batch 50
+Time: 3117.0 unloaded batch 50 from unit 0
+Time: 3117.0 loading unit 1 with batch 50
+Time: 3118.0 started task 6 on unit 1 with batch 50
+Time: 3169.0 unloaded batch 50 from unit 1
+Time: 3169.0 loading unit 2 with batch 50
+Time: 3170.0 started task 7 on unit 2 with batch 50
+Time: 3266.0 unloaded batch 50 from unit 2
+Time: 3266.0 loading unit 0 with batch 50
+Time: 3267.0 started task 8 on unit 0 with batch 50
+Time: 3283.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 3283.0
+Time: 3283.0 loading unit 0 with batch 50
+Time: 3284.0 started task 0 on unit 0 with batch 50
+Time: 3310.0 unloaded batch 50 from unit 0
+Time: 3310.0 loading unit 1 with batch 50
+Time: 3311.0 started task 1 on unit 1 with batch 50
+Time: 3487.0 unloaded batch 50 from unit 1
+Time: 3487.0 loading unit 0 with batch 50
+Time: 3488.0 started task 2 on unit 0 with batch 50
+Time: 3549.0 unloaded batch 50 from unit 0
+Time: 3549.0 loading unit 2 with batch 50
+Time: 3550.0 started task 3 on unit 2 with batch 50
+Time: 3701.0 unloaded batch 50 from unit 2
+Time: 3701.0 loading unit 1 with batch 50
+Time: 3702.0 started task 4 on unit 1 with batch 50
+Time: 3743.0 unloaded batch 50 from unit 1
+Time: 3743.0 loading unit 0 with batch 50
+Time: 3744.0 started task 5 on unit 0 with batch 50
+Time: 3770.0 unloaded batch 50 from unit 0
+Time: 3770.0 loading unit 1 with batch 50
+Time: 3771.0 started task 6 on unit 1 with batch 50
+Time: 3822.0 unloaded batch 50 from unit 1
+Time: 3822.0 loading unit 2 with batch 50
+Time: 3823.0 started task 7 on unit 2 with batch 50
+Time: 3919.0 unloaded batch 50 from unit 2
+Time: 3919.0 loading unit 0 with batch 50
+Time: 3920.0 started task 8 on unit 0 with batch 50
+Time: 3936.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 3936.0
+Time: 3936.0 loading unit 0 with batch 50
+Time: 3937.0 started task 0 on unit 0 with batch 50
+Time: 3963.0 unloaded batch 50 from unit 0
+Time: 3963.0 loading unit 1 with batch 50
+Time: 3964.0 started task 1 on unit 1 with batch 50
+Time: 4140.0 unloaded batch 50 from unit 1
+Time: 4140.0 loading unit 0 with batch 50
+Time: 4141.0 started task 2 on unit 0 with batch 50
+Time: 4202.0 unloaded batch 50 from unit 0
+Time: 4202.0 loading unit 2 with batch 50
+Time: 4203.0 started task 3 on unit 2 with batch 50
+Time: 4354.0 unloaded batch 50 from unit 2
+Time: 4354.0 loading unit 1 with batch 50
+Time: 4355.0 started task 4 on unit 1 with batch 50
+Time: 4396.0 unloaded batch 50 from unit 1
+Time: 4396.0 loading unit 0 with batch 50
+Time: 4397.0 started task 5 on unit 0 with batch 50
+Time: 4423.0 unloaded batch 50 from unit 0
+Time: 4423.0 loading unit 1 with batch 50
+Time: 4424.0 started task 6 on unit 1 with batch 50
+Time: 4475.0 unloaded batch 50 from unit 1
+Time: 4475.0 loading unit 2 with batch 50
+Time: 4476.0 started task 7 on unit 2 with batch 50
+Time: 4572.0 unloaded batch 50 from unit 2
+Time: 4572.0 loading unit 0 with batch 50
+Time: 4573.0 started task 8 on unit 0 with batch 50
+Time: 4589.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 4589.0
+Time: 4589.0 loading unit 0 with batch 50
+Time: 4590.0 started task 0 on unit 0 with batch 50
+Time: 4616.0 unloaded batch 50 from unit 0
+Time: 4616.0 loading unit 1 with batch 50
+Time: 4617.0 started task 1 on unit 1 with batch 50
+Time: 4793.0 unloaded batch 50 from unit 1
+Time: 4793.0 loading unit 0 with batch 50
+Time: 4794.0 started task 2 on unit 0 with batch 50
+Time: 4855.0 unloaded batch 50 from unit 0
+Time: 4855.0 loading unit 2 with batch 50
+Time: 4856.0 started task 3 on unit 2 with batch 50
+Time: 5007.0 unloaded batch 50 from unit 2
+Time: 5007.0 loading unit 1 with batch 50
+Time: 5008.0 started task 4 on unit 1 with batch 50
+Time: 5049.0 unloaded batch 50 from unit 1
+Time: 5049.0 loading unit 0 with batch 50
+Time: 5050.0 started task 5 on unit 0 with batch 50
+Time: 5076.0 unloaded batch 50 from unit 0
+Time: 5076.0 loading unit 1 with batch 50
+Time: 5077.0 started task 6 on unit 1 with batch 50
+Time: 5128.0 unloaded batch 50 from unit 1
+Time: 5128.0 loading unit 2 with batch 50
+Time: 5129.0 started task 7 on unit 2 with batch 50
+Time: 5225.0 unloaded batch 50 from unit 2
+Time: 5225.0 loading unit 0 with batch 50
+Time: 5226.0 started task 8 on unit 0 with batch 50
+Time: 5242.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 5242.0
+Time: 5242.0 loading unit 0 with batch 50
+Time: 5243.0 started task 0 on unit 0 with batch 50
+Time: 5269.0 unloaded batch 50 from unit 0
+Time: 5269.0 loading unit 1 with batch 50
+Time: 5270.0 started task 1 on unit 1 with batch 50
+Time: 5446.0 unloaded batch 50 from unit 1
+Time: 5446.0 loading unit 0 with batch 50
+Time: 5447.0 started task 2 on unit 0 with batch 50
+Time: 5508.0 unloaded batch 50 from unit 0
+Time: 5508.0 loading unit 2 with batch 50
+Time: 5509.0 started task 3 on unit 2 with batch 50
+Time: 5660.0 unloaded batch 50 from unit 2
+Time: 5660.0 loading unit 1 with batch 50
+Time: 5661.0 started task 4 on unit 1 with batch 50
+Time: 5702.0 unloaded batch 50 from unit 1
+Time: 5702.0 loading unit 0 with batch 50
+Time: 5703.0 started task 5 on unit 0 with batch 50
+Time: 5729.0 unloaded batch 50 from unit 0
+Time: 5729.0 loading unit 1 with batch 50
+Time: 5730.0 started task 6 on unit 1 with batch 50
+Time: 5781.0 unloaded batch 50 from unit 1
+Time: 5781.0 loading unit 2 with batch 50
+Time: 5782.0 started task 7 on unit 2 with batch 50
+Time: 5878.0 unloaded batch 50 from unit 2
+Time: 5878.0 loading unit 0 with batch 50
+Time: 5879.0 started task 8 on unit 0 with batch 50
+Time: 5895.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 5895.0
+Time: 5895.0 loading unit 0 with batch 50
+Time: 5896.0 started task 0 on unit 0 with batch 50
+Time: 5922.0 unloaded batch 50 from unit 0
+Time: 5922.0 loading unit 1 with batch 50
+Time: 5923.0 started task 1 on unit 1 with batch 50
+Time: 6099.0 unloaded batch 50 from unit 1
+Time: 6099.0 loading unit 0 with batch 50
+Time: 6100.0 started task 2 on unit 0 with batch 50
+Time: 6161.0 unloaded batch 50 from unit 0
+Time: 6161.0 loading unit 2 with batch 50
+Time: 6162.0 started task 3 on unit 2 with batch 50
+Time: 6313.0 unloaded batch 50 from unit 2
+Time: 6313.0 loading unit 1 with batch 50
+Time: 6314.0 started task 4 on unit 1 with batch 50
+Time: 6355.0 unloaded batch 50 from unit 1
+Time: 6355.0 loading unit 0 with batch 50
+Time: 6356.0 started task 5 on unit 0 with batch 50
+Time: 6382.0 unloaded batch 50 from unit 0
+Time: 6382.0 loading unit 1 with batch 50
+Time: 6383.0 started task 6 on unit 1 with batch 50
+Time: 6434.0 unloaded batch 50 from unit 1
+Time: 6434.0 loading unit 2 with batch 50
+Time: 6435.0 started task 7 on unit 2 with batch 50
+Time: 6531.0 unloaded batch 50 from unit 2
+Time: 6531.0 loading unit 0 with batch 50
+Time: 6532.0 started task 8 on unit 0 with batch 50
+Time: 6548.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 6548.0
+Time: 6548.0 loading unit 0 with batch 50
+Time: 6549.0 started task 0 on unit 0 with batch 50
+Time: 6575.0 unloaded batch 50 from unit 0
+Time: 6575.0 loading unit 1 with batch 50
+Time: 6576.0 started task 1 on unit 1 with batch 50
+Time: 6752.0 unloaded batch 50 from unit 1
+Time: 6752.0 loading unit 0 with batch 50
+Time: 6753.0 started task 2 on unit 0 with batch 50
+Time: 6814.0 unloaded batch 50 from unit 0
+Time: 6814.0 loading unit 2 with batch 50
+Time: 6815.0 started task 3 on unit 2 with batch 50
+Time: 6966.0 unloaded batch 50 from unit 2
+Time: 6966.0 loading unit 1 with batch 50
+Time: 6967.0 started task 4 on unit 1 with batch 50
+Time: 7008.0 unloaded batch 50 from unit 1
+Time: 7008.0 loading unit 0 with batch 50
+Time: 7009.0 started task 5 on unit 0 with batch 50
+Time: 7035.0 unloaded batch 50 from unit 0
+Time: 7035.0 loading unit 1 with batch 50
+Time: 7036.0 started task 6 on unit 1 with batch 50
+Time: 7087.0 unloaded batch 50 from unit 1
+Time: 7087.0 loading unit 2 with batch 50
+Time: 7088.0 started task 7 on unit 2 with batch 50
+Time: 7184.0 unloaded batch 50 from unit 2
+Time: 7184.0 loading unit 0 with batch 50
+Time: 7185.0 started task 8 on unit 0 with batch 50
+Time: 7201.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 7201.0
+Time: 7201.0 loading unit 0 with batch 50
+Time: 7202.0 started task 0 on unit 0 with batch 50
+Time: 7228.0 unloaded batch 50 from unit 0
+Time: 7228.0 loading unit 1 with batch 50
+Time: 7229.0 started task 1 on unit 1 with batch 50
+Time: 7405.0 unloaded batch 50 from unit 1
+Time: 7405.0 loading unit 0 with batch 50
+Time: 7406.0 started task 2 on unit 0 with batch 50
+Time: 7467.0 unloaded batch 50 from unit 0
+Time: 7467.0 loading unit 2 with batch 50
+Time: 7468.0 started task 3 on unit 2 with batch 50
+Time: 7619.0 unloaded batch 50 from unit 2
+Time: 7619.0 loading unit 1 with batch 50
+Time: 7620.0 started task 4 on unit 1 with batch 50
+Time: 7661.0 unloaded batch 50 from unit 1
+Time: 7661.0 loading unit 0 with batch 50
+Time: 7662.0 started task 5 on unit 0 with batch 50
+Time: 7688.0 unloaded batch 50 from unit 0
+Time: 7688.0 loading unit 1 with batch 50
+Time: 7689.0 started task 6 on unit 1 with batch 50
+Time: 7740.0 unloaded batch 50 from unit 1
+Time: 7740.0 loading unit 2 with batch 50
+Time: 7741.0 started task 7 on unit 2 with batch 50
+Time: 7837.0 unloaded batch 50 from unit 2
+Time: 7837.0 loading unit 0 with batch 50
+Time: 7838.0 started task 8 on unit 0 with batch 50
+Time: 7854.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 7854.0
+Time: 7854.0 loading unit 0 with batch 50
+Time: 7855.0 started task 0 on unit 0 with batch 50
+Time: 7881.0 unloaded batch 50 from unit 0
+Time: 7881.0 loading unit 1 with batch 50
+Time: 7882.0 started task 1 on unit 1 with batch 50
+Time: 8058.0 unloaded batch 50 from unit 1
+Time: 8058.0 loading unit 0 with batch 50
+Time: 8059.0 started task 2 on unit 0 with batch 50
+Time: 8120.0 unloaded batch 50 from unit 0
+Time: 8120.0 loading unit 2 with batch 50
+Time: 8121.0 started task 3 on unit 2 with batch 50
+Time: 8272.0 unloaded batch 50 from unit 2
+Time: 8272.0 loading unit 1 with batch 50
+Time: 8273.0 started task 4 on unit 1 with batch 50
+Time: 8314.0 unloaded batch 50 from unit 1
+Time: 8314.0 loading unit 0 with batch 50
+Time: 8315.0 started task 5 on unit 0 with batch 50
+Time: 8341.0 unloaded batch 50 from unit 0
+Time: 8341.0 loading unit 1 with batch 50
+Time: 8342.0 started task 6 on unit 1 with batch 50
+Time: 8393.0 unloaded batch 50 from unit 1
+Time: 8393.0 loading unit 2 with batch 50
+Time: 8394.0 started task 7 on unit 2 with batch 50
+Time: 8490.0 unloaded batch 50 from unit 2
+Time: 8490.0 loading unit 0 with batch 50
+Time: 8491.0 started task 8 on unit 0 with batch 50
+Time: 8507.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 8507.0
+Time: 8507.0 loading unit 0 with batch 50
+Time: 8508.0 started task 0 on unit 0 with batch 50
+Time: 8534.0 unloaded batch 50 from unit 0
+Time: 8534.0 loading unit 1 with batch 50
+Time: 8535.0 started task 1 on unit 1 with batch 50
+Time: 8711.0 unloaded batch 50 from unit 1
+Time: 8711.0 loading unit 0 with batch 50
+Time: 8712.0 started task 2 on unit 0 with batch 50
+Time: 8773.0 unloaded batch 50 from unit 0
+Time: 8773.0 loading unit 2 with batch 50
+Time: 8774.0 started task 3 on unit 2 with batch 50
+Time: 8925.0 unloaded batch 50 from unit 2
+Time: 8925.0 loading unit 1 with batch 50
+Time: 8926.0 started task 4 on unit 1 with batch 50
+Time: 8967.0 unloaded batch 50 from unit 1
+Time: 8967.0 loading unit 0 with batch 50
+Time: 8968.0 started task 5 on unit 0 with batch 50
+Time: 8994.0 unloaded batch 50 from unit 0
+Time: 8994.0 loading unit 1 with batch 50
+Time: 8995.0 started task 6 on unit 1 with batch 50
+Time: 9046.0 unloaded batch 50 from unit 1
+Time: 9046.0 loading unit 2 with batch 50
+Time: 9047.0 started task 7 on unit 2 with batch 50
+Time: 9143.0 unloaded batch 50 from unit 2
+Time: 9143.0 loading unit 0 with batch 50
+Time: 9144.0 started task 8 on unit 0 with batch 50
+Time: 9160.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 9160.0
+Time: 9160.0 loading unit 0 with batch 50
+Time: 9161.0 started task 0 on unit 0 with batch 50
+Time: 9187.0 unloaded batch 50 from unit 0
+Time: 9187.0 loading unit 1 with batch 50
+Time: 9188.0 started task 1 on unit 1 with batch 50
+Time: 9364.0 unloaded batch 50 from unit 1
+Time: 9364.0 loading unit 0 with batch 50
+Time: 9365.0 started task 2 on unit 0 with batch 50
+Time: 9426.0 unloaded batch 50 from unit 0
+Time: 9426.0 loading unit 2 with batch 50
+Time: 9427.0 started task 3 on unit 2 with batch 50
+Time: 9578.0 unloaded batch 50 from unit 2
+Time: 9578.0 loading unit 1 with batch 50
+Time: 9579.0 started task 4 on unit 1 with batch 50
+Time: 9620.0 unloaded batch 50 from unit 1
+Time: 9620.0 loading unit 0 with batch 50
+Time: 9621.0 started task 5 on unit 0 with batch 50
+Time: 9647.0 unloaded batch 50 from unit 0
+Time: 9647.0 loading unit 1 with batch 50
+Time: 9648.0 started task 6 on unit 1 with batch 50
+Time: 9699.0 unloaded batch 50 from unit 1
+Time: 9699.0 loading unit 2 with batch 50
+Time: 9700.0 started task 7 on unit 2 with batch 50
+Time: 9796.0 unloaded batch 50 from unit 2
+Time: 9796.0 loading unit 0 with batch 50
+Time: 9797.0 started task 8 on unit 0 with batch 50
+Time: 9813.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 9813.0
+Time: 9813.0 loading unit 0 with batch 50
+Time: 9814.0 started task 0 on unit 0 with batch 50
+Time: 9840.0 unloaded batch 50 from unit 0
+Time: 9840.0 loading unit 1 with batch 50
+Time: 9841.0 started task 1 on unit 1 with batch 50
+Time: 10017.0 unloaded batch 50 from unit 1
+Time: 10017.0 loading unit 0 with batch 50
+Time: 10018.0 started task 2 on unit 0 with batch 50
+Time: 10079.0 unloaded batch 50 from unit 0
+Time: 10079.0 loading unit 2 with batch 50
+Time: 10080.0 started task 3 on unit 2 with batch 50
+Time: 10231.0 unloaded batch 50 from unit 2
+Time: 10231.0 loading unit 1 with batch 50
+Time: 10232.0 started task 4 on unit 1 with batch 50
+Time: 10273.0 unloaded batch 50 from unit 1
+Time: 10273.0 loading unit 0 with batch 50
+Time: 10274.0 started task 5 on unit 0 with batch 50
+Time: 10300.0 unloaded batch 50 from unit 0
+Time: 10300.0 loading unit 1 with batch 50
+Time: 10301.0 started task 6 on unit 1 with batch 50
+Time: 10352.0 unloaded batch 50 from unit 1
+Time: 10352.0 loading unit 2 with batch 50
+Time: 10353.0 started task 7 on unit 2 with batch 50
+Time: 10449.0 unloaded batch 50 from unit 2
+Time: 10449.0 loading unit 0 with batch 50
+Time: 10450.0 started task 8 on unit 0 with batch 50
+Time: 10466.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 10466.0
+Time: 10466.0 loading unit 0 with batch 50
+Time: 10467.0 started task 0 on unit 0 with batch 50
+Time: 10493.0 unloaded batch 50 from unit 0
+Time: 10493.0 loading unit 1 with batch 50
+Time: 10494.0 started task 1 on unit 1 with batch 50
+Time: 10670.0 unloaded batch 50 from unit 1
+Time: 10670.0 loading unit 0 with batch 50
+Time: 10671.0 started task 2 on unit 0 with batch 50
+Time: 10732.0 unloaded batch 50 from unit 0
+Time: 10732.0 loading unit 2 with batch 50
+Time: 10733.0 started task 3 on unit 2 with batch 50
+Time: 10884.0 unloaded batch 50 from unit 2
+Time: 10884.0 loading unit 1 with batch 50
+Time: 10885.0 started task 4 on unit 1 with batch 50
+Time: 10926.0 unloaded batch 50 from unit 1
+Time: 10926.0 loading unit 0 with batch 50
+Time: 10927.0 started task 5 on unit 0 with batch 50
+Time: 10953.0 unloaded batch 50 from unit 0
+Time: 10953.0 loading unit 1 with batch 50
+Time: 10954.0 started task 6 on unit 1 with batch 50
+Time: 11005.0 unloaded batch 50 from unit 1
+Time: 11005.0 loading unit 2 with batch 50
+Time: 11006.0 started task 7 on unit 2 with batch 50
+Time: 11102.0 unloaded batch 50 from unit 2
+Time: 11102.0 loading unit 0 with batch 50
+Time: 11103.0 started task 8 on unit 0 with batch 50
+Time: 11119.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 11119.0
+Time: 11119.0 loading unit 0 with batch 50
+Time: 11120.0 started task 0 on unit 0 with batch 50
+Time: 11146.0 unloaded batch 50 from unit 0
+Time: 11146.0 loading unit 1 with batch 50
+Time: 11147.0 started task 1 on unit 1 with batch 50
+Time: 11323.0 unloaded batch 50 from unit 1
+Time: 11323.0 loading unit 0 with batch 50
+Time: 11324.0 started task 2 on unit 0 with batch 50
+Time: 11385.0 unloaded batch 50 from unit 0
+Time: 11385.0 loading unit 2 with batch 50
+Time: 11386.0 started task 3 on unit 2 with batch 50
+Time: 11537.0 unloaded batch 50 from unit 2
+Time: 11537.0 loading unit 1 with batch 50
+Time: 11538.0 started task 4 on unit 1 with batch 50
+Time: 11579.0 unloaded batch 50 from unit 1
+Time: 11579.0 loading unit 0 with batch 50
+Time: 11580.0 started task 5 on unit 0 with batch 50
+Time: 11606.0 unloaded batch 50 from unit 0
+Time: 11606.0 loading unit 1 with batch 50
+Time: 11607.0 started task 6 on unit 1 with batch 50
+Time: 11658.0 unloaded batch 50 from unit 1
+Time: 11658.0 loading unit 2 with batch 50
+Time: 11659.0 started task 7 on unit 2 with batch 50
+Time: 11755.0 unloaded batch 50 from unit 2
+Time: 11755.0 loading unit 0 with batch 50
+Time: 11756.0 started task 8 on unit 0 with batch 50
+Time: 11772.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 11772.0
+Time: 11772.0 loading unit 0 with batch 50
+Time: 11773.0 started task 0 on unit 0 with batch 50
+Time: 11799.0 unloaded batch 50 from unit 0
+Time: 11799.0 loading unit 1 with batch 50
+Time: 11800.0 started task 1 on unit 1 with batch 50
+Time: 11976.0 unloaded batch 50 from unit 1
+Time: 11976.0 loading unit 0 with batch 50
+Time: 11977.0 started task 2 on unit 0 with batch 50
+Time: 12038.0 unloaded batch 50 from unit 0
+Time: 12038.0 loading unit 2 with batch 50
+Time: 12039.0 started task 3 on unit 2 with batch 50
+Time: 12190.0 unloaded batch 50 from unit 2
+Time: 12190.0 loading unit 1 with batch 50
+Time: 12191.0 started task 4 on unit 1 with batch 50
+Time: 12232.0 unloaded batch 50 from unit 1
+Time: 12232.0 loading unit 0 with batch 50
+Time: 12233.0 started task 5 on unit 0 with batch 50
+Time: 12259.0 unloaded batch 50 from unit 0
+Time: 12259.0 loading unit 1 with batch 50
+Time: 12260.0 started task 6 on unit 1 with batch 50
+Time: 12311.0 unloaded batch 50 from unit 1
+Time: 12311.0 loading unit 2 with batch 50
+Time: 12312.0 started task 7 on unit 2 with batch 50
+Time: 12408.0 unloaded batch 50 from unit 2
+Time: 12408.0 loading unit 0 with batch 50
+Time: 12409.0 started task 8 on unit 0 with batch 50
+Time: 12425.0 unloaded batch 50 from unit 0
+Batch 50 is loaded into inputbuffer at time 12425.0
+Time: 12425.0 loading unit 0 with batch 50
+Time: 12426.0 started task 0 on unit 0 with batch 50
+Time: 12452.0 unloaded batch 50 from unit 0
+Time: 12452.0 loading unit 1 with batch 50
+Time: 12453.0 started task 1 on unit 1 with batch 50
+Time: 12629.0 unloaded batch 50 from unit 1
+Time: 12629.0 loading unit 0 with batch 50
+Time: 12630.0 started task 2 on unit 0 with batch 50
+Time: 12691.0 unloaded batch 50 from unit 0
+Time: 12691.0 loading unit 2 with batch 50
+Time: 12692.0 started task 3 on unit 2 with batch 50
+Time: 12843.0 unloaded batch 50 from unit 2
+Time: 12843.0 loading unit 1 with batch 50
+Time: 12844.0 started task 4 on unit 1 with batch 50
+Time: 12885.0 unloaded batch 50 from unit 1
+Time: 12885.0 loading unit 0 with batch 50
+Time: 12886.0 started task 5 on unit 0 with batch 50
+Time: 12912.0 unloaded batch 50 from unit 0
+Time: 12912.0 loading unit 1 with batch 50
+Time: 12913.0 started task 6 on unit 1 with batch 50
+Time: 12964.0 unloaded batch 50 from unit 1
+Time: 12964.0 loading unit 2 with batch 50
+Time: 12965.0 started task 7 on unit 2 with batch 50
+Time: 13061.0 unloaded batch 50 from unit 2
+Time: 13061.0 loading unit 0 with batch 50
+Time: 13062.0 started task 8 on unit 0 with batch 50
+Time: 13078.0 unloaded batch 50 from unit 0

@@ -2,7 +2,7 @@ class batches:
     def __init__(self, size, currenttask = 0
                  ):
         if size < 20:
-            raise ValueError("Size of batch cannot be smaller than 20")
+            raise ValueError(f"Size of batch cannot be smaller than 20; size = {size}")
         elif size > 50:
             raise ValueError("Size of batch cannot be larger than 50")
         else:
