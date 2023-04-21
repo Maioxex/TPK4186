@@ -263,6 +263,17 @@ class productionline:
                 if self.canUnloadUnitWitchBatch(buffer.getBatchWithSmallestSize()):
                     return buffer.getBatchWithSmallestSize()
     
+    #basicly ordering hueristic
+    def choosingHueristic3(self, unit, priorOrder):
+        orderedBuffers = []
+        for task in priorOrder:
+            orderedBuffers.append(self.getBufferWithTask(task))
+        for buffer in orderedBuffers:
+            if buffer.getLoad() > 0:
+                if self.canUnloadUnitWitchBatch(buffer.getBatchWithSmallestSize()):
+                    return buffer.getBatchWithSmallestSize()
+    
+    
     def choosingInputHueristic1(self, batches):
         batches.sort(key = lambda x: x.getSize())
         return batches[0]
@@ -362,11 +373,21 @@ class productionline:
 #         num = tid
 #         value[0] = i
 #     Task5 = productionline()
+# Task5 = productionline()
+# value = [None]
+# num = np.inf
+# for i in range(20, 51):
+#     tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic2, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
+#     if tid < num:
+#         num = tid
+#         value[0] = i
+#     Task5 = productionline()
+# print(value)
 Task5 = productionline()
 value = [None]
 num = np.inf
 for i in range(20, 51):
-    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic2, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
+    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic3, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
     if tid < num:
         num = tid
         value[0] = i
