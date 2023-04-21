@@ -153,7 +153,7 @@ class productionline:
             self.loadTask(batch.getCurrentTask(), batch)
             f.write(f"Time: {self.getTime()} loading unit {unit.getId()} with batch {batch.getSize()}\n")
         else:
-            raise ValueError("Unit cannot unload batch")
+            raise ValueError(f"Unit {unit.getId()} cannot unload batch to next buffer {batch.getCurrentTask()+1}")
         
     def unloadBatchFromUnit(self, unit,f):
         if unit.getTime() != 0:
@@ -169,7 +169,7 @@ class productionline:
         
     def canUnloadUnitWitchBatch(self, batch):
         nextBuffer = self.getBuffers()[batch.getCurrentTask()+1]
-        unit = self.findUnitWithTask(batch.getCurrentTask()+1)
+        unit = self.findUnitWithTask(batch.getCurrentTask())
         #print(f"Next buffer: {batch}")
         if nextBuffer.getBufferNR() == 9:
             return True
@@ -257,6 +257,12 @@ class productionline:
             if buffer.getLoad() > 0:
                 return buffer.getBatches()[0]
     
+    def choosingHueristic2(self, unit):
+        for buffer in self.findBuffersWithUnit(unit):
+            if buffer.getLoad() > 0:
+                if self.canUnloadUnitWitchBatch(buffer.getBatchWithSmallestSize()):
+                    return buffer.getBatchWithSmallestSize()
+    
     def choosingInputHueristic1(self, batches):
         batches.sort(key = lambda x: x.getSize())
         return batches[0]
@@ -270,6 +276,13 @@ class productionline:
                 return False
 
         return True
+    
+    def addToInputBufferHueristic_whenEmpty(self):
+        if self.getInputBuffer().getLoad() == 0:
+            return True
+        else:
+            return False
+
     
     def dividinghueristic1(self, num_wafers, size = 20):
         groups = []
@@ -333,11 +346,20 @@ class productionline:
 # Task44 = productionline()
 # Task44.simulatorloop(1000, Task44.dividinghueristic1,  Task44.choosingHueristic1, Task44.choosingInputHueristic1, Task44.addToInputBufferHueristic1, "Task44output.txt", 30)
 
+# Task5 = productionline()
+# value = [None]
+# num = np.inf
+# for i in range(20,51):
+#     tid = Task5.simulatorloop(1000, Task5.dividinghueristic1,  Task5.choosingHueristic1, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic1, "Task5output.txt", i)
+#     if tid < num:
+#         num = tid
+#         value[0] = i
+#     Task5 = productionline()
 Task5 = productionline()
 value = [None]
 num = np.inf
-for i in range(20,51):
-    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1,  Task5.choosingHueristic1, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic1, "Task5output.txt", i)
+for i in range(20, 51):
+    tid = Task5.simulatorloop(1000, Task5.dividinghueristic1, Task5.choosingHueristic2, Task5.choosingInputHueristic1, Task5.addToInputBufferHueristic_whenEmpty, "Task5output.txt", i)
     if tid < num:
         num = tid
         value[0] = i

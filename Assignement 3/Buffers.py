@@ -13,7 +13,8 @@ class buffers:
     def add(self, batch):
         if self.load + batch.getSize() <= self.limit:
             self.load += batch.getSize()
-            self.batches.append(batch)   
+            self.batches.append(batch)
+            self.batches.sort(key = lambda x: x.getSize())   
         else:
             raise ValueError("Batch does not fit in buffer")         
             
@@ -44,6 +45,10 @@ class buffers:
     
     def setBufferNR(self, bufferNR):
         self.bufferNR = bufferNR
+    
+    def getBatchWithSmallestSize(self):
+        self.batches.sort(key = lambda x: x.getSize())
+        return self.batches[0]
     
     def updateLoad(self):
         self.load = 0
