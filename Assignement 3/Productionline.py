@@ -317,7 +317,7 @@ class productionline:
                     batch = choosinghueristic(unit)
                     self.loadUnitWithBatch(unit, batch, f)
                 #print(addToInputBufferHueristic())
-                if addToInputBufferHueristic():
+                if addToInputBufferHueristic() and len(batc) > 0:
                     batch = choosingInputHueristic(batc)
                     if batch != None:                
                         self.loadBatchToInputBuffer(batch, f)
