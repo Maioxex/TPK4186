@@ -1,7 +1,7 @@
 import numpy as np
 
 class node:
-    def __init__(self, time,duration = np.inf, predecessors = None, successors = None, finished = False ):
+    def __init__(self, time,duration = np.inf, predecessors = None, successors = None, finished = False, description = None):
         self.finished = finished
         self.predecessors = predecessors
         self.successors = successors
@@ -11,6 +11,7 @@ class node:
         self.lateStart = False
         self.lateFinish = False
         self.duration = duration
+        self.description = description
         
     def getPredecessor(self):
         return self.predecessors
@@ -40,6 +41,33 @@ class node:
         return self.finished
     def setFinished(self, finished):
         self.finished = finished
+    def getEarlyStart(self):
+        return self.earlyStart
+    def getEarlyFinish(self):
+        return self.earlyFinish
+    def getLateStart(self):
+        return self.lateStart
+    def getLateFinish(self):
+        return self.lateFinish
+    def getDuration(self):
+        return self.duration
+    def setDuration(self, duration):
+        self.duration = duration
+    def getDescription(self):
+        return self.description
+    def setDescription(self, description):
+        self.description = description
+    
+    def getAllPredaecessors(self):
+        if self.predecessors == None:
+            return []
+        else:
+            return list(set(self.predecessors + [x.getAllPredaecessors() for x in self.predecessors]))
+    def getAllSuccessors(self):
+        if self.successors == None:
+            return []
+        else:
+            return list(set(self.successors + [x.getAllSuccessors() for x in self.successors]))
     
     def calculateEarlyStart(self):
         if self.predecessors == None:

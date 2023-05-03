@@ -22,3 +22,26 @@ class pert:
         node.setExpected(expected)
     def changefinished(self, node, finished):
         node.setFinished(finished)
+    
+    def calculateLateDates(self):
+        nodes = self.getNodes()
+        while len(nodes) > 0:
+            for node in nodes:
+                for successor in node.getSuccessor():
+                    if successor not in nodes:
+                        successor.calculateLateFinish()
+                        successor.calculateLateStart()
+                        nodes.remove(successor)
+        print("Late dates calculated")
+    
+    def calculateEarlyDates(self):
+        nodes = self.getNodes()
+        while len(nodes) > 0:
+            for node in nodes:
+                for predecessor in node.getPredecessor():
+                    if predecessor not in nodes:
+                        predecessor.calculateEarlyStart()
+                        predecessor.calculateEarlyFinish()
+                        nodes.remove(predecessor)
+        print("Early dates calculated")
+        
