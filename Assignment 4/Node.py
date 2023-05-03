@@ -1,7 +1,8 @@
 import numpy as np
 
 class node:
-    def __init__(self, time,duration = np.inf, predecessors = None, successors = None, finished = False, description = None):
+    def __init__(self, name, time, predecessors = None, successors = None, finished = False, description = None):
+        self.name = name
         self.finished = finished
         self.predecessors = predecessors
         self.successors = successors
@@ -10,9 +11,13 @@ class node:
         self.earlyFinish = False
         self.lateStart = False
         self.lateFinish = False
-        self.duration = duration
+        self.duration = np.inf
         self.description = description
         
+    def getName(self):
+        return self.name
+    def setName(self, name):
+        self.name = name
     def getPredecessor(self):
         return self.predecessors
     def setPredecessor(self, predecessors):
@@ -57,7 +62,17 @@ class node:
         return self.description
     def setDescription(self, description):
         self.description = description
-    
+    def appendPredecessor(self, predecessor):
+        if self.predecessors == None:
+            self.predecessors = [predecessor]
+        else: 
+            self.predecessors.append(predecessor)
+    def appendSuccessor(self, successor):
+        if self.successors == None:
+            self.successors = [successor]
+        else:
+            self.successors.append(successor)
+        
     def getAllPredaecessors(self):
         if self.predecessors == None:
             return []
@@ -92,3 +107,6 @@ class node:
             return True
         else:
             return False
+    
+    def printNode(self):
+        print(f"Name: {self.name}, description: {self.description}, durations: {self.time}, predecessors: {self.predecessors}, successors: {self.successors}")

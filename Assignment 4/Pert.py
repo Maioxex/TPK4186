@@ -1,3 +1,7 @@
+import numpy as np
+import pandas as pd
+from Node import node as no
+
 class pert:
     def __init__(self, nodes = None):
         self.nodes = nodes
@@ -44,4 +48,52 @@ class pert:
                         predecessor.calculateEarlyFinish()
                         nodes.remove(predecessor)
         print("Early dates calculated")
-        
+
+class loader():
+    def __init__(self,filename):
+        self.filename = filename
+        self.nodes = []
+        self.edges = []
+        self.load()
+    
+    def addNode(self, node):
+        self.nodes.append(node)
+    def getNodeByName(self, name):
+        for node in self.nodes:
+            if node.getName() == name:
+                return node
+    def load(self):
+        df = pd.read_excel(self.filename)
+        df = df.dropna(how='all')
+    #def __init__(self, name, time, duration = np.inf, predecessors = None, successors = None, finished = False, description = None):
+        for index, rows in df.iterrows():
+            #print(rows[1])
+            name = rows["Codes"]
+            description = rows["Descriptions"]
+            time = rows["Durations"]
+            predecessors = rows["Predecessors"]
+            if name == "Start":
+                predecessors = None
+                task  = no(name, time, predecessors, None, False, description)
+            elif name == "End":
+                predecessors = None
+                task  = no(name, time, predecessors, None, False, description)
+            else: 
+                predecessors = predecessors.split(",")
+                #print(predecessors)
+                task  = no(name, time, predecessors, None, False, description)
+            self.addNode(task)
+        for node in self.nodes:
+            sucsessors = []
+            if node.getName() == "Start":
+                continue
+            for node2 in self.nodes:
+                if node.getName() in node2.getPredecessor():
+                    sucsessors.append(node2)
+            node.setSuccessor(sucsessors)
+        #print(df)
+        #print(self.nodes)
+        for task in self.nodes:
+            task.printNode()
+nodes = loader("Assignment 4\Villa.xlsx")
+
