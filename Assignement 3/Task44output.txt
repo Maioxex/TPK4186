@@ -1,0 +1,924 @@
+Batch 30 is loaded into inputbuffer at time 0
+Time: 0 loading unit 0 with batch 30
+Time: 1 started task 0 on unit 0 with batch 30
+Time: 17.0 unloaded batch 30 from unit 0
+Time: 17.0 loading unit 1 with batch 30
+Time: 18.0 started task 1 on unit 1 with batch 30
+Time: 124.0 unloaded batch 30 from unit 1
+Time: 124.0 loading unit 0 with batch 30
+Time: 125.0 started task 2 on unit 0 with batch 30
+Time: 162.0 unloaded batch 30 from unit 0
+Time: 162.0 loading unit 2 with batch 30
+Time: 163.0 started task 3 on unit 2 with batch 30
+Time: 254.0 unloaded batch 30 from unit 2
+Time: 254.0 loading unit 1 with batch 30
+Time: 255.0 started task 4 on unit 1 with batch 30
+Time: 280.0 unloaded batch 30 from unit 1
+Time: 280.0 loading unit 0 with batch 30
+Time: 281.0 started task 5 on unit 0 with batch 30
+Time: 297.0 unloaded batch 30 from unit 0
+Time: 297.0 loading unit 1 with batch 30
+Time: 298.0 started task 6 on unit 1 with batch 30
+Time: 329.0 unloaded batch 30 from unit 1
+Time: 329.0 loading unit 2 with batch 30
+Time: 330.0 started task 7 on unit 2 with batch 30
+Time: 388.0 unloaded batch 30 from unit 2
+Time: 388.0 loading unit 0 with batch 30
+Time: 389.0 started task 8 on unit 0 with batch 30
+Time: 399.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 399.0
+Time: 399.0 loading unit 0 with batch 30
+Time: 400.0 started task 0 on unit 0 with batch 30
+Time: 416.0 unloaded batch 30 from unit 0
+Time: 416.0 loading unit 1 with batch 30
+Time: 417.0 started task 1 on unit 1 with batch 30
+Time: 523.0 unloaded batch 30 from unit 1
+Time: 523.0 loading unit 0 with batch 30
+Time: 524.0 started task 2 on unit 0 with batch 30
+Time: 561.0 unloaded batch 30 from unit 0
+Time: 561.0 loading unit 2 with batch 30
+Time: 562.0 started task 3 on unit 2 with batch 30
+Time: 653.0 unloaded batch 30 from unit 2
+Time: 653.0 loading unit 1 with batch 30
+Time: 654.0 started task 4 on unit 1 with batch 30
+Time: 679.0 unloaded batch 30 from unit 1
+Time: 679.0 loading unit 0 with batch 30
+Time: 680.0 started task 5 on unit 0 with batch 30
+Time: 696.0 unloaded batch 30 from unit 0
+Time: 696.0 loading unit 1 with batch 30
+Time: 697.0 started task 6 on unit 1 with batch 30
+Time: 728.0 unloaded batch 30 from unit 1
+Time: 728.0 loading unit 2 with batch 30
+Time: 729.0 started task 7 on unit 2 with batch 30
+Time: 787.0 unloaded batch 30 from unit 2
+Time: 787.0 loading unit 0 with batch 30
+Time: 788.0 started task 8 on unit 0 with batch 30
+Time: 798.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 798.0
+Time: 798.0 loading unit 0 with batch 30
+Time: 799.0 started task 0 on unit 0 with batch 30
+Time: 815.0 unloaded batch 30 from unit 0
+Time: 815.0 loading unit 1 with batch 30
+Time: 816.0 started task 1 on unit 1 with batch 30
+Time: 922.0 unloaded batch 30 from unit 1
+Time: 922.0 loading unit 0 with batch 30
+Time: 923.0 started task 2 on unit 0 with batch 30
+Time: 960.0 unloaded batch 30 from unit 0
+Time: 960.0 loading unit 2 with batch 30
+Time: 961.0 started task 3 on unit 2 with batch 30
+Time: 1052.0 unloaded batch 30 from unit 2
+Time: 1052.0 loading unit 1 with batch 30
+Time: 1053.0 started task 4 on unit 1 with batch 30
+Time: 1078.0 unloaded batch 30 from unit 1
+Time: 1078.0 loading unit 0 with batch 30
+Time: 1079.0 started task 5 on unit 0 with batch 30
+Time: 1095.0 unloaded batch 30 from unit 0
+Time: 1095.0 loading unit 1 with batch 30
+Time: 1096.0 started task 6 on unit 1 with batch 30
+Time: 1127.0 unloaded batch 30 from unit 1
+Time: 1127.0 loading unit 2 with batch 30
+Time: 1128.0 started task 7 on unit 2 with batch 30
+Time: 1186.0 unloaded batch 30 from unit 2
+Time: 1186.0 loading unit 0 with batch 30
+Time: 1187.0 started task 8 on unit 0 with batch 30
+Time: 1197.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 1197.0
+Time: 1197.0 loading unit 0 with batch 30
+Time: 1198.0 started task 0 on unit 0 with batch 30
+Time: 1214.0 unloaded batch 30 from unit 0
+Time: 1214.0 loading unit 1 with batch 30
+Time: 1215.0 started task 1 on unit 1 with batch 30
+Time: 1321.0 unloaded batch 30 from unit 1
+Time: 1321.0 loading unit 0 with batch 30
+Time: 1322.0 started task 2 on unit 0 with batch 30
+Time: 1359.0 unloaded batch 30 from unit 0
+Time: 1359.0 loading unit 2 with batch 30
+Time: 1360.0 started task 3 on unit 2 with batch 30
+Time: 1451.0 unloaded batch 30 from unit 2
+Time: 1451.0 loading unit 1 with batch 30
+Time: 1452.0 started task 4 on unit 1 with batch 30
+Time: 1477.0 unloaded batch 30 from unit 1
+Time: 1477.0 loading unit 0 with batch 30
+Time: 1478.0 started task 5 on unit 0 with batch 30
+Time: 1494.0 unloaded batch 30 from unit 0
+Time: 1494.0 loading unit 1 with batch 30
+Time: 1495.0 started task 6 on unit 1 with batch 30
+Time: 1526.0 unloaded batch 30 from unit 1
+Time: 1526.0 loading unit 2 with batch 30
+Time: 1527.0 started task 7 on unit 2 with batch 30
+Time: 1585.0 unloaded batch 30 from unit 2
+Time: 1585.0 loading unit 0 with batch 30
+Time: 1586.0 started task 8 on unit 0 with batch 30
+Time: 1596.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 1596.0
+Time: 1596.0 loading unit 0 with batch 30
+Time: 1597.0 started task 0 on unit 0 with batch 30
+Time: 1613.0 unloaded batch 30 from unit 0
+Time: 1613.0 loading unit 1 with batch 30
+Time: 1614.0 started task 1 on unit 1 with batch 30
+Time: 1720.0 unloaded batch 30 from unit 1
+Time: 1720.0 loading unit 0 with batch 30
+Time: 1721.0 started task 2 on unit 0 with batch 30
+Time: 1758.0 unloaded batch 30 from unit 0
+Time: 1758.0 loading unit 2 with batch 30
+Time: 1759.0 started task 3 on unit 2 with batch 30
+Time: 1850.0 unloaded batch 30 from unit 2
+Time: 1850.0 loading unit 1 with batch 30
+Time: 1851.0 started task 4 on unit 1 with batch 30
+Time: 1876.0 unloaded batch 30 from unit 1
+Time: 1876.0 loading unit 0 with batch 30
+Time: 1877.0 started task 5 on unit 0 with batch 30
+Time: 1893.0 unloaded batch 30 from unit 0
+Time: 1893.0 loading unit 1 with batch 30
+Time: 1894.0 started task 6 on unit 1 with batch 30
+Time: 1925.0 unloaded batch 30 from unit 1
+Time: 1925.0 loading unit 2 with batch 30
+Time: 1926.0 started task 7 on unit 2 with batch 30
+Time: 1984.0 unloaded batch 30 from unit 2
+Time: 1984.0 loading unit 0 with batch 30
+Time: 1985.0 started task 8 on unit 0 with batch 30
+Time: 1995.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 1995.0
+Time: 1995.0 loading unit 0 with batch 30
+Time: 1996.0 started task 0 on unit 0 with batch 30
+Time: 2012.0 unloaded batch 30 from unit 0
+Time: 2012.0 loading unit 1 with batch 30
+Time: 2013.0 started task 1 on unit 1 with batch 30
+Time: 2119.0 unloaded batch 30 from unit 1
+Time: 2119.0 loading unit 0 with batch 30
+Time: 2120.0 started task 2 on unit 0 with batch 30
+Time: 2157.0 unloaded batch 30 from unit 0
+Time: 2157.0 loading unit 2 with batch 30
+Time: 2158.0 started task 3 on unit 2 with batch 30
+Time: 2249.0 unloaded batch 30 from unit 2
+Time: 2249.0 loading unit 1 with batch 30
+Time: 2250.0 started task 4 on unit 1 with batch 30
+Time: 2275.0 unloaded batch 30 from unit 1
+Time: 2275.0 loading unit 0 with batch 30
+Time: 2276.0 started task 5 on unit 0 with batch 30
+Time: 2292.0 unloaded batch 30 from unit 0
+Time: 2292.0 loading unit 1 with batch 30
+Time: 2293.0 started task 6 on unit 1 with batch 30
+Time: 2324.0 unloaded batch 30 from unit 1
+Time: 2324.0 loading unit 2 with batch 30
+Time: 2325.0 started task 7 on unit 2 with batch 30
+Time: 2383.0 unloaded batch 30 from unit 2
+Time: 2383.0 loading unit 0 with batch 30
+Time: 2384.0 started task 8 on unit 0 with batch 30
+Time: 2394.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 2394.0
+Time: 2394.0 loading unit 0 with batch 30
+Time: 2395.0 started task 0 on unit 0 with batch 30
+Time: 2411.0 unloaded batch 30 from unit 0
+Time: 2411.0 loading unit 1 with batch 30
+Time: 2412.0 started task 1 on unit 1 with batch 30
+Time: 2518.0 unloaded batch 30 from unit 1
+Time: 2518.0 loading unit 0 with batch 30
+Time: 2519.0 started task 2 on unit 0 with batch 30
+Time: 2556.0 unloaded batch 30 from unit 0
+Time: 2556.0 loading unit 2 with batch 30
+Time: 2557.0 started task 3 on unit 2 with batch 30
+Time: 2648.0 unloaded batch 30 from unit 2
+Time: 2648.0 loading unit 1 with batch 30
+Time: 2649.0 started task 4 on unit 1 with batch 30
+Time: 2674.0 unloaded batch 30 from unit 1
+Time: 2674.0 loading unit 0 with batch 30
+Time: 2675.0 started task 5 on unit 0 with batch 30
+Time: 2691.0 unloaded batch 30 from unit 0
+Time: 2691.0 loading unit 1 with batch 30
+Time: 2692.0 started task 6 on unit 1 with batch 30
+Time: 2723.0 unloaded batch 30 from unit 1
+Time: 2723.0 loading unit 2 with batch 30
+Time: 2724.0 started task 7 on unit 2 with batch 30
+Time: 2782.0 unloaded batch 30 from unit 2
+Time: 2782.0 loading unit 0 with batch 30
+Time: 2783.0 started task 8 on unit 0 with batch 30
+Time: 2793.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 2793.0
+Time: 2793.0 loading unit 0 with batch 30
+Time: 2794.0 started task 0 on unit 0 with batch 30
+Time: 2810.0 unloaded batch 30 from unit 0
+Time: 2810.0 loading unit 1 with batch 30
+Time: 2811.0 started task 1 on unit 1 with batch 30
+Time: 2917.0 unloaded batch 30 from unit 1
+Time: 2917.0 loading unit 0 with batch 30
+Time: 2918.0 started task 2 on unit 0 with batch 30
+Time: 2955.0 unloaded batch 30 from unit 0
+Time: 2955.0 loading unit 2 with batch 30
+Time: 2956.0 started task 3 on unit 2 with batch 30
+Time: 3047.0 unloaded batch 30 from unit 2
+Time: 3047.0 loading unit 1 with batch 30
+Time: 3048.0 started task 4 on unit 1 with batch 30
+Time: 3073.0 unloaded batch 30 from unit 1
+Time: 3073.0 loading unit 0 with batch 30
+Time: 3074.0 started task 5 on unit 0 with batch 30
+Time: 3090.0 unloaded batch 30 from unit 0
+Time: 3090.0 loading unit 1 with batch 30
+Time: 3091.0 started task 6 on unit 1 with batch 30
+Time: 3122.0 unloaded batch 30 from unit 1
+Time: 3122.0 loading unit 2 with batch 30
+Time: 3123.0 started task 7 on unit 2 with batch 30
+Time: 3181.0 unloaded batch 30 from unit 2
+Time: 3181.0 loading unit 0 with batch 30
+Time: 3182.0 started task 8 on unit 0 with batch 30
+Time: 3192.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 3192.0
+Time: 3192.0 loading unit 0 with batch 30
+Time: 3193.0 started task 0 on unit 0 with batch 30
+Time: 3209.0 unloaded batch 30 from unit 0
+Time: 3209.0 loading unit 1 with batch 30
+Time: 3210.0 started task 1 on unit 1 with batch 30
+Time: 3316.0 unloaded batch 30 from unit 1
+Time: 3316.0 loading unit 0 with batch 30
+Time: 3317.0 started task 2 on unit 0 with batch 30
+Time: 3354.0 unloaded batch 30 from unit 0
+Time: 3354.0 loading unit 2 with batch 30
+Time: 3355.0 started task 3 on unit 2 with batch 30
+Time: 3446.0 unloaded batch 30 from unit 2
+Time: 3446.0 loading unit 1 with batch 30
+Time: 3447.0 started task 4 on unit 1 with batch 30
+Time: 3472.0 unloaded batch 30 from unit 1
+Time: 3472.0 loading unit 0 with batch 30
+Time: 3473.0 started task 5 on unit 0 with batch 30
+Time: 3489.0 unloaded batch 30 from unit 0
+Time: 3489.0 loading unit 1 with batch 30
+Time: 3490.0 started task 6 on unit 1 with batch 30
+Time: 3521.0 unloaded batch 30 from unit 1
+Time: 3521.0 loading unit 2 with batch 30
+Time: 3522.0 started task 7 on unit 2 with batch 30
+Time: 3580.0 unloaded batch 30 from unit 2
+Time: 3580.0 loading unit 0 with batch 30
+Time: 3581.0 started task 8 on unit 0 with batch 30
+Time: 3591.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 3591.0
+Time: 3591.0 loading unit 0 with batch 30
+Time: 3592.0 started task 0 on unit 0 with batch 30
+Time: 3608.0 unloaded batch 30 from unit 0
+Time: 3608.0 loading unit 1 with batch 30
+Time: 3609.0 started task 1 on unit 1 with batch 30
+Time: 3715.0 unloaded batch 30 from unit 1
+Time: 3715.0 loading unit 0 with batch 30
+Time: 3716.0 started task 2 on unit 0 with batch 30
+Time: 3753.0 unloaded batch 30 from unit 0
+Time: 3753.0 loading unit 2 with batch 30
+Time: 3754.0 started task 3 on unit 2 with batch 30
+Time: 3845.0 unloaded batch 30 from unit 2
+Time: 3845.0 loading unit 1 with batch 30
+Time: 3846.0 started task 4 on unit 1 with batch 30
+Time: 3871.0 unloaded batch 30 from unit 1
+Time: 3871.0 loading unit 0 with batch 30
+Time: 3872.0 started task 5 on unit 0 with batch 30
+Time: 3888.0 unloaded batch 30 from unit 0
+Time: 3888.0 loading unit 1 with batch 30
+Time: 3889.0 started task 6 on unit 1 with batch 30
+Time: 3920.0 unloaded batch 30 from unit 1
+Time: 3920.0 loading unit 2 with batch 30
+Time: 3921.0 started task 7 on unit 2 with batch 30
+Time: 3979.0 unloaded batch 30 from unit 2
+Time: 3979.0 loading unit 0 with batch 30
+Time: 3980.0 started task 8 on unit 0 with batch 30
+Time: 3990.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 3990.0
+Time: 3990.0 loading unit 0 with batch 30
+Time: 3991.0 started task 0 on unit 0 with batch 30
+Time: 4007.0 unloaded batch 30 from unit 0
+Time: 4007.0 loading unit 1 with batch 30
+Time: 4008.0 started task 1 on unit 1 with batch 30
+Time: 4114.0 unloaded batch 30 from unit 1
+Time: 4114.0 loading unit 0 with batch 30
+Time: 4115.0 started task 2 on unit 0 with batch 30
+Time: 4152.0 unloaded batch 30 from unit 0
+Time: 4152.0 loading unit 2 with batch 30
+Time: 4153.0 started task 3 on unit 2 with batch 30
+Time: 4244.0 unloaded batch 30 from unit 2
+Time: 4244.0 loading unit 1 with batch 30
+Time: 4245.0 started task 4 on unit 1 with batch 30
+Time: 4270.0 unloaded batch 30 from unit 1
+Time: 4270.0 loading unit 0 with batch 30
+Time: 4271.0 started task 5 on unit 0 with batch 30
+Time: 4287.0 unloaded batch 30 from unit 0
+Time: 4287.0 loading unit 1 with batch 30
+Time: 4288.0 started task 6 on unit 1 with batch 30
+Time: 4319.0 unloaded batch 30 from unit 1
+Time: 4319.0 loading unit 2 with batch 30
+Time: 4320.0 started task 7 on unit 2 with batch 30
+Time: 4378.0 unloaded batch 30 from unit 2
+Time: 4378.0 loading unit 0 with batch 30
+Time: 4379.0 started task 8 on unit 0 with batch 30
+Time: 4389.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 4389.0
+Time: 4389.0 loading unit 0 with batch 30
+Time: 4390.0 started task 0 on unit 0 with batch 30
+Time: 4406.0 unloaded batch 30 from unit 0
+Time: 4406.0 loading unit 1 with batch 30
+Time: 4407.0 started task 1 on unit 1 with batch 30
+Time: 4513.0 unloaded batch 30 from unit 1
+Time: 4513.0 loading unit 0 with batch 30
+Time: 4514.0 started task 2 on unit 0 with batch 30
+Time: 4551.0 unloaded batch 30 from unit 0
+Time: 4551.0 loading unit 2 with batch 30
+Time: 4552.0 started task 3 on unit 2 with batch 30
+Time: 4643.0 unloaded batch 30 from unit 2
+Time: 4643.0 loading unit 1 with batch 30
+Time: 4644.0 started task 4 on unit 1 with batch 30
+Time: 4669.0 unloaded batch 30 from unit 1
+Time: 4669.0 loading unit 0 with batch 30
+Time: 4670.0 started task 5 on unit 0 with batch 30
+Time: 4686.0 unloaded batch 30 from unit 0
+Time: 4686.0 loading unit 1 with batch 30
+Time: 4687.0 started task 6 on unit 1 with batch 30
+Time: 4718.0 unloaded batch 30 from unit 1
+Time: 4718.0 loading unit 2 with batch 30
+Time: 4719.0 started task 7 on unit 2 with batch 30
+Time: 4777.0 unloaded batch 30 from unit 2
+Time: 4777.0 loading unit 0 with batch 30
+Time: 4778.0 started task 8 on unit 0 with batch 30
+Time: 4788.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 4788.0
+Time: 4788.0 loading unit 0 with batch 30
+Time: 4789.0 started task 0 on unit 0 with batch 30
+Time: 4805.0 unloaded batch 30 from unit 0
+Time: 4805.0 loading unit 1 with batch 30
+Time: 4806.0 started task 1 on unit 1 with batch 30
+Time: 4912.0 unloaded batch 30 from unit 1
+Time: 4912.0 loading unit 0 with batch 30
+Time: 4913.0 started task 2 on unit 0 with batch 30
+Time: 4950.0 unloaded batch 30 from unit 0
+Time: 4950.0 loading unit 2 with batch 30
+Time: 4951.0 started task 3 on unit 2 with batch 30
+Time: 5042.0 unloaded batch 30 from unit 2
+Time: 5042.0 loading unit 1 with batch 30
+Time: 5043.0 started task 4 on unit 1 with batch 30
+Time: 5068.0 unloaded batch 30 from unit 1
+Time: 5068.0 loading unit 0 with batch 30
+Time: 5069.0 started task 5 on unit 0 with batch 30
+Time: 5085.0 unloaded batch 30 from unit 0
+Time: 5085.0 loading unit 1 with batch 30
+Time: 5086.0 started task 6 on unit 1 with batch 30
+Time: 5117.0 unloaded batch 30 from unit 1
+Time: 5117.0 loading unit 2 with batch 30
+Time: 5118.0 started task 7 on unit 2 with batch 30
+Time: 5176.0 unloaded batch 30 from unit 2
+Time: 5176.0 loading unit 0 with batch 30
+Time: 5177.0 started task 8 on unit 0 with batch 30
+Time: 5187.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 5187.0
+Time: 5187.0 loading unit 0 with batch 30
+Time: 5188.0 started task 0 on unit 0 with batch 30
+Time: 5204.0 unloaded batch 30 from unit 0
+Time: 5204.0 loading unit 1 with batch 30
+Time: 5205.0 started task 1 on unit 1 with batch 30
+Time: 5311.0 unloaded batch 30 from unit 1
+Time: 5311.0 loading unit 0 with batch 30
+Time: 5312.0 started task 2 on unit 0 with batch 30
+Time: 5349.0 unloaded batch 30 from unit 0
+Time: 5349.0 loading unit 2 with batch 30
+Time: 5350.0 started task 3 on unit 2 with batch 30
+Time: 5441.0 unloaded batch 30 from unit 2
+Time: 5441.0 loading unit 1 with batch 30
+Time: 5442.0 started task 4 on unit 1 with batch 30
+Time: 5467.0 unloaded batch 30 from unit 1
+Time: 5467.0 loading unit 0 with batch 30
+Time: 5468.0 started task 5 on unit 0 with batch 30
+Time: 5484.0 unloaded batch 30 from unit 0
+Time: 5484.0 loading unit 1 with batch 30
+Time: 5485.0 started task 6 on unit 1 with batch 30
+Time: 5516.0 unloaded batch 30 from unit 1
+Time: 5516.0 loading unit 2 with batch 30
+Time: 5517.0 started task 7 on unit 2 with batch 30
+Time: 5575.0 unloaded batch 30 from unit 2
+Time: 5575.0 loading unit 0 with batch 30
+Time: 5576.0 started task 8 on unit 0 with batch 30
+Time: 5586.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 5586.0
+Time: 5586.0 loading unit 0 with batch 30
+Time: 5587.0 started task 0 on unit 0 with batch 30
+Time: 5603.0 unloaded batch 30 from unit 0
+Time: 5603.0 loading unit 1 with batch 30
+Time: 5604.0 started task 1 on unit 1 with batch 30
+Time: 5710.0 unloaded batch 30 from unit 1
+Time: 5710.0 loading unit 0 with batch 30
+Time: 5711.0 started task 2 on unit 0 with batch 30
+Time: 5748.0 unloaded batch 30 from unit 0
+Time: 5748.0 loading unit 2 with batch 30
+Time: 5749.0 started task 3 on unit 2 with batch 30
+Time: 5840.0 unloaded batch 30 from unit 2
+Time: 5840.0 loading unit 1 with batch 30
+Time: 5841.0 started task 4 on unit 1 with batch 30
+Time: 5866.0 unloaded batch 30 from unit 1
+Time: 5866.0 loading unit 0 with batch 30
+Time: 5867.0 started task 5 on unit 0 with batch 30
+Time: 5883.0 unloaded batch 30 from unit 0
+Time: 5883.0 loading unit 1 with batch 30
+Time: 5884.0 started task 6 on unit 1 with batch 30
+Time: 5915.0 unloaded batch 30 from unit 1
+Time: 5915.0 loading unit 2 with batch 30
+Time: 5916.0 started task 7 on unit 2 with batch 30
+Time: 5974.0 unloaded batch 30 from unit 2
+Time: 5974.0 loading unit 0 with batch 30
+Time: 5975.0 started task 8 on unit 0 with batch 30
+Time: 5985.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 5985.0
+Time: 5985.0 loading unit 0 with batch 30
+Time: 5986.0 started task 0 on unit 0 with batch 30
+Time: 6002.0 unloaded batch 30 from unit 0
+Time: 6002.0 loading unit 1 with batch 30
+Time: 6003.0 started task 1 on unit 1 with batch 30
+Time: 6109.0 unloaded batch 30 from unit 1
+Time: 6109.0 loading unit 0 with batch 30
+Time: 6110.0 started task 2 on unit 0 with batch 30
+Time: 6147.0 unloaded batch 30 from unit 0
+Time: 6147.0 loading unit 2 with batch 30
+Time: 6148.0 started task 3 on unit 2 with batch 30
+Time: 6239.0 unloaded batch 30 from unit 2
+Time: 6239.0 loading unit 1 with batch 30
+Time: 6240.0 started task 4 on unit 1 with batch 30
+Time: 6265.0 unloaded batch 30 from unit 1
+Time: 6265.0 loading unit 0 with batch 30
+Time: 6266.0 started task 5 on unit 0 with batch 30
+Time: 6282.0 unloaded batch 30 from unit 0
+Time: 6282.0 loading unit 1 with batch 30
+Time: 6283.0 started task 6 on unit 1 with batch 30
+Time: 6314.0 unloaded batch 30 from unit 1
+Time: 6314.0 loading unit 2 with batch 30
+Time: 6315.0 started task 7 on unit 2 with batch 30
+Time: 6373.0 unloaded batch 30 from unit 2
+Time: 6373.0 loading unit 0 with batch 30
+Time: 6374.0 started task 8 on unit 0 with batch 30
+Time: 6384.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 6384.0
+Time: 6384.0 loading unit 0 with batch 30
+Time: 6385.0 started task 0 on unit 0 with batch 30
+Time: 6401.0 unloaded batch 30 from unit 0
+Time: 6401.0 loading unit 1 with batch 30
+Time: 6402.0 started task 1 on unit 1 with batch 30
+Time: 6508.0 unloaded batch 30 from unit 1
+Time: 6508.0 loading unit 0 with batch 30
+Time: 6509.0 started task 2 on unit 0 with batch 30
+Time: 6546.0 unloaded batch 30 from unit 0
+Time: 6546.0 loading unit 2 with batch 30
+Time: 6547.0 started task 3 on unit 2 with batch 30
+Time: 6638.0 unloaded batch 30 from unit 2
+Time: 6638.0 loading unit 1 with batch 30
+Time: 6639.0 started task 4 on unit 1 with batch 30
+Time: 6664.0 unloaded batch 30 from unit 1
+Time: 6664.0 loading unit 0 with batch 30
+Time: 6665.0 started task 5 on unit 0 with batch 30
+Time: 6681.0 unloaded batch 30 from unit 0
+Time: 6681.0 loading unit 1 with batch 30
+Time: 6682.0 started task 6 on unit 1 with batch 30
+Time: 6713.0 unloaded batch 30 from unit 1
+Time: 6713.0 loading unit 2 with batch 30
+Time: 6714.0 started task 7 on unit 2 with batch 30
+Time: 6772.0 unloaded batch 30 from unit 2
+Time: 6772.0 loading unit 0 with batch 30
+Time: 6773.0 started task 8 on unit 0 with batch 30
+Time: 6783.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 6783.0
+Time: 6783.0 loading unit 0 with batch 30
+Time: 6784.0 started task 0 on unit 0 with batch 30
+Time: 6800.0 unloaded batch 30 from unit 0
+Time: 6800.0 loading unit 1 with batch 30
+Time: 6801.0 started task 1 on unit 1 with batch 30
+Time: 6907.0 unloaded batch 30 from unit 1
+Time: 6907.0 loading unit 0 with batch 30
+Time: 6908.0 started task 2 on unit 0 with batch 30
+Time: 6945.0 unloaded batch 30 from unit 0
+Time: 6945.0 loading unit 2 with batch 30
+Time: 6946.0 started task 3 on unit 2 with batch 30
+Time: 7037.0 unloaded batch 30 from unit 2
+Time: 7037.0 loading unit 1 with batch 30
+Time: 7038.0 started task 4 on unit 1 with batch 30
+Time: 7063.0 unloaded batch 30 from unit 1
+Time: 7063.0 loading unit 0 with batch 30
+Time: 7064.0 started task 5 on unit 0 with batch 30
+Time: 7080.0 unloaded batch 30 from unit 0
+Time: 7080.0 loading unit 1 with batch 30
+Time: 7081.0 started task 6 on unit 1 with batch 30
+Time: 7112.0 unloaded batch 30 from unit 1
+Time: 7112.0 loading unit 2 with batch 30
+Time: 7113.0 started task 7 on unit 2 with batch 30
+Time: 7171.0 unloaded batch 30 from unit 2
+Time: 7171.0 loading unit 0 with batch 30
+Time: 7172.0 started task 8 on unit 0 with batch 30
+Time: 7182.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 7182.0
+Time: 7182.0 loading unit 0 with batch 30
+Time: 7183.0 started task 0 on unit 0 with batch 30
+Time: 7199.0 unloaded batch 30 from unit 0
+Time: 7199.0 loading unit 1 with batch 30
+Time: 7200.0 started task 1 on unit 1 with batch 30
+Time: 7306.0 unloaded batch 30 from unit 1
+Time: 7306.0 loading unit 0 with batch 30
+Time: 7307.0 started task 2 on unit 0 with batch 30
+Time: 7344.0 unloaded batch 30 from unit 0
+Time: 7344.0 loading unit 2 with batch 30
+Time: 7345.0 started task 3 on unit 2 with batch 30
+Time: 7436.0 unloaded batch 30 from unit 2
+Time: 7436.0 loading unit 1 with batch 30
+Time: 7437.0 started task 4 on unit 1 with batch 30
+Time: 7462.0 unloaded batch 30 from unit 1
+Time: 7462.0 loading unit 0 with batch 30
+Time: 7463.0 started task 5 on unit 0 with batch 30
+Time: 7479.0 unloaded batch 30 from unit 0
+Time: 7479.0 loading unit 1 with batch 30
+Time: 7480.0 started task 6 on unit 1 with batch 30
+Time: 7511.0 unloaded batch 30 from unit 1
+Time: 7511.0 loading unit 2 with batch 30
+Time: 7512.0 started task 7 on unit 2 with batch 30
+Time: 7570.0 unloaded batch 30 from unit 2
+Time: 7570.0 loading unit 0 with batch 30
+Time: 7571.0 started task 8 on unit 0 with batch 30
+Time: 7581.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 7581.0
+Time: 7581.0 loading unit 0 with batch 30
+Time: 7582.0 started task 0 on unit 0 with batch 30
+Time: 7598.0 unloaded batch 30 from unit 0
+Time: 7598.0 loading unit 1 with batch 30
+Time: 7599.0 started task 1 on unit 1 with batch 30
+Time: 7705.0 unloaded batch 30 from unit 1
+Time: 7705.0 loading unit 0 with batch 30
+Time: 7706.0 started task 2 on unit 0 with batch 30
+Time: 7743.0 unloaded batch 30 from unit 0
+Time: 7743.0 loading unit 2 with batch 30
+Time: 7744.0 started task 3 on unit 2 with batch 30
+Time: 7835.0 unloaded batch 30 from unit 2
+Time: 7835.0 loading unit 1 with batch 30
+Time: 7836.0 started task 4 on unit 1 with batch 30
+Time: 7861.0 unloaded batch 30 from unit 1
+Time: 7861.0 loading unit 0 with batch 30
+Time: 7862.0 started task 5 on unit 0 with batch 30
+Time: 7878.0 unloaded batch 30 from unit 0
+Time: 7878.0 loading unit 1 with batch 30
+Time: 7879.0 started task 6 on unit 1 with batch 30
+Time: 7910.0 unloaded batch 30 from unit 1
+Time: 7910.0 loading unit 2 with batch 30
+Time: 7911.0 started task 7 on unit 2 with batch 30
+Time: 7969.0 unloaded batch 30 from unit 2
+Time: 7969.0 loading unit 0 with batch 30
+Time: 7970.0 started task 8 on unit 0 with batch 30
+Time: 7980.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 7980.0
+Time: 7980.0 loading unit 0 with batch 30
+Time: 7981.0 started task 0 on unit 0 with batch 30
+Time: 7997.0 unloaded batch 30 from unit 0
+Time: 7997.0 loading unit 1 with batch 30
+Time: 7998.0 started task 1 on unit 1 with batch 30
+Time: 8104.0 unloaded batch 30 from unit 1
+Time: 8104.0 loading unit 0 with batch 30
+Time: 8105.0 started task 2 on unit 0 with batch 30
+Time: 8142.0 unloaded batch 30 from unit 0
+Time: 8142.0 loading unit 2 with batch 30
+Time: 8143.0 started task 3 on unit 2 with batch 30
+Time: 8234.0 unloaded batch 30 from unit 2
+Time: 8234.0 loading unit 1 with batch 30
+Time: 8235.0 started task 4 on unit 1 with batch 30
+Time: 8260.0 unloaded batch 30 from unit 1
+Time: 8260.0 loading unit 0 with batch 30
+Time: 8261.0 started task 5 on unit 0 with batch 30
+Time: 8277.0 unloaded batch 30 from unit 0
+Time: 8277.0 loading unit 1 with batch 30
+Time: 8278.0 started task 6 on unit 1 with batch 30
+Time: 8309.0 unloaded batch 30 from unit 1
+Time: 8309.0 loading unit 2 with batch 30
+Time: 8310.0 started task 7 on unit 2 with batch 30
+Time: 8368.0 unloaded batch 30 from unit 2
+Time: 8368.0 loading unit 0 with batch 30
+Time: 8369.0 started task 8 on unit 0 with batch 30
+Time: 8379.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 8379.0
+Time: 8379.0 loading unit 0 with batch 30
+Time: 8380.0 started task 0 on unit 0 with batch 30
+Time: 8396.0 unloaded batch 30 from unit 0
+Time: 8396.0 loading unit 1 with batch 30
+Time: 8397.0 started task 1 on unit 1 with batch 30
+Time: 8503.0 unloaded batch 30 from unit 1
+Time: 8503.0 loading unit 0 with batch 30
+Time: 8504.0 started task 2 on unit 0 with batch 30
+Time: 8541.0 unloaded batch 30 from unit 0
+Time: 8541.0 loading unit 2 with batch 30
+Time: 8542.0 started task 3 on unit 2 with batch 30
+Time: 8633.0 unloaded batch 30 from unit 2
+Time: 8633.0 loading unit 1 with batch 30
+Time: 8634.0 started task 4 on unit 1 with batch 30
+Time: 8659.0 unloaded batch 30 from unit 1
+Time: 8659.0 loading unit 0 with batch 30
+Time: 8660.0 started task 5 on unit 0 with batch 30
+Time: 8676.0 unloaded batch 30 from unit 0
+Time: 8676.0 loading unit 1 with batch 30
+Time: 8677.0 started task 6 on unit 1 with batch 30
+Time: 8708.0 unloaded batch 30 from unit 1
+Time: 8708.0 loading unit 2 with batch 30
+Time: 8709.0 started task 7 on unit 2 with batch 30
+Time: 8767.0 unloaded batch 30 from unit 2
+Time: 8767.0 loading unit 0 with batch 30
+Time: 8768.0 started task 8 on unit 0 with batch 30
+Time: 8778.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 8778.0
+Time: 8778.0 loading unit 0 with batch 30
+Time: 8779.0 started task 0 on unit 0 with batch 30
+Time: 8795.0 unloaded batch 30 from unit 0
+Time: 8795.0 loading unit 1 with batch 30
+Time: 8796.0 started task 1 on unit 1 with batch 30
+Time: 8902.0 unloaded batch 30 from unit 1
+Time: 8902.0 loading unit 0 with batch 30
+Time: 8903.0 started task 2 on unit 0 with batch 30
+Time: 8940.0 unloaded batch 30 from unit 0
+Time: 8940.0 loading unit 2 with batch 30
+Time: 8941.0 started task 3 on unit 2 with batch 30
+Time: 9032.0 unloaded batch 30 from unit 2
+Time: 9032.0 loading unit 1 with batch 30
+Time: 9033.0 started task 4 on unit 1 with batch 30
+Time: 9058.0 unloaded batch 30 from unit 1
+Time: 9058.0 loading unit 0 with batch 30
+Time: 9059.0 started task 5 on unit 0 with batch 30
+Time: 9075.0 unloaded batch 30 from unit 0
+Time: 9075.0 loading unit 1 with batch 30
+Time: 9076.0 started task 6 on unit 1 with batch 30
+Time: 9107.0 unloaded batch 30 from unit 1
+Time: 9107.0 loading unit 2 with batch 30
+Time: 9108.0 started task 7 on unit 2 with batch 30
+Time: 9166.0 unloaded batch 30 from unit 2
+Time: 9166.0 loading unit 0 with batch 30
+Time: 9167.0 started task 8 on unit 0 with batch 30
+Time: 9177.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 9177.0
+Time: 9177.0 loading unit 0 with batch 30
+Time: 9178.0 started task 0 on unit 0 with batch 30
+Time: 9194.0 unloaded batch 30 from unit 0
+Time: 9194.0 loading unit 1 with batch 30
+Time: 9195.0 started task 1 on unit 1 with batch 30
+Time: 9301.0 unloaded batch 30 from unit 1
+Time: 9301.0 loading unit 0 with batch 30
+Time: 9302.0 started task 2 on unit 0 with batch 30
+Time: 9339.0 unloaded batch 30 from unit 0
+Time: 9339.0 loading unit 2 with batch 30
+Time: 9340.0 started task 3 on unit 2 with batch 30
+Time: 9431.0 unloaded batch 30 from unit 2
+Time: 9431.0 loading unit 1 with batch 30
+Time: 9432.0 started task 4 on unit 1 with batch 30
+Time: 9457.0 unloaded batch 30 from unit 1
+Time: 9457.0 loading unit 0 with batch 30
+Time: 9458.0 started task 5 on unit 0 with batch 30
+Time: 9474.0 unloaded batch 30 from unit 0
+Time: 9474.0 loading unit 1 with batch 30
+Time: 9475.0 started task 6 on unit 1 with batch 30
+Time: 9506.0 unloaded batch 30 from unit 1
+Time: 9506.0 loading unit 2 with batch 30
+Time: 9507.0 started task 7 on unit 2 with batch 30
+Time: 9565.0 unloaded batch 30 from unit 2
+Time: 9565.0 loading unit 0 with batch 30
+Time: 9566.0 started task 8 on unit 0 with batch 30
+Time: 9576.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 9576.0
+Time: 9576.0 loading unit 0 with batch 30
+Time: 9577.0 started task 0 on unit 0 with batch 30
+Time: 9593.0 unloaded batch 30 from unit 0
+Time: 9593.0 loading unit 1 with batch 30
+Time: 9594.0 started task 1 on unit 1 with batch 30
+Time: 9700.0 unloaded batch 30 from unit 1
+Time: 9700.0 loading unit 0 with batch 30
+Time: 9701.0 started task 2 on unit 0 with batch 30
+Time: 9738.0 unloaded batch 30 from unit 0
+Time: 9738.0 loading unit 2 with batch 30
+Time: 9739.0 started task 3 on unit 2 with batch 30
+Time: 9830.0 unloaded batch 30 from unit 2
+Time: 9830.0 loading unit 1 with batch 30
+Time: 9831.0 started task 4 on unit 1 with batch 30
+Time: 9856.0 unloaded batch 30 from unit 1
+Time: 9856.0 loading unit 0 with batch 30
+Time: 9857.0 started task 5 on unit 0 with batch 30
+Time: 9873.0 unloaded batch 30 from unit 0
+Time: 9873.0 loading unit 1 with batch 30
+Time: 9874.0 started task 6 on unit 1 with batch 30
+Time: 9905.0 unloaded batch 30 from unit 1
+Time: 9905.0 loading unit 2 with batch 30
+Time: 9906.0 started task 7 on unit 2 with batch 30
+Time: 9964.0 unloaded batch 30 from unit 2
+Time: 9964.0 loading unit 0 with batch 30
+Time: 9965.0 started task 8 on unit 0 with batch 30
+Time: 9975.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 9975.0
+Time: 9975.0 loading unit 0 with batch 30
+Time: 9976.0 started task 0 on unit 0 with batch 30
+Time: 9992.0 unloaded batch 30 from unit 0
+Time: 9992.0 loading unit 1 with batch 30
+Time: 9993.0 started task 1 on unit 1 with batch 30
+Time: 10099.0 unloaded batch 30 from unit 1
+Time: 10099.0 loading unit 0 with batch 30
+Time: 10100.0 started task 2 on unit 0 with batch 30
+Time: 10137.0 unloaded batch 30 from unit 0
+Time: 10137.0 loading unit 2 with batch 30
+Time: 10138.0 started task 3 on unit 2 with batch 30
+Time: 10229.0 unloaded batch 30 from unit 2
+Time: 10229.0 loading unit 1 with batch 30
+Time: 10230.0 started task 4 on unit 1 with batch 30
+Time: 10255.0 unloaded batch 30 from unit 1
+Time: 10255.0 loading unit 0 with batch 30
+Time: 10256.0 started task 5 on unit 0 with batch 30
+Time: 10272.0 unloaded batch 30 from unit 0
+Time: 10272.0 loading unit 1 with batch 30
+Time: 10273.0 started task 6 on unit 1 with batch 30
+Time: 10304.0 unloaded batch 30 from unit 1
+Time: 10304.0 loading unit 2 with batch 30
+Time: 10305.0 started task 7 on unit 2 with batch 30
+Time: 10363.0 unloaded batch 30 from unit 2
+Time: 10363.0 loading unit 0 with batch 30
+Time: 10364.0 started task 8 on unit 0 with batch 30
+Time: 10374.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 10374.0
+Time: 10374.0 loading unit 0 with batch 30
+Time: 10375.0 started task 0 on unit 0 with batch 30
+Time: 10391.0 unloaded batch 30 from unit 0
+Time: 10391.0 loading unit 1 with batch 30
+Time: 10392.0 started task 1 on unit 1 with batch 30
+Time: 10498.0 unloaded batch 30 from unit 1
+Time: 10498.0 loading unit 0 with batch 30
+Time: 10499.0 started task 2 on unit 0 with batch 30
+Time: 10536.0 unloaded batch 30 from unit 0
+Time: 10536.0 loading unit 2 with batch 30
+Time: 10537.0 started task 3 on unit 2 with batch 30
+Time: 10628.0 unloaded batch 30 from unit 2
+Time: 10628.0 loading unit 1 with batch 30
+Time: 10629.0 started task 4 on unit 1 with batch 30
+Time: 10654.0 unloaded batch 30 from unit 1
+Time: 10654.0 loading unit 0 with batch 30
+Time: 10655.0 started task 5 on unit 0 with batch 30
+Time: 10671.0 unloaded batch 30 from unit 0
+Time: 10671.0 loading unit 1 with batch 30
+Time: 10672.0 started task 6 on unit 1 with batch 30
+Time: 10703.0 unloaded batch 30 from unit 1
+Time: 10703.0 loading unit 2 with batch 30
+Time: 10704.0 started task 7 on unit 2 with batch 30
+Time: 10762.0 unloaded batch 30 from unit 2
+Time: 10762.0 loading unit 0 with batch 30
+Time: 10763.0 started task 8 on unit 0 with batch 30
+Time: 10773.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 10773.0
+Time: 10773.0 loading unit 0 with batch 30
+Time: 10774.0 started task 0 on unit 0 with batch 30
+Time: 10790.0 unloaded batch 30 from unit 0
+Time: 10790.0 loading unit 1 with batch 30
+Time: 10791.0 started task 1 on unit 1 with batch 30
+Time: 10897.0 unloaded batch 30 from unit 1
+Time: 10897.0 loading unit 0 with batch 30
+Time: 10898.0 started task 2 on unit 0 with batch 30
+Time: 10935.0 unloaded batch 30 from unit 0
+Time: 10935.0 loading unit 2 with batch 30
+Time: 10936.0 started task 3 on unit 2 with batch 30
+Time: 11027.0 unloaded batch 30 from unit 2
+Time: 11027.0 loading unit 1 with batch 30
+Time: 11028.0 started task 4 on unit 1 with batch 30
+Time: 11053.0 unloaded batch 30 from unit 1
+Time: 11053.0 loading unit 0 with batch 30
+Time: 11054.0 started task 5 on unit 0 with batch 30
+Time: 11070.0 unloaded batch 30 from unit 0
+Time: 11070.0 loading unit 1 with batch 30
+Time: 11071.0 started task 6 on unit 1 with batch 30
+Time: 11102.0 unloaded batch 30 from unit 1
+Time: 11102.0 loading unit 2 with batch 30
+Time: 11103.0 started task 7 on unit 2 with batch 30
+Time: 11161.0 unloaded batch 30 from unit 2
+Time: 11161.0 loading unit 0 with batch 30
+Time: 11162.0 started task 8 on unit 0 with batch 30
+Time: 11172.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 11172.0
+Time: 11172.0 loading unit 0 with batch 30
+Time: 11173.0 started task 0 on unit 0 with batch 30
+Time: 11189.0 unloaded batch 30 from unit 0
+Time: 11189.0 loading unit 1 with batch 30
+Time: 11190.0 started task 1 on unit 1 with batch 30
+Time: 11296.0 unloaded batch 30 from unit 1
+Time: 11296.0 loading unit 0 with batch 30
+Time: 11297.0 started task 2 on unit 0 with batch 30
+Time: 11334.0 unloaded batch 30 from unit 0
+Time: 11334.0 loading unit 2 with batch 30
+Time: 11335.0 started task 3 on unit 2 with batch 30
+Time: 11426.0 unloaded batch 30 from unit 2
+Time: 11426.0 loading unit 1 with batch 30
+Time: 11427.0 started task 4 on unit 1 with batch 30
+Time: 11452.0 unloaded batch 30 from unit 1
+Time: 11452.0 loading unit 0 with batch 30
+Time: 11453.0 started task 5 on unit 0 with batch 30
+Time: 11469.0 unloaded batch 30 from unit 0
+Time: 11469.0 loading unit 1 with batch 30
+Time: 11470.0 started task 6 on unit 1 with batch 30
+Time: 11501.0 unloaded batch 30 from unit 1
+Time: 11501.0 loading unit 2 with batch 30
+Time: 11502.0 started task 7 on unit 2 with batch 30
+Time: 11560.0 unloaded batch 30 from unit 2
+Time: 11560.0 loading unit 0 with batch 30
+Time: 11561.0 started task 8 on unit 0 with batch 30
+Time: 11571.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 11571.0
+Time: 11571.0 loading unit 0 with batch 30
+Time: 11572.0 started task 0 on unit 0 with batch 30
+Time: 11588.0 unloaded batch 30 from unit 0
+Time: 11588.0 loading unit 1 with batch 30
+Time: 11589.0 started task 1 on unit 1 with batch 30
+Time: 11695.0 unloaded batch 30 from unit 1
+Time: 11695.0 loading unit 0 with batch 30
+Time: 11696.0 started task 2 on unit 0 with batch 30
+Time: 11733.0 unloaded batch 30 from unit 0
+Time: 11733.0 loading unit 2 with batch 30
+Time: 11734.0 started task 3 on unit 2 with batch 30
+Time: 11825.0 unloaded batch 30 from unit 2
+Time: 11825.0 loading unit 1 with batch 30
+Time: 11826.0 started task 4 on unit 1 with batch 30
+Time: 11851.0 unloaded batch 30 from unit 1
+Time: 11851.0 loading unit 0 with batch 30
+Time: 11852.0 started task 5 on unit 0 with batch 30
+Time: 11868.0 unloaded batch 30 from unit 0
+Time: 11868.0 loading unit 1 with batch 30
+Time: 11869.0 started task 6 on unit 1 with batch 30
+Time: 11900.0 unloaded batch 30 from unit 1
+Time: 11900.0 loading unit 2 with batch 30
+Time: 11901.0 started task 7 on unit 2 with batch 30
+Time: 11959.0 unloaded batch 30 from unit 2
+Time: 11959.0 loading unit 0 with batch 30
+Time: 11960.0 started task 8 on unit 0 with batch 30
+Time: 11970.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 11970.0
+Time: 11970.0 loading unit 0 with batch 30
+Time: 11971.0 started task 0 on unit 0 with batch 30
+Time: 11987.0 unloaded batch 30 from unit 0
+Time: 11987.0 loading unit 1 with batch 30
+Time: 11988.0 started task 1 on unit 1 with batch 30
+Time: 12094.0 unloaded batch 30 from unit 1
+Time: 12094.0 loading unit 0 with batch 30
+Time: 12095.0 started task 2 on unit 0 with batch 30
+Time: 12132.0 unloaded batch 30 from unit 0
+Time: 12132.0 loading unit 2 with batch 30
+Time: 12133.0 started task 3 on unit 2 with batch 30
+Time: 12224.0 unloaded batch 30 from unit 2
+Time: 12224.0 loading unit 1 with batch 30
+Time: 12225.0 started task 4 on unit 1 with batch 30
+Time: 12250.0 unloaded batch 30 from unit 1
+Time: 12250.0 loading unit 0 with batch 30
+Time: 12251.0 started task 5 on unit 0 with batch 30
+Time: 12267.0 unloaded batch 30 from unit 0
+Time: 12267.0 loading unit 1 with batch 30
+Time: 12268.0 started task 6 on unit 1 with batch 30
+Time: 12299.0 unloaded batch 30 from unit 1
+Time: 12299.0 loading unit 2 with batch 30
+Time: 12300.0 started task 7 on unit 2 with batch 30
+Time: 12358.0 unloaded batch 30 from unit 2
+Time: 12358.0 loading unit 0 with batch 30
+Time: 12359.0 started task 8 on unit 0 with batch 30
+Time: 12369.0 unloaded batch 30 from unit 0
+Batch 30 is loaded into inputbuffer at time 12369.0
+Time: 12369.0 loading unit 0 with batch 30
+Time: 12370.0 started task 0 on unit 0 with batch 30
+Time: 12386.0 unloaded batch 30 from unit 0
+Time: 12386.0 loading unit 1 with batch 30
+Time: 12387.0 started task 1 on unit 1 with batch 30
+Time: 12493.0 unloaded batch 30 from unit 1
+Time: 12493.0 loading unit 0 with batch 30
+Time: 12494.0 started task 2 on unit 0 with batch 30
+Time: 12531.0 unloaded batch 30 from unit 0
+Time: 12531.0 loading unit 2 with batch 30
+Time: 12532.0 started task 3 on unit 2 with batch 30
+Time: 12623.0 unloaded batch 30 from unit 2
+Time: 12623.0 loading unit 1 with batch 30
+Time: 12624.0 started task 4 on unit 1 with batch 30
+Time: 12649.0 unloaded batch 30 from unit 1
+Time: 12649.0 loading unit 0 with batch 30
+Time: 12650.0 started task 5 on unit 0 with batch 30
+Time: 12666.0 unloaded batch 30 from unit 0
+Time: 12666.0 loading unit 1 with batch 30
+Time: 12667.0 started task 6 on unit 1 with batch 30
+Time: 12698.0 unloaded batch 30 from unit 1
+Time: 12698.0 loading unit 2 with batch 30
+Time: 12699.0 started task 7 on unit 2 with batch 30
+Time: 12757.0 unloaded batch 30 from unit 2
+Time: 12757.0 loading unit 0 with batch 30
+Time: 12758.0 started task 8 on unit 0 with batch 30
+Time: 12768.0 unloaded batch 30 from unit 0
+Batch 40 is loaded into inputbuffer at time 12768.0
+Time: 12768.0 loading unit 0 with batch 40
+Time: 12769.0 started task 0 on unit 0 with batch 40
+Time: 12790.0 unloaded batch 40 from unit 0
+Time: 12790.0 loading unit 1 with batch 40
+Time: 12791.0 started task 1 on unit 1 with batch 40
+Time: 12932.0 unloaded batch 40 from unit 1
+Time: 12932.0 loading unit 0 with batch 40
+Time: 12933.0 started task 2 on unit 0 with batch 40
+Time: 12982.0 unloaded batch 40 from unit 0
+Time: 12982.0 loading unit 2 with batch 40
+Time: 12983.0 started task 3 on unit 2 with batch 40
+Time: 13104.0 unloaded batch 40 from unit 2
+Time: 13104.0 loading unit 1 with batch 40
+Time: 13105.0 started task 4 on unit 1 with batch 40
+Time: 13138.0 unloaded batch 40 from unit 1
+Time: 13138.0 loading unit 0 with batch 40
+Time: 13139.0 started task 5 on unit 0 with batch 40
+Time: 13160.0 unloaded batch 40 from unit 0
+Time: 13160.0 loading unit 1 with batch 40
+Time: 13161.0 started task 6 on unit 1 with batch 40
+Time: 13202.0 unloaded batch 40 from unit 1
+Time: 13202.0 loading unit 2 with batch 40
+Time: 13203.0 started task 7 on unit 2 with batch 40
+Time: 13280.0 unloaded batch 40 from unit 2
+Time: 13280.0 loading unit 0 with batch 40
+Time: 13281.0 started task 8 on unit 0 with batch 40
+Time: 13294.0 unloaded batch 40 from unit 0

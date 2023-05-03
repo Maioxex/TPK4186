@@ -1,0 +1,28 @@
+Batch 20 is loaded into inputbuffer at time 0
+Time: 0 loading unit 0 with batch 20
+Time: 1 started task 0 on unit 0 with batch 20
+Time: 12.0 unloaded batch 20 from unit 0
+Time: 12.0 loading unit 1 with batch 20
+Time: 13.0 started task 1 on unit 1 with batch 20
+Time: 84.0 unloaded batch 20 from unit 1
+Time: 84.0 loading unit 0 with batch 20
+Time: 85.0 started task 2 on unit 0 with batch 20
+Time: 110.0 unloaded batch 20 from unit 0
+Time: 110.0 loading unit 2 with batch 20
+Time: 111.0 started task 3 on unit 2 with batch 20
+Time: 172.0 unloaded batch 20 from unit 2
+Time: 172.0 loading unit 1 with batch 20
+Time: 173.0 started task 4 on unit 1 with batch 20
+Time: 190.0 unloaded batch 20 from unit 1
+Time: 190.0 loading unit 0 with batch 20
+Time: 191.0 started task 5 on unit 0 with batch 20
+Time: 202.0 unloaded batch 20 from unit 0
+Time: 202.0 loading unit 1 with batch 20
+Time: 203.0 started task 6 on unit 1 with batch 20
+Time: 224.0 unloaded batch 20 from unit 1
+Time: 224.0 loading unit 2 with batch 20
+Time: 225.0 started task 7 on unit 2 with batch 20
+Time: 264.0 unloaded batch 20 from unit 2
+Time: 264.0 loading unit 0 with batch 20
+Time: 265.0 started task 8 on unit 0 with batch 20
+Time: 272.0 unloaded batch 20 from unit 0
