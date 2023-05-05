@@ -85,14 +85,14 @@ class loader():
             self.addNode(task)
         for node in self.nodes:
             sucsessors = []
-            if node.getName() == "Start":
+            if node.getName() == "Completion":
                 continue
             for node2 in self.nodes:
+                if node2.getName() == "Start":
+                    continue
                 if node.getName() in node2.getPredecessor():
-                    sucsessors.append(node2)
+                    sucsessors.append(node2.getName())
             node.setSuccessor(sucsessors)
-        #print(df)
-        #print(self.nodes)
         for task in self.nodes:
             task.printNode()
 nodes = loader("Assignment 4\Villa.xlsx")
