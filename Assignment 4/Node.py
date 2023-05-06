@@ -2,7 +2,15 @@ import numpy as np
 
 
 class node:
-    def __init__(self, name, time, predecessors=None, successors=None, finished=False, description=None):
+    def __init__(
+        self,
+        name,
+        time,
+        predecessors=None,
+        successors=None,
+        finished=False,
+        description=None,
+    ):
         self.name = name
         self.finished = finished
         self.predecessors = predecessors
@@ -13,7 +21,7 @@ class node:
         self.lateStart = False
         self.lateFinish = False
         if self.time != None:
-            self.duration = time[1]
+            self.duration = int(time[1])
         else:
             self.duration = None
         self.description = description
@@ -125,13 +133,20 @@ class node:
         if self.predecessors == None:
             return []
         else:
-            return list(set(self.predecessors + [x.getAllPredaecessors() for x in self.predecessors]))
+            return list(
+                set(
+                    self.predecessors
+                    + [x.getAllPredaecessors() for x in self.predecessors]
+                )
+            )
 
     def getAllSuccessors(self):
         if self.successors == None:
             return []
         else:
-            return list(set(self.successors + [x.getAllSuccessors() for x in self.successors]))
+            return list(
+                set(self.successors + [x.getAllSuccessors() for x in self.successors])
+            )
 
     def getNamesofPredaecessors(self):
         if self.predecessors == None or self.predecessors == []:

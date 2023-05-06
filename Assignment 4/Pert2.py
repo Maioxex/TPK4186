@@ -57,12 +57,17 @@ class pert:
                         nodes.remove(predecessor)
         print("Early dates calculated")
 
+    def getLengthOfProject(self):
+        for node in self.getNodes():
+            if node.getName() == "Completion" or node.getName() == "End":
+                return node.getEarlyFinish()
 
 class loader():
     def __init__(self, filename):
         self.filename = filename
         self.nodes = []
         self.load()
+    
 
     def returnNodes(self):
         return self.nodes
@@ -101,7 +106,7 @@ class loader():
                     time = str(time).strip("()")
                     time = time.split(", ")
                     for tall in time:
-                        tall = int(tall)
+                        tall = float(tall)
                 task = no(name, time, predecessors, None, False, description)
             self.addNode(task)
         for node in self.nodes:
@@ -212,7 +217,7 @@ class calculator:
     def calculateEarlyFinish(self, Node):
         if Node.getPredecessor() == []:
             Node.getEarlyFinish = Node.getTime()[self.index]
-        Node.setEarlyFinish(Node.getEarlyStart() + int(Node.getTime()[self.index]))
+        Node.setEarlyFinish(Node.getEarlyStart() + float(Node.getTime()[self.index]))
 
     def calculateLateFinish(self, Node):
         if Node.successors == []:
@@ -222,7 +227,7 @@ class calculator:
                                for x in Node.getSuccessor()]))
 
     def calculateLateStart(self, Node):
-        Node.setLateStart(Node.getLateFinish() - int(Node.getTime()[self.index]))
+        Node.setLateStart(Node.getLateFinish() - float(Node.getTime()[self.index]))
 
     def checkIfCritical(self, Node):
         if Node.getEarlyStart() == Node.getLateStart():
@@ -252,20 +257,19 @@ class calculator:
 # project = calculatorr.returnProject()
 # printer(project)
 loaderr = loader("Assignment 4\Villa.xlsx")
-nodes = loaderr.returnNodes()
 print("Nodes loaded")
-project = pert(nodes)
+project = pert(loaderr.returnNodes())
 print("Project loaded")
 calculatorr = calculator(project, 0)
 project = calculatorr.returnProject()
-printer(project)
-project = pert(nodes)
+#printer(project)
+project = pert(loaderr.returnNodes())
 print("Project loaded")
 calculatorr = calculator(project, 1)
 project = calculatorr.returnProject()
-printer(project)
-project = pert(nodes)
+#printer(project)
+project = pert(loaderr.returnNodes())
 print("Project loaded")
 calculatorr = calculator(project, 2)
 project = calculatorr.returnProject()
-printer(project)
+#printer(project)
