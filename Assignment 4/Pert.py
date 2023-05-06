@@ -79,15 +79,19 @@ class loader():
             predecessors = rows["Predecessors"]
             if name == "Start":
                 predecessors = None
-                time = None
+                time = [0,0,0]
                 task  = no(name, time, predecessors, None, False, description)
             else: 
                 predecessors = predecessors.split(", ")
-                if name == "Completion":
-                    time = None
+                if name == "Completion" or name == "End":
+                    time = [0,0,0]
                 else:
+                    #print(rows)
                     time = str(time).strip("()")
                     time = time.split(", ")
+                    for tall in time:
+                        tall = int(tall)
+                    # print(time)
                 task  = no(name, time, predecessors, None, False, description)
             self.addNode(task)
         for node in self.nodes:
@@ -119,10 +123,15 @@ class loader():
 
 class printer:
     def __init__(self, Pert = None):
-        self.nodes = Pert.getNodes()
+        if Pert != None:
+            self.nodes = Pert.getNodes()
+        else:
+            self.nodes = None
         self.printproject()
     
     def printproject(self):
+        if self.nodes == None:
+            return
         for node in self.nodes:
             self.printNode(node)
     
@@ -135,11 +144,16 @@ class calculator:
     def __init__(self, project = None):
         self.project = project
         self.calculate()
-    
     def calculate(self):
-        for node in self.project.getNodes():
-            self.calculateEarlyStart(node)
-            self.calculateEarlyFinish(node)
+        startlist = self.project.getNodes()
+        while len(startlist) > 0:
+            for node in startlist:
+                for node2 in node.getPredecessor():
+                    if node2 in startlist:
+                        continue   
+                self.calculateEarlyStart(node)
+                self.calculateEarlyFinish(node)
+                startlist.remove(node)
         for node in reversed(self.project.getNodes()):
             self.calculateLateFinish(node)
             self.calculateLateStart(node)
@@ -148,35 +162,42 @@ class calculator:
         
     
     def calculateEarlyStart(self, Node):
-        print(Node.predecessors)
-        if Node.predecessors == []:
-            Node.earlyStart = 0
+        #print(Node.getPredecessor())
+        printers = printer()
+        printers.printNode(Node)
+        if Node.getPredecessor() == []:
+            Node.setEarlyStart(0)
         else:
-            Node.earlyStart = max([x.earlyFinish for x in Node.predecessors])
+            printers.printNode(Node.getPredecessor()[0])
+            sorted_list = sorted(Node.getPredecessor(), key=lambda obj: obj.getEarlyFinish(), reverse=True)
+            Node.setEarlyStart(sorted_list[0].getEarlyFinish())
         
     def calculateEarlyFinish(self, Node):
         if Node.getPredecessor() == []:
-            Node.earlyFinish = Node.getTime()[1]
-        Node.earlyFinish = Node.earlyStart + Node.duration
+            Node.getEarlyFinish = Node.getTime()[1]
+        Node.setEarlyFinish(Node.getEarlyStart() + Node.getDuration())
     
     def calculateLateFinish(self, Node):
         if Node.successors == []:
-            Node.lateFinish = Node.lateFinish
+            Node.setLateFinish(Node.getEarlyFinish())
         else:
-            Node.lateFinish = min([x.lateStart for x in Node.successors])
+            Node.setLateFinish(min([x.getLateStart() for x in Node.getSuccessors()]))
     
     def calculateLateStart(self, Node):
-        Node.lateStart = Node.lateFinish - Node.duration
+        Node.setLateStart(Node.getLateFinish() - Node.getDuration())
     
     def checkIfCritical(self, Node):
-        if Node.earlyStart == Node.lateStart:
+        if Node.getEarlyStart() == Node.getLateStart():
             Node.setCritical(True)
         else:
             Node.setCritical(False)
 
-loaderr = loader("Assignment 4\Villa.xlsx")
+loaderr = loader("Assignment 4\Warehouse.xlsx")
 nodes = loaderr.returnNodes()
+print("Nodes loaded")
 project = pert(nodes)
+print("Project loaded")
+printer(project)
 calculatorr = calculator(project)
 printer(project)
 print("Nodes loaded")

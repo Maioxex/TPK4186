@@ -11,7 +11,10 @@ class node:
         self.earlyFinish = False
         self.lateStart = False
         self.lateFinish = False
-        self.duration = np.inf
+        if self.time != None:
+            self.duration = time[1]
+        else: 
+            self.duration = None
         self.description = description
         self.critical = False
     
@@ -53,12 +56,20 @@ class node:
         self.finished = finished
     def getEarlyStart(self):
         return self.earlyStart
+    def setEarlyStart(self, earlyStart):
+        self.earlyStart = earlyStart
     def getEarlyFinish(self):
         return self.earlyFinish
+    def setEarlyFinish(self, earlyFinish):
+        self.earlyFinish = earlyFinish
     def getLateStart(self):
         return self.lateStart
     def getLateFinish(self):
         return self.lateFinish
+    def setLateStart(self, lateStart):
+        self.lateStart = lateStart
+    def setLateFinish(self, lateFinish):
+        self.lateFinish = lateFinish
     def getDuration(self):
         return self.duration
     def setDuration(self, duration):
