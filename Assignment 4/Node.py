@@ -13,7 +13,12 @@ class node:
         self.lateFinish = False
         self.duration = np.inf
         self.description = description
-        
+        self.critical = False
+    
+    def isCritical(self):
+        return self.critical
+    def setCritical(self, critical):
+        self.critical = critical
     def getName(self):
         return self.name
     def setName(self, name):
@@ -84,30 +89,6 @@ class node:
         else:
             return list(set(self.successors + [x.getAllSuccessors() for x in self.successors]))
     
-    def calculateEarlyStart(self):
-        if self.predecessors == None:
-            self.earlyStart = 0
-        else:
-            self.earlyStart = min([x.earlyFinish for x in self.predecessors])
-        
-    def calculateEarlyFinish(self):
-        self.earlyFinish = self.earlyStart + self.duration
-    
-    def calculateLateFinish(self):
-        if self.successors == None:
-            self.lateFinish = self.lateFinish
-        else:
-            self.lateFinish = max([x.lateStart for x in self.successors])
-    
-    def calculateLateStart(self):
-        self.lateStart = self.lateFinish - self.duration
-    
-    def checkIfCritical(self):
-        if self.earlyStart == self.lateStart:
-            return True
-        else:
-            return False
-    
     def getNamesofPredaecessors(self):
         if self.predecessors == None or self.predecessors == []:
             return []
@@ -120,7 +101,4 @@ class node:
         else:
             return [x.getName() for x in self.successors]
         
-    def printNode(self):
-        predacessors = self.getNamesofPredaecessors()
-        successors = self.getNamesofSuccessors()
-        print(f"Name: {self.name}, description: {self.description}, durations: {self.time}, predecessors: {predacessors}, successors: {successors}")
+    

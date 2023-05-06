@@ -55,6 +55,9 @@ class loader():
         self.nodes = []
         self.load()
     
+    def returnNodes(self):
+        return self.nodes
+    
     def addNode(self, node):
         self.nodes.append(node)
     def getNodeByName(self, name):
@@ -68,7 +71,10 @@ class loader():
         for index, rows in df.iterrows():
             #print(rows[1])
             name = rows["Codes"]
-            description = rows["Descriptions"]
+            try:
+                description = rows["Descriptions"]
+            except:
+                description = rows["Description"]
             time = rows["Durations"]
             predecessors = rows["Predecessors"]
             if name == "Start":
@@ -109,7 +115,71 @@ class loader():
                     sucsessors.append(self.getNodeByName(node.getSuccessor()[i]))
             node.setPredecessor(predecessors)
             node.setSuccessor(sucsessors)
+
+
+class printer:
+    def __init__(self, Pert = None):
+        self.nodes = Pert.getNodes()
+        self.printproject()
+    
+    def printproject(self):
         for node in self.nodes:
-            node.printNode()
-nodes = loader("Assignment 4\Villa.xlsx")
+            self.printNode(node)
+    
+    def printNode(self, Node):
+            predacessors = Node.getNamesofPredaecessors()
+            successors = Node.getNamesofSuccessors()
+            print(f"Name: {Node.getName()}, description: {Node.getDescription()}, durations: {Node.getTime()}, early dates: {Node.getEarlyStart(), Node.getEarlyFinish()}, late dates: {Node.getLateStart(), Node.getLateFinish()}, critical: {Node.isCritical()}, predecessors: {predacessors}, successors: {successors}")
+
+class calculator:
+    def __init__(self, project = None):
+        self.project = project
+        self.calculate()
+    
+    def calculate(self):
+        for node in self.project.getNodes():
+            self.calculateEarlyStart(node)
+            self.calculateEarlyFinish(node)
+        for node in reversed(self.project.getNodes()):
+            self.calculateLateFinish(node)
+            self.calculateLateStart(node)
+        for node in self.project.getNodes():
+            self.checkIfCritical(node)
+        
+    
+    def calculateEarlyStart(self, Node):
+        print(Node.predecessors)
+        if Node.predecessors == []:
+            Node.earlyStart = 0
+        else:
+            Node.earlyStart = max([x.earlyFinish for x in Node.predecessors])
+        
+    def calculateEarlyFinish(self, Node):
+        if Node.getPredecessor() == []:
+            Node.earlyFinish = Node.getTime()[1]
+        Node.earlyFinish = Node.earlyStart + Node.duration
+    
+    def calculateLateFinish(self, Node):
+        if Node.successors == []:
+            Node.lateFinish = Node.lateFinish
+        else:
+            Node.lateFinish = min([x.lateStart for x in Node.successors])
+    
+    def calculateLateStart(self, Node):
+        Node.lateStart = Node.lateFinish - Node.duration
+    
+    def checkIfCritical(self, Node):
+        if Node.earlyStart == Node.lateStart:
+            Node.setCritical(True)
+        else:
+            Node.setCritical(False)
+
+loaderr = loader("Assignment 4\Villa.xlsx")
+nodes = loaderr.returnNodes()
+project = pert(nodes)
+calculatorr = calculator(project)
+printer(project)
+print("Nodes loaded")
+#nodes = loader("Assignment 4\Villa.xlsx")
+
 
