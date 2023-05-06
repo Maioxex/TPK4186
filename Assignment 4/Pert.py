@@ -53,7 +53,6 @@ class loader():
     def __init__(self,filename):
         self.filename = filename
         self.nodes = []
-        self.edges = []
         self.load()
     
     def addNode(self, node):
@@ -74,13 +73,15 @@ class loader():
             predecessors = rows["Predecessors"]
             if name == "Start":
                 predecessors = None
-                task  = no(name, time, predecessors, None, False, description)
-            elif name == "End":
-                predecessors = None
+                time = None
                 task  = no(name, time, predecessors, None, False, description)
             else: 
-                predecessors = predecessors.split(",")
-                #print(predecessors)
+                predecessors = predecessors.split(", ")
+                if name == "Completion":
+                    time = None
+                else:
+                    time = str(time).strip("()")
+                    time = time.split(", ")
                 task  = no(name, time, predecessors, None, False, description)
             self.addNode(task)
         for node in self.nodes:
@@ -93,7 +94,22 @@ class loader():
                 if node.getName() in node2.getPredecessor():
                     sucsessors.append(node2.getName())
             node.setSuccessor(sucsessors)
-        for task in self.nodes:
-            task.printNode()
+
+        # for task in self.nodes:
+        #     task.printNode()
+
+        for node in self.nodes:
+            predecessors = []
+            sucsessors = []
+            if node.getName() != "Start":
+                for i in range(len(node.getPredecessor())):
+                    predecessors.append(self.getNodeByName(node.getPredecessor()[i]))
+            if node.getName() != "Completion":
+                for i in range(len(node.getSuccessor())):
+                    sucsessors.append(self.getNodeByName(node.getSuccessor()[i]))
+            node.setPredecessor(predecessors)
+            node.setSuccessor(sucsessors)
+        for node in self.nodes:
+            node.printNode()
 nodes = loader("Assignment 4\Villa.xlsx")
 

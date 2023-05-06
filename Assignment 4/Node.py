@@ -108,5 +108,19 @@ class node:
         else:
             return False
     
+    def getNamesofPredaecessors(self):
+        if self.predecessors == None or self.predecessors == []:
+            return []
+        else:
+            return [x.getName() for x in self.predecessors]
+    
+    def getNamesofSuccessors(self):
+        if self.successors == None or self.successors == []:
+            return []
+        else:
+            return [x.getName() for x in self.successors]
+        
     def printNode(self):
-        print(f"Name: {self.name}, description: {self.description}, durations: {self.time}, predecessors: {self.predecessors}, successors: {self.successors}")
+        predacessors = self.getNamesofPredaecessors()
+        successors = self.getNamesofSuccessors()
+        print(f"Name: {self.name}, description: {self.description}, durations: {self.time}, predecessors: {predacessors}, successors: {successors}")
