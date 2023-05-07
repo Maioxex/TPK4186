@@ -4,8 +4,16 @@ import numpy as np
 import pandas as pd
 import random
 from Node import node as no
-from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+from sklearn.linear_model import Ridge
+from sklearn.ensemble import RandomForestRegressor
+import xgboost as xgb
+from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import StandardScaler
+
 
 class pert:
     def __init__(self, nodes=None):
@@ -254,9 +262,9 @@ class calculator:
         return self.project.getNodes()[-1].getEarlyFinish()
 
     def getClassifications(self):
-        if self.returnTime() > self.basetime*1.05:
+        if self.returnTime() < self.basetime*1.05:
             return "Successfull"
-        elif self.returnTime() > self.basetime*1.15:
+        elif self.returnTime() < self.basetime*1.15:
             return "Acceptable"
         else:
             return "Failed"
@@ -328,25 +336,20 @@ class machinelearning:
         self.nodes = nodes
         self.algorithm = algorithm
         self.trainTestSplit = 0.2
-        self.XTrain = []
-        self.XTest = []
-        self.YTrain = []
-        self.YTest = []
+        self.X_train = []
+        self.X_test = []
+        self.Y_train = []
+        self.Y_test = []
         self.predictions = []
         print("Starting machine learning")
         self.addProjects(self.project)
         print("Finished adding projects")
         self.runAlgorithm(algorithm)
-        # print([len(self.XTrain), len(self.XTest), len(self.YTrain), len(self.YTest)])
-        # print(self.XTrain[0], self.XTrain[1],  self.YTrain[0], self.YTrain[1])
-        # print(self.XTest[0], self.XTest[1], self.predictions[0], self.predictions[1],  self.YTest[0], self.YTest[1])
-        
 
     def addProjects(self, project):
         for i in range(self.samples):
             self.addProject(project)
         self.extractData()
-        
 
     def setAlgorithm(self, algorithm):
         self.algorithm = algorithm
@@ -382,14 +385,16 @@ class machinelearning:
         for projectdata in self.projects:
             x.append(projectdata[0])
             y.append([projectdata[1], projectdata[2]])
-        self.XTrain, self.XTest, self.YTrain, self.YTest = train_test_split(x, y, test_size=self.trainTestSplit)
+        self.X_train, self.X_test, self.Y_train, self.Y_test = train_test_split(
+            x, y, test_size=self.trainTestSplit)
 
     def evaluate(self, type):
         ytest = []
         hits = 0
         misses = 0
+        print("Current predictions being:", self.predictions[0], self.predictions[1],"on these actual results:", self.Y_test[0], self.Y_test[1], "done by:")
         if type == "Classification":
-            for datapoint in self.YTest:
+            for datapoint in self.Y_test:
                 ytest.append(datapoint[0])
             for i in range(len(self.predictions)):
                 if self.predictions[i] == ytest[i]:
@@ -397,32 +402,90 @@ class machinelearning:
                 else:
                     misses += 1
             return hits/(hits+misses)
-                
-        
+        elif type == "Regression":
+            for datapoint in self.Y_test:
+                ytest.append(datapoint[1])
+            return mean_squared_error(ytest, self.predictions)
+
     def runAlgorithm(self, algorithm):
-        if algorithm == "LR":
-            self.runLogisticRegression()
+        if algorithm == "MLP":
+            self.runMLPClassifier()
         elif algorithm == "DT":
             self.runDecisionTree()
-        elif algorithm == "SVM":
-            self.runSVM()
+        elif algorithm == "SVC":
+            self.runSVC()
         elif algorithm == "Ridge":
             self.runRidge()
         elif algorithm == "RFR":
             self.runRandomForestRegressor()
         elif algorithm == "XGB":
-            self.runXGB()
+            return self.runXGB()
 
-    def runLogisticRegression(self):
-        LRM = LogisticRegression()
+    def runMLPClassifier(self):
+        scaler = StandardScaler()
+        scaler.fit(self.X_train)
+        X_train_scaled = scaler.fit_transform(self.X_train)
+        X_test_scaled = scaler.transform(self.X_test)
+        mlp = MLPClassifier(hidden_layer_sizes=(80), activation="tanh", solver="lbfgs", max_iter=400)
         ytrain = []
-        for value in self.YTrain:
+        for value in self.Y_train:
             ytrain.append(value[0])
-        LRM.fit(self.XTrain, ytrain)
-        self.predictions = LRM.predict(self.XTest)
+        mlp.fit(X_train_scaled, ytrain)
+        self.predictions = mlp.predict(X_test_scaled)
         accuracy = self.evaluate("Classification")
-        print(f"Logistic Regression accuracy: {accuracy}")
-        
+        print(f"MLP accuracy: {accuracy}")
+
+    def runDecisionTree(self):
+        DT = DecisionTreeClassifier()
+        ytrain = []
+        for value in self.Y_train:
+            ytrain.append(value[0])
+        DT.fit(self.X_train, ytrain)
+        self.predictions = DT.predict(self.X_test)
+        accuracy = self.evaluate("Classification")
+        print(f"Decision Tree accuracy: {accuracy}")
+
+    def runSVC(self):
+        SVM = SVC()
+        ytrain = []
+        for value in self.Y_train:
+            ytrain.append(value[0])
+        SVM.fit(self.X_train, ytrain)
+        self.predictions = SVM.predict(self.X_test)
+        accuracy = self.evaluate("Classification")
+        print(f"SVM accuracy: {accuracy}")
+
+    def runRidge(self):
+        ridge = Ridge()
+        ytrain = []
+        for value in self.Y_train:
+            ytrain.append(value[1])
+        ridge.fit(self.X_train, ytrain)
+        self.predictions = ridge.predict(self.X_test)
+        accuracy = self.evaluate("Regression")
+        print(f"Ridge MSE: {accuracy}")
+
+    def runRandomForestRegressor(self):
+        RFR = RandomForestRegressor()
+        ytrain = []
+        for value in self.Y_train:
+            ytrain.append(value[1])
+        RFR.fit(self.X_train, ytrain)
+        self.predictions = RFR.predict(self.X_test)
+        accuracy = self.evaluate("Regression")
+        print(f"Random Forest Regressor MSE: {accuracy}")
+
+    def runXGB(self):
+        xgb_reg = xgb.XGBRegressor(
+            objective='reg:squarederror', n_estimators=85, max_depth=3, learning_rate=0.085, min_child_weight = 3, subsample = 0.8, colsample_bytree = 1.0)
+        ytrain = []
+        for value in self.Y_train:
+            ytrain.append(value[1])
+        xgb_reg.fit(self.X_train, ytrain)
+        self.predictions = xgb_reg.predict(self.X_test)
+        accuracy = self.evaluate("Regression")
+        print(f"XGB MSE: {accuracy}")
+        return accuracy
 
 
 def mainTask4():
@@ -437,22 +500,27 @@ def mainTask4():
             f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
 
 
-def maintask5():
+def maintask5(stopnode = "K.1"):
     loaderr = loader("Assignment 4\Villa.xlsx")
     project = pert(loaderr.returnNodes())
     nodes = loaderr.getNodesOrdered()
     templist = []
-    algorithms = ["LR", "DT", "SVM"]
+    algorithms = ["MLP", "DT", "SVC", "Ridge", "RFR", "XGB"]
     for node in nodes:
         if node == "Start":
             continue
-        if node == "C.1":
+        if node == stopnode:
             break
         templist.append(node)
     nodes = templist
-    machine = machinelearning(project, nodes, 371, algorithms[0], 5000)
+    machine = machinelearning(project, nodes, 371, algorithms[0], 2500)
     for algorithm in algorithms[1::]:
         machine.setAlgorithm(algorithm)
         machine.runAlgorithm(algorithm)
-# mainTask4()
-maintask5()
+    return machine.evaluate("Regression")
+
+
+
+maintask5("G.1")
+maintask5("K.1")
+maintask5("M.1")
