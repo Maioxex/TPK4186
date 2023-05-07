@@ -1,6 +1,9 @@
 import numpy as np
 
 
+# Task 1
+# --------------------
+
 class node:
     def __init__(
         self,
