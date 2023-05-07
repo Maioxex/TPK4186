@@ -62,12 +62,12 @@ class pert:
             if node.getName() == "Completion" or node.getName() == "End":
                 return node.getEarlyFinish()
 
+
 class loader():
     def __init__(self, filename):
         self.filename = filename
         self.nodes = []
         self.load()
-    
 
     def returnNodes(self):
         return self.nodes
@@ -159,12 +159,12 @@ class printer:
 
 
 class calculator:
-    def __init__(self, project=None,index = 1):
+    def __init__(self, project=None, index=1):
         print("Calculator created")
         self.index = index
         self.project = project
         self.calculate()
-        
+
     def getNodeByName(self, name):
         for node in self.project.getNodes():
             if node.getName() == name:
@@ -203,21 +203,17 @@ class calculator:
         if Node.getName() == "Start":
             Node.setEarlyStart(0)
         else:
-            # print(Node.getPredecessor()[0].getName())
-            # print(type(Node.getPredecessor()[0]))
-            # print(type(no.getEarlyFinish))
-            # print(type(Node.getPredecessor()[0].earlyFinish))
-            # printers.printNode(Node.getPredecessor()[0])
             if Node.getName() == "D" or Node.getName() == "A":
                 print(Node.getName(), Node.getPredecessor()[0].getName())
-            sorted_list = sorted(Node.getPredecessor(), key=lambda pred: pred.earlyFinish, reverse=True)
+            sorted_list = sorted(Node.getPredecessor(
+            ), key=lambda pred: pred.earlyFinish, reverse=True)
             Node.setEarlyStart(sorted_list[0].earlyFinish)
-
 
     def calculateEarlyFinish(self, Node):
         if Node.getPredecessor() == []:
             Node.getEarlyFinish = Node.getTime()[self.index]
-        Node.setEarlyFinish(Node.getEarlyStart() + float(Node.getTime()[self.index]))
+        Node.setEarlyFinish(Node.getEarlyStart() +
+                            float(Node.getTime()[self.index]))
 
     def calculateLateFinish(self, Node):
         if Node.successors == []:
@@ -227,13 +223,15 @@ class calculator:
                                for x in Node.getSuccessor()]))
 
     def calculateLateStart(self, Node):
-        Node.setLateStart(Node.getLateFinish() - float(Node.getTime()[self.index]))
+        Node.setLateStart(Node.getLateFinish() -
+                          float(Node.getTime()[self.index]))
 
     def checkIfCritical(self, Node):
         if Node.getEarlyStart() == Node.getLateStart():
             Node.setCritical(True)
         else:
             Node.setCritical(False)
+
     def returnProject(self):
         return self.project
 
@@ -262,14 +260,14 @@ project = pert(loaderr.returnNodes())
 print("Project loaded")
 calculatorr = calculator(project, 0)
 project = calculatorr.returnProject()
-#printer(project)
+# printer(project)
 project = pert(loaderr.returnNodes())
 print("Project loaded")
 calculatorr = calculator(project, 1)
 project = calculatorr.returnProject()
-#printer(project)
+# printer(project)
 project = pert(loaderr.returnNodes())
 print("Project loaded")
 calculatorr = calculator(project, 2)
 project = calculatorr.returnProject()
-#printer(project)
+# printer(project)
