@@ -509,6 +509,7 @@ def mainTask4():
 
 
 def maintask5(stopnode="K.1"):
+    print(f"\n\nStopnode is {stopnode}")
     loaderr = loader("Assignment 4\Villa.xlsx")
     project = pert(loaderr.returnNodes())
     nodes = loaderr.getNodesOrdered()
@@ -523,9 +524,10 @@ def maintask5(stopnode="K.1"):
         templist.append(node)
     nodes = templist
     # when we instance a machinelearning object, we give it the project, the nodes, the stopnode, the first algorithm, and the number of simulations
-    machine = machinelearning(project, nodes, 371, algorithms[0], 1000)
+    machine = machinelearning(project, nodes, 371, algorithms[0], 20000)
     # to avoid using differnt data for the different algorithms, so they are comparable, as well as saving time, we are instead of making a new object with new data, we just change the algorithm
     for algorithm in algorithms[1::]:
+        print("\n")
         machine.setAlgorithm(algorithm)
         machine.runAlgorithm(algorithm)
 
