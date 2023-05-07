@@ -5,13 +5,13 @@ import numpy as np
 import pandas as pd
 import random
 from Node import node as no
+import xgboost as xgb
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import Ridge
 from sklearn.ensemble import RandomForestRegressor
-import xgboost as xgb
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 
