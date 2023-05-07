@@ -1,3 +1,4 @@
+# Authors: Martin Kristiansen Tømt og Nikolay Westengen group 32
 import copy
 import statistics
 import numpy as np
@@ -13,6 +14,8 @@ from sklearn.ensemble import RandomForestRegressor
 import xgboost as xgb
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
+
+# unchanged from pert 2
 
 
 class pert:
@@ -56,6 +59,8 @@ class pert:
             if node.getName() == "Completion" or node.getName() == "End":
                 return node.getEarlyFinish()
 
+# unchanged from pert 2
+
 
 class loader:
     def __init__(self, filename):
@@ -82,9 +87,7 @@ class loader:
     def load(self):
         df = pd.read_excel(self.filename)
         df = df.dropna(how='all')
-    # def __init__(self, name, time, duration = np.inf, predecessors = None, successors = None, finished = False, description = None):
         for index, rows in df.iterrows():
-            # print(rows[1])
             name = rows["Codes"]
             try:
                 description = rows["Descriptions"]
@@ -101,7 +104,6 @@ class loader:
                 if name == "Completion" or name == "End":
                     time = [0, 0, 0]
                 else:
-                    # print(rows)
                     time = str(time).strip("()")
                     time = time.split(", ")
                     for tall in time:
@@ -119,9 +121,6 @@ class loader:
                     sucsessors.append(node2.getName())
             node.setSuccessor(sucsessors)
 
-        # for task in self.nodes:
-        #     task.printNode()
-
         for node in self.nodes:
             predecessors = []
             sucsessors = []
@@ -135,6 +134,8 @@ class loader:
                         self.getNodeByName(node.getSuccessor()[i]))
             node.setPredecessor(predecessors)
             node.setSuccessor(sucsessors)
+
+# unchanged from pert 2
 
 
 class printer:
@@ -156,10 +157,11 @@ class printer:
         successors = Node.getNamesofSuccessors()
         print(f"Name: {Node.getName()}, description: {Node.getDescription()}, durations: {Node.getTime()}, early dates: {Node.earlyStart, Node.earlyFinish}, late dates: {Node.lateStart, Node.lateFinish}, critical: {Node.isCritical()}, predecessors: {predacessors}, successors: {successors}")
 
+# minor changes from pert 2
+
 
 class calculator:
     def __init__(self, project=None, index=1):
-        # print("Calculator created")
         self.index = index
         self.project = project
         self.calculate()
@@ -200,12 +202,9 @@ class calculator:
             self.checkIfCritical(node)
 
     def calculateEarlyStart(self, Node):
-        # print(Node.getPredecessor())
         if Node.getName() == "Start":
             Node.setEarlyStart(0)
         else:
-            # if Node.getName() == "D" or Node.getName() == "A":
-            #     print(Node.getName(), Node.getPredecessor()[0].getName())
             sorted_list = sorted(Node.getPredecessor(
             ), key=lambda pred: pred.earlyFinish, reverse=True)
             Node.setEarlyStart(sorted_list[0].earlyFinish)
@@ -239,6 +238,7 @@ class calculator:
     def returnTime(self):
         return self.project.getNodes()[-1].getEarlyFinish()
 
+    # now calculator also gives a classification of the project, thus why we need the basetime earlier
     def getClassifications(self):
         if self.returnTime() < self.basetime*1.05:
             return "Successfull"
@@ -246,6 +246,8 @@ class calculator:
             return "Acceptable"
         else:
             return "Failed"
+
+# untouched from pert 2
 
 
 class simulation:
@@ -302,6 +304,8 @@ class simulation:
     def returnStats(self):
         return self.stats
 
+# New class to solve task 4 and 5
+
 
 class machinelearning:
     def __init__(self, project, nodes, basetime, algorithm, samples=1000):
@@ -323,15 +327,18 @@ class machinelearning:
         self.addProjects(self.project)
         print("Finished adding projects")
         self.runAlgorithm(algorithm)
+    # add the amount of randomly generated projects to the list of projects, as well as extract the data from them such that they can be used for machine learning prosesses
 
     def addProjects(self, project):
         for i in range(self.samples):
             self.addProject(project)
         self.extractData()
 
+    # this allows us to change the algorithm used for machine learning, without having to create a new machinelearning object
     def setAlgorithm(self, algorithm):
         self.algorithm = algorithm
 
+    # here we create the project, change it to fit a random risk, get the triangulated time for each node, calculate the time for the project, and then add it to the list of projects
     def addProject(self, project):
         project = copy.deepcopy(project)
         risk = random.choice(self.risks)
@@ -351,6 +358,7 @@ class machinelearning:
         self.projects.append(
             [project, calculatorr.getClassifications(), calculatorr.returnTime()])
 
+    # here we have the projects, their classification, and their time
     def extractData(self):
         for projectdata in self.projects:
             data = []
@@ -358,6 +366,7 @@ class machinelearning:
                 data.append(projectdata[0].getNodeByName(
                     node).getEarlyFinish())
             projectdata[0] = copy.deepcopy(data)
+        # after cleaning out the data up to the gate point given by the user, we now format the data into training and testing data
         x = []
         y = []
         for projectdata in self.projects:
@@ -366,11 +375,16 @@ class machinelearning:
         self.X_train, self.X_test, self.Y_train, self.Y_test = train_test_split(
             x, y, test_size=self.trainTestSplit)
 
+    # here we have an evaluation method that can be used to evaluate the performance of the machine learning algorithm
+    # it takes in the type of algorithm, and then returns the accuracy of the algorithm
     def evaluate(self, type):
         ytest = []
         hits = 0
         misses = 0
-        print("Current predictions being:", self.predictions[0], self.predictions[1],"on these actual results:", self.Y_test[0], self.Y_test[1], "done by:")
+        # here we do print the predicitons of the algorithm for the first two datasets, as well as the actual results, to see how well the algorithm is doing, as well as a sanity check
+        print("Current predictions being:", self.predictions[0], self.predictions[1],
+              "on these actual results:", self.Y_test[0], self.Y_test[1], "done by:")
+        # if the algorithm is a classification algorithm, it will return the accuracy of the algorithm
         if type == "Classification":
             for datapoint in self.Y_test:
                 ytest.append(datapoint[0])
@@ -380,11 +394,13 @@ class machinelearning:
                 else:
                     misses += 1
             return hits/(hits+misses)
+        # if the algorithm is a regression algorithm, it will return the mean squared error of the algorithm
         elif type == "Regression":
             for datapoint in self.Y_test:
                 ytest.append(datapoint[1])
             return mean_squared_error(ytest, self.predictions)
 
+    # this function is meant to be used to run the machine learning algorithm, making sure that the correct algorithm is run
     def runAlgorithm(self, algorithm):
         if algorithm == "MLP":
             self.runMLPClassifier()
@@ -399,12 +415,16 @@ class machinelearning:
         elif algorithm == "XGB":
             return self.runXGB()
 
+    # first algorithm we chose to use was the MLPClassifier, which is a classification algorithm
+    # we use the standard scaler to scale the data, and then we use the MLPClassifier to predict the classification of the data
+    # we then evaluate the algorithm, and print the accuracy of the algorithm
     def runMLPClassifier(self):
         scaler = StandardScaler()
         scaler.fit(self.X_train)
         X_train_scaled = scaler.fit_transform(self.X_train)
         X_test_scaled = scaler.transform(self.X_test)
-        mlp = MLPClassifier(hidden_layer_sizes=(80), activation="tanh", solver="lbfgs", max_iter=400)
+        mlp = MLPClassifier(hidden_layer_sizes=(
+            80), activation="tanh", solver="lbfgs", max_iter=400)
         ytrain = []
         for value in self.Y_train:
             ytrain.append(value[0])
@@ -413,6 +433,7 @@ class machinelearning:
         accuracy = self.evaluate("Classification")
         print(f"MLP accuracy: {accuracy}")
 
+    # second algorithm we chose to use was the DecisionTreeClassifier, which is a classification algorithm
     def runDecisionTree(self):
         DT = DecisionTreeClassifier()
         ytrain = []
@@ -423,6 +444,7 @@ class machinelearning:
         accuracy = self.evaluate("Classification")
         print(f"Decision Tree accuracy: {accuracy}")
 
+    # third algorithm we chose to use was the SVC, which is a classification algorithm
     def runSVC(self):
         SVM = SVC()
         ytrain = []
@@ -433,6 +455,8 @@ class machinelearning:
         accuracy = self.evaluate("Classification")
         print(f"SVM accuracy: {accuracy}")
 
+    # fourth algorithm we chose to use was the Ridge, which is a regression algorithm
+    # the regression algorithms are used to predict the time of the project, and not only if it will be within 5% of the actual time, or 15% of the actual time
     def runRidge(self):
         ridge = Ridge()
         ytrain = []
@@ -443,6 +467,7 @@ class machinelearning:
         accuracy = self.evaluate("Regression")
         print(f"Ridge MSE: {accuracy}")
 
+    # fifth algorithm we chose to use was the RandomForestRegressor, which is a regression algorithm
     def runRandomForestRegressor(self):
         RFR = RandomForestRegressor()
         ytrain = []
@@ -453,9 +478,10 @@ class machinelearning:
         accuracy = self.evaluate("Regression")
         print(f"Random Forest Regressor MSE: {accuracy}")
 
+    # sixth algorithm we chose to use was the XGBRegressor, which is a regression algorithm
     def runXGB(self):
         xgb_reg = xgb.XGBRegressor(
-            objective='reg:squarederror', n_estimators=85, max_depth=3, learning_rate=0.085, min_child_weight = 3, subsample = 0.8, colsample_bytree = 1.0)
+            objective='reg:squarederror', n_estimators=85, max_depth=3, learning_rate=0.085, min_child_weight=3, subsample=0.8, colsample_bytree=1.0)
         ytrain = []
         for value in self.Y_train:
             ytrain.append(value[1])
@@ -475,14 +501,19 @@ def mainTask4():
         sim = simulation(project, 1, risk[i], 1000, 0)
         stats = sim.returnStats()
         print(
-            f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
+            f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5][0]} sucsessfull, {stats[5][1]} acceptable and {stats[5][2]} failed, standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles from 10-90%: {stats[4][1::]}\n")
+
+# Task 5:
+# default is that we set the gate (or as we have called it stopnode) to be K.1, but we can change it to be whatever node we want
+# the stopnode is used to find out how many nodes to collect data from, which is then used in the machine learning algorithms
 
 
-def maintask5(stopnode = "K.1"):
+def maintask5(stopnode="K.1"):
     loaderr = loader("Assignment 4\Villa.xlsx")
     project = pert(loaderr.returnNodes())
     nodes = loaderr.getNodesOrdered()
     templist = []
+    # this is the different algorithms we used, and we run the MLPClassifier first, and then the rest of the algorithms
     algorithms = ["MLP", "DT", "SVC", "Ridge", "RFR", "XGB"]
     for node in nodes:
         if node == "Start":
@@ -491,14 +522,15 @@ def maintask5(stopnode = "K.1"):
             break
         templist.append(node)
     nodes = templist
-    machine = machinelearning(project, nodes, 371, algorithms[0], 2500)
+    # when we instance a machinelearning object, we give it the project, the nodes, the stopnode, the first algorithm, and the number of simulations
+    machine = machinelearning(project, nodes, 371, algorithms[0], 1000)
+    # to avoid using differnt data for the different algorithms, so they are comparable, as well as saving time, we are instead of making a new object with new data, we just change the algorithm
     for algorithm in algorithms[1::]:
         machine.setAlgorithm(algorithm)
         machine.runAlgorithm(algorithm)
-    return machine.evaluate("Regression")
 
 
-
+# we here run it from three different gate nodes, to see if the results are different
 maintask5("G.1")
 maintask5("K.1")
 maintask5("M.1")

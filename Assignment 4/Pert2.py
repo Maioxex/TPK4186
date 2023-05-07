@@ -38,13 +38,15 @@ class pert:
     def changefinished(self, node, finished):
         node.setFinished(finished)
 
-    
-    #change from Pert.py
-    #here we added a function to get the time of the project
+    # change from Pert.py
+    # here we added a function to get the time of the project, as that was the easiest way to get the length of the project for the statistics
+
     def getLengthOfProject(self):
         for node in self.getNodes():
             if node.getName() == "Completion" or node.getName() == "End":
                 return node.getEarlyFinish()
+
+# loader still the same
 
 
 class loader:
@@ -115,6 +117,8 @@ class loader:
             node.setPredecessor(predecessors)
             node.setSuccessor(sucsessors)
 
+# printer still the same
+
 
 class printer:
     def __init__(self, Pert=None):
@@ -134,6 +138,8 @@ class printer:
         predacessors = Node.getNamesofPredaecessors()
         successors = Node.getNamesofSuccessors()
         print(f"Name: {Node.getName()}, description: {Node.getDescription()}, durations: {Node.getTime()}, early dates: {Node.earlyStart, Node.earlyFinish}, late dates: {Node.lateStart, Node.lateFinish}, critical: {Node.isCritical()}, predecessors: {predacessors}, successors: {successors}")
+
+# calculator still the same
 
 
 class calculator:
@@ -212,6 +218,8 @@ class calculator:
     def returnTime(self):
         return self.project.getNodes()[-1].getEarlyFinish()
 
+# Task 4, the simulator for running the project 1000 times, with varying degrees of risk
+
 
 class simulation:
     def __init__(self, project=None, index=1, risk=1, iterations=1000, basetime=0):
@@ -227,8 +235,10 @@ class simulation:
         self.simulate()
         self.runStats()
 
+    # simple helping function
     def appendFinishingTimes(self, time):
         self.finishingTimes.append(time)
+    # the main simulation function, it changes the times given for the projects nodes, and then runs the calculator to get the finishing time, before returning the time to the finishing times list
 
     def simulate(self):
         for i in range(self.iterations):
@@ -248,6 +258,8 @@ class simulation:
             calculatorr = calculator(project, self.index)
             self.appendFinishingTimes(calculatorr.returnTime())
 
+    # this is the function that runs the statistics on the finishing times, to get the standard deviation, avarage, minimum, maximum, deciles and classification
+    # classifications is stored in a list, with first index being sucsessfull, second acceptable, and third failed
     def runStats(self):
         std = statistics.stdev(self.finishingTimes)
         avarage = statistics.mean(self.finishingTimes)
@@ -268,7 +280,8 @@ class simulation:
         return self.stats
 
 
-
+# Task 4 demonstration, the main function for running the simulation with the different risk values printed out in the terminal for easy reading
+# deciles given in 10% intervals, with the first index being 10% and the last being 90% (as you already know the minimum and maximum there is no need for 0% and 100%)
 def mainTask4():
     risk = [0.8, 1, 1.2, 1.4]
     loaderr = loader("Assignment 4\Villa.xlsx")
@@ -278,7 +291,7 @@ def mainTask4():
         sim = simulation(project, 1, risk[i], 1000, 0)
         stats = sim.returnStats()
         print(
-            f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5][0]} sucsessfull, {stats[5][1]} acceptable and {stats[5][2]} failed, standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles from 10-90%: {stats[4][1::]}")
+            f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5][0]} sucsessfull, {stats[5][1]} acceptable and {stats[5][2]} failed, standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles from 10-90%: {stats[4][1::]}\n")
 
 
 mainTask4()
