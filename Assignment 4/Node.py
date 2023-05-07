@@ -1,6 +1,7 @@
-import numpy as np
+# Authors: Martin Kristiansen Tømt og Nikolay Westengen group 32
 
-
+# Task 1
+# Node class for the PERT Diagrams
 class node:
     def __init__(
         self,
@@ -27,6 +28,7 @@ class node:
         self.description = description
         self.critical = False
 
+    # mostly getters and setters, some functions for adding predecessors and successors and getting all predecessors and successors
     def isCritical(self):
         return self.critical
 
@@ -145,7 +147,8 @@ class node:
             return []
         else:
             return list(
-                set(self.successors + [x.getAllSuccessors() for x in self.successors])
+                set(self.successors + [x.getAllSuccessors()
+                    for x in self.successors])
             )
 
     def getNamesofPredaecessors(self):
