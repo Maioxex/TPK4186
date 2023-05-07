@@ -106,7 +106,7 @@ class loader():
             self.addNode(task)
         for node in self.nodes:
             sucsessors = []
-            if node.getName() == "Completion":
+            if node.getName() == "Completion" or node.getName() == "End":
                 continue
             for node2 in self.nodes:
                 if node2.getName() == "Start":
@@ -125,7 +125,7 @@ class loader():
                 for i in range(len(node.getPredecessor())):
                     predecessors.append(
                         self.getNodeByName(node.getPredecessor()[i]))
-            if node.getName() != "Completion":
+            if node.getName() != "Completion" and node.getName() != "End":
                 for i in range(len(node.getSuccessor())):
                     sucsessors.append(
                         self.getNodeByName(node.getSuccessor()[i]))
@@ -198,8 +198,6 @@ class calculator:
         if Node.getName() == "Start":
             Node.setEarlyStart(0)
         else:
-            if Node.getName() == "D" or Node.getName() == "A":
-                print(Node.getName(), Node.getPredecessor()[0].getName())
             sorted_list = sorted(Node.getPredecessor(
             ), key=lambda pred: pred.earlyFinish, reverse=True)
             Node.setEarlyStart(sorted_list[0].earlyFinish)

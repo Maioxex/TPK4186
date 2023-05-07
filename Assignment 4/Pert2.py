@@ -1,6 +1,8 @@
 import copy
+import statistics
 import numpy as np
 import pandas as pd
+import random
 from Node import node as no
 
 
@@ -111,7 +113,7 @@ class loader():
             self.addNode(task)
         for node in self.nodes:
             sucsessors = []
-            if node.getName() == "Completion":
+            if node.getName() == "Completion" or node.getName() == "End":
                 continue
             for node2 in self.nodes:
                 if node2.getName() == "Start":
@@ -130,7 +132,7 @@ class loader():
                 for i in range(len(node.getPredecessor())):
                     predecessors.append(
                         self.getNodeByName(node.getPredecessor()[i]))
-            if node.getName() != "Completion":
+            if node.getName() != "Completion" and node.getName() != "End":
                 for i in range(len(node.getSuccessor())):
                     sucsessors.append(
                         self.getNodeByName(node.getSuccessor()[i]))
@@ -160,7 +162,7 @@ class printer:
 
 class calculator:
     def __init__(self, project=None, index=1):
-        print("Calculator created")
+        # print("Calculator created")
         self.index = index
         self.project = project
         self.calculate()
@@ -203,8 +205,8 @@ class calculator:
         if Node.getName() == "Start":
             Node.setEarlyStart(0)
         else:
-            if Node.getName() == "D" or Node.getName() == "A":
-                print(Node.getName(), Node.getPredecessor()[0].getName())
+            # if Node.getName() == "D" or Node.getName() == "A":
+            #     print(Node.getName(), Node.getPredecessor()[0].getName())
             sorted_list = sorted(Node.getPredecessor(
             ), key=lambda pred: pred.earlyFinish, reverse=True)
             Node.setEarlyStart(sorted_list[0].earlyFinish)
@@ -234,8 +236,64 @@ class calculator:
 
     def returnProject(self):
         return self.project
+    
+    def returnTime(self):
+        return self.project.getNodes()[-1].getEarlyFinish()
 
-
+class simulation:
+    def __init__(self, project = None, index = 1, risk = 1, iterations = 1000, basetime = 0):
+        self.project = project
+        self.index = index
+        self.risk = risk
+        self.iterations = iterations
+        self.finishingTimes = []
+        self.stats = []
+        if basetime == 0:
+            calculatorr = calculator(copy.deepcopy(self.project), self.index)
+            self.basetime = calculatorr.returnTime()
+        self.simulate()
+        self.runStats()
+    
+    def appendFinishingTimes(self, time):
+        self.finishingTimes.append(time)
+    
+    def simulate(self):
+        for i in range(self.iterations):
+            project = copy.deepcopy(self.project)
+            for node in project.getNodes():
+                if node.getName() == "Start" or node.getName() == "End" or node.getName() == "Completion":
+                    continue
+                time = node.getTime()
+                time[1] = float(time[1]) * self.risk
+                if time[1] > float(time[2]):
+                    time[2] = time[1]
+                elif time[1] < float(time[0]):
+                    time[0] = time[1]
+                time[1] = random.triangular(float(time[0]), float(time[2]), float(time[1]))
+                node.setTime(time)
+            calculatorr = calculator(project, self.index)
+            self.appendFinishingTimes(calculatorr.returnTime())
+    
+    def runStats(self):
+        std = statistics.stdev(self.finishingTimes)
+        avarage = statistics.mean(self.finishingTimes)
+        minimum = min(self.finishingTimes)
+        maximum = max(self.finishingTimes)
+        deciles = np.percentile(self.finishingTimes, np.arange(0,100,10))
+        classification = [0,0,0]
+        for time in self.finishingTimes:
+            if time < self.basetime*1.05:
+                classification[0] += 1
+            elif time < self.basetime*1.15:
+                classification[1] += 1
+            else:
+                classification[2] += 1
+        self.stats = [std, avarage, minimum, maximum, deciles, classification]
+        
+    def returnStats(self):
+        return self.stats
+        
+        
 # loaderr = loader("Assignment 4\Warehouse.xlsx")
 # nodes = loaderr.returnNodes()
 # print("Nodes loaded")
@@ -254,20 +312,37 @@ class calculator:
 # calculatorr = calculator(project, 2)
 # project = calculatorr.returnProject()
 # printer(project)
-loaderr = loader("Assignment 4\Villa.xlsx")
-print("Nodes loaded")
-project = pert(loaderr.returnNodes())
-print("Project loaded")
-calculatorr = calculator(project, 0)
-project = calculatorr.returnProject()
-# printer(project)
-project = pert(loaderr.returnNodes())
-print("Project loaded")
-calculatorr = calculator(project, 1)
-project = calculatorr.returnProject()
-# printer(project)
-project = pert(loaderr.returnNodes())
-print("Project loaded")
-calculatorr = calculator(project, 2)
-project = calculatorr.returnProject()
-# printer(project)
+# loaderr = loader("Assignment 4\Villa.xlsx")
+# print("Nodes loaded")
+# project = pert(loaderr.returnNodes())
+# print("Project loaded")
+# calculatorr = calculator(project, 0)
+# project = calculatorr.returnProject()
+# # printer(project)
+# project = pert(loaderr.returnNodes())
+# print("Project loaded")
+# calculatorr = calculator(project, 1)
+# project = calculatorr.returnProject()
+# # printer(project)
+# project = pert(loaderr.returnNodes())
+# print("Project loaded")
+# calculatorr = calculator(project, 2)
+# project = calculatorr.returnProject()
+# # printer(project)
+def mainTask4():
+    loaderr = loader("Assignment 4\Warehouse.xlsx")
+    print("Loaded Warehouse")
+    risk = [0.8,1,1.2,1.4]
+    for i in range(4):
+        project = pert(loaderr.returnNodes())
+        sim = simulation(project, 1, risk[i], 1000, 0)
+        stats = sim.returnStats()
+        print(f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
+    loaderr = loader("Assignment 4\Villa.xlsx")
+    for i in range(4):
+        project = pert(loaderr.returnNodes())
+        sim = simulation(project, 1, risk[i], 1000, 0)
+        stats = sim.returnStats()
+        print(f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
+
+mainTask4()
