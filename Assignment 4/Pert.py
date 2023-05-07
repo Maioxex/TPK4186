@@ -58,7 +58,7 @@ class pert:
         print("Early dates calculated")
 
 
-class loader():
+class loader:
     def __init__(self, filename):
         self.filename = filename
         self.nodes = []

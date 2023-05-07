@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 import random
 from Node import node as no
-
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 
 class pert:
     def __init__(self, nodes=None):
@@ -48,6 +49,11 @@ class pert:
                         nodes.remove(successor)
         print("Late dates calculated")
 
+    def getNodeByName(self, name):
+        for node in self.getNodes():
+            if node.getName() == name:
+                return node
+
     def calculateEarlyDates(self):
         nodes = self.getNodes()
         while len(nodes) > 0:
@@ -65,7 +71,7 @@ class pert:
                 return node.getEarlyFinish()
 
 
-class loader():
+class loader:
     def __init__(self, filename):
         self.filename = filename
         self.nodes = []
@@ -86,7 +92,7 @@ class loader():
         df = pd.read_excel(self.filename)
         df = df.dropna(how='all')
         return df["Codes"].tolist()
-    
+
     def load(self):
         df = pd.read_excel(self.filename)
         df = df.dropna(how='all')
@@ -171,7 +177,7 @@ class calculator:
         self.index = index
         self.project = project
         self.calculate()
-        #added basetime here as a convinience
+        # added basetime here as a convinience
         self.basetime = 371
 
     def getNodeByName(self, name):
@@ -243,10 +249,10 @@ class calculator:
 
     def returnProject(self):
         return self.project
-    
+
     def returnTime(self):
         return self.project.getNodes()[-1].getEarlyFinish()
-    
+
     def getClassifications(self):
         if self.returnTime() > self.basetime*1.05:
             return "Successfull"
@@ -255,8 +261,9 @@ class calculator:
         else:
             return "Failed"
 
+
 class simulation:
-    def __init__(self, project = None, index = 1, risk = 1, iterations = 1000, basetime = 0):
+    def __init__(self, project=None, index=1, risk=1, iterations=1000, basetime=0):
         self.project = project
         self.index = index
         self.risk = risk
@@ -268,10 +275,10 @@ class simulation:
             self.basetime = calculatorr.returnTime()
         self.simulate()
         self.runStats()
-    
+
     def appendFinishingTimes(self, time):
         self.finishingTimes.append(time)
-    
+
     def simulate(self):
         for i in range(self.iterations):
             project = copy.deepcopy(self.project)
@@ -284,18 +291,19 @@ class simulation:
                     time[2] = time[1]
                 elif time[1] < float(time[0]):
                     time[0] = time[1]
-                time[1] = random.triangular(float(time[0]), float(time[2]), float(time[1]))
+                time[1] = random.triangular(
+                    float(time[0]), float(time[2]), float(time[1]))
                 node.setTime(time)
             calculatorr = calculator(project, self.index)
             self.appendFinishingTimes(calculatorr.returnTime())
-    
+
     def runStats(self):
         std = statistics.stdev(self.finishingTimes)
         avarage = statistics.mean(self.finishingTimes)
         minimum = min(self.finishingTimes)
         maximum = max(self.finishingTimes)
-        deciles = np.percentile(self.finishingTimes, np.arange(0,100,10))
-        classification = [0,0,0]
+        deciles = np.percentile(self.finishingTimes, np.arange(0, 100, 10))
+        classification = [0, 0, 0]
         for time in self.finishingTimes:
             if time < self.basetime*1.05:
                 classification[0] += 1
@@ -304,26 +312,45 @@ class simulation:
             else:
                 classification[2] += 1
         self.stats = [std, avarage, minimum, maximum, deciles, classification]
-        
+
     def returnStats(self):
         return self.stats
-        
+
+
 class machinelearning:
-    def __init__(self, project, loader, basetime, samples = 1000):
+    def __init__(self, project, nodes, basetime, algorithm, samples=1000):
         self.project = project
         self.projects = []
-        self.risks = [0.8,1,1.2,1.4]
+        self.risks = [0.8, 1, 1.2, 1.4]
         self.samples = samples
-        #basetime have been checked multiple times to be 371 for villa when risk = 1.0
+        # basetime have been checked multiple times to be 371 for villa when risk = 1.0
         self.basetime = basetime
-        self.loader = loader
+        self.nodes = nodes
+        self.algorithm = algorithm
+        self.trainTestSplit = 0.2
+        self.XTrain = []
+        self.XTest = []
+        self.YTrain = []
+        self.YTest = []
+        self.predictions = []
+        print("Starting machine learning")
         self.addProjects(self.project)
-    
+        print("Finished adding projects")
+        self.runAlgorithm(algorithm)
+        # print([len(self.XTrain), len(self.XTest), len(self.YTrain), len(self.YTest)])
+        # print(self.XTrain[0], self.XTrain[1],  self.YTrain[0], self.YTrain[1])
+        # print(self.XTest[0], self.XTest[1], self.predictions[0], self.predictions[1],  self.YTest[0], self.YTest[1])
+        
+
     def addProjects(self, project):
         for i in range(self.samples):
             self.addProject(project)
         self.extractData()
-    
+        
+
+    def setAlgorithm(self, algorithm):
+        self.algorithm = algorithm
+
     def addProject(self, project):
         project = copy.deepcopy(project)
         risk = random.choice(self.risks)
@@ -336,33 +363,96 @@ class machinelearning:
                 time[2] = time[1]
             elif time[1] < float(time[0]):
                 time[0] = time[1]
-            time[1] = random.triangular(float(time[0]), float(time[2]), float(time[1]))
+            time[1] = random.triangular(
+                float(time[0]), float(time[2]), float(time[1]))
             node.setTime(time)
         calculatorr = calculator(project)
-        self.projects.append([project, calculatorr.getClassifications(), calculatorr.returnTime()])
-    
-    def extractData(self):
-        self.data = []
-        for project in self.projects:
-            data = []
-            for node in project[0].getNodes():
-                if node.getName() == "Start" or node.getName() == "End" or node.getName() == "Completion":
-                    continue
-                data.append(node.getTime()[1])
-            data.append(project[1])
-            self.data.append(data)
-    
+        self.projects.append(
+            [project, calculatorr.getClassifications(), calculatorr.returnTime()])
 
+    def extractData(self):
+        for projectdata in self.projects:
+            data = []
+            for node in self.nodes:
+                data.append(projectdata[0].getNodeByName(
+                    node).getEarlyFinish())
+            projectdata[0] = copy.deepcopy(data)
+        x = []
+        y = []
+        for projectdata in self.projects:
+            x.append(projectdata[0])
+            y.append([projectdata[1], projectdata[2]])
+        self.XTrain, self.XTest, self.YTrain, self.YTest = train_test_split(x, y, test_size=self.trainTestSplit)
+
+    def evaluate(self, type):
+        ytest = []
+        hits = 0
+        misses = 0
+        if type == "Classification":
+            for datapoint in self.YTest:
+                ytest.append(datapoint[0])
+            for i in range(len(self.predictions)):
+                if self.predictions[i] == ytest[i]:
+                    hits += 1
+                else:
+                    misses += 1
+            return hits/(hits+misses)
+                
+        
+    def runAlgorithm(self, algorithm):
+        if algorithm == "LR":
+            self.runLogisticRegression()
+        elif algorithm == "DT":
+            self.runDecisionTree()
+        elif algorithm == "SVM":
+            self.runSVM()
+        elif algorithm == "Ridge":
+            self.runRidge()
+        elif algorithm == "RFR":
+            self.runRandomForestRegressor()
+        elif algorithm == "XGB":
+            self.runXGB()
+
+    def runLogisticRegression(self):
+        LRM = LogisticRegression()
+        ytrain = []
+        for value in self.YTrain:
+            ytrain.append(value[0])
+        LRM.fit(self.XTrain, ytrain)
+        self.predictions = LRM.predict(self.XTest)
+        accuracy = self.evaluate("Classification")
+        print(f"Logistic Regression accuracy: {accuracy}")
+        
 
 
 def mainTask4():
-    risk = [0.8,1,1.2,1.4]
+    risk = [0.8, 1, 1.2, 1.4]
     loaderr = loader("Assignment 4\Villa.xlsx")
     print("Loaded Villa")
     for i in range(4):
         project = pert(loaderr.returnNodes())
         sim = simulation(project, 1, risk[i], 1000, 0)
         stats = sim.returnStats()
-        print(f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
+        print(
+            f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
 
+
+def maintask5():
+    loaderr = loader("Assignment 4\Villa.xlsx")
+    project = pert(loaderr.returnNodes())
+    nodes = loaderr.getNodesOrdered()
+    templist = []
+    algorithms = ["LR", "DT", "SVM"]
+    for node in nodes:
+        if node == "Start":
+            continue
+        if node == "C.1":
+            break
+        templist.append(node)
+    nodes = templist
+    machine = machinelearning(project, nodes, 371, algorithms[0], 5000)
+    for algorithm in algorithms[1::]:
+        machine.setAlgorithm(algorithm)
+        machine.runAlgorithm(algorithm)
 # mainTask4()
+maintask5()

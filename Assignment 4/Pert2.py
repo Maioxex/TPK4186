@@ -65,7 +65,7 @@ class pert:
                 return node.getEarlyFinish()
 
 
-class loader():
+class loader:
     def __init__(self, filename):
         self.filename = filename
         self.nodes = []
