@@ -82,6 +82,11 @@ class loader():
             if node.getName() == name:
                 return node
 
+    def getNodesOrdered(self):
+        df = pd.read_excel(self.filename)
+        df = df.dropna(how='all')
+        return df["Codes"].tolist()
+    
     def load(self):
         df = pd.read_excel(self.filename)
         df = df.dropna(how='all')
@@ -166,6 +171,8 @@ class calculator:
         self.index = index
         self.project = project
         self.calculate()
+        #added basetime here as a convinience
+        self.basetime = 371
 
     def getNodeByName(self, name):
         for node in self.project.getNodes():
@@ -239,6 +246,14 @@ class calculator:
     
     def returnTime(self):
         return self.project.getNodes()[-1].getEarlyFinish()
+    
+    def getClassifications(self):
+        if self.returnTime() > self.basetime*1.05:
+            return "Successfull"
+        elif self.returnTime() > self.basetime*1.15:
+            return "Acceptable"
+        else:
+            return "Failed"
 
 class simulation:
     def __init__(self, project = None, index = 1, risk = 1, iterations = 1000, basetime = 0):
@@ -293,6 +308,53 @@ class simulation:
     def returnStats(self):
         return self.stats
         
+class machinelearning:
+    def __init__(self, project, loader, basetime, samples = 1000):
+        self.project = project
+        self.projects = []
+        self.risks = [0.8,1,1.2,1.4]
+        self.samples = samples
+        #basetime have been checked multiple times to be 371 for villa when risk = 1.0
+        self.basetime = basetime
+        self.loader = loader
+        self.addProjects(self.project)
+    
+    def addProjects(self, project):
+        for i in range(self.samples):
+            self.addProject(project)
+        self.extractData()
+    
+    def addProject(self, project):
+        project = copy.deepcopy(project)
+        risk = random.choice(self.risks)
+        for node in project.getNodes():
+            if node.getName() == "Start" or node.getName() == "End" or node.getName() == "Completion":
+                continue
+            time = node.getTime()
+            time[1] = float(time[1]) * risk
+            if time[1] > float(time[2]):
+                time[2] = time[1]
+            elif time[1] < float(time[0]):
+                time[0] = time[1]
+            time[1] = random.triangular(float(time[0]), float(time[2]), float(time[1]))
+            node.setTime(time)
+        calculatorr = calculator(project)
+        self.projects.append([project, calculatorr.getClassifications(), calculatorr.returnTime()])
+    
+    def extractData(self):
+        self.data = []
+        for project in self.projects:
+            data = []
+            for node in project[0].getNodes():
+                if node.getName() == "Start" or node.getName() == "End" or node.getName() == "Completion":
+                    continue
+                data.append(node.getTime()[1])
+            data.append(project[1])
+            self.data.append(data)
+    
+
+
+
 def mainTask4():
     risk = [0.8,1,1.2,1.4]
     loaderr = loader("Assignment 4\Villa.xlsx")
@@ -303,4 +365,4 @@ def mainTask4():
         stats = sim.returnStats()
         print(f"simulation basetime: {sim.basetime} with risk {sim.risk}, avarage of {stats[1]}, classification of {stats[5]}, with standard deviation of {stats[0]}, minimum of {stats[2]}, maximum of {stats[3]}, and deciles of {stats[4]}")
 
-mainTask4()
+# mainTask4()

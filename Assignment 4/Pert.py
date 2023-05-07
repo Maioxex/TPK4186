@@ -78,6 +78,7 @@ class loader():
     def load(self):
         df = pd.read_excel(self.filename)
         df = df.dropna(how='all')
+        #print(df["Codes"])
     # def __init__(self, name, time, duration = np.inf, predecessors = None, successors = None, finished = False, description = None):
         for index, rows in df.iterrows():
             # print(rows[1])
