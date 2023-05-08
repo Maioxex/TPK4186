@@ -198,11 +198,6 @@ class calculator:
         if Node.getName() == "Start":
             Node.setEarlyStart(0)
         else:
-            # print(Node.getPredecessor()[0].getName())
-            # print(type(Node.getPredecessor()[0]))
-            # print(type(no.getEarlyFinish))
-            # print(type(Node.getPredecessor()[0].earlyFinish))
-            # printers.printNode(Node.getPredecessor()[0])
             if Node.getName() == "D" or Node.getName() == "A":
                 print(Node.getName(), Node.getPredecessor()[0].getName())
             sorted_list = sorted(Node.getPredecessor(), key=lambda pred: pred.earlyFinish, reverse=True)
